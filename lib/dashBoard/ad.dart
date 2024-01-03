@@ -17,8 +17,8 @@ class Ad extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0),
             child: Image.asset(
               'img/Doc.jpeg',
-              width: 400.0,
-              height: 200.0,
+              width: 350.0,
+              height: 170.0,
               fit: BoxFit.cover, // Adjust the BoxFit as needed
             ),
           ),
