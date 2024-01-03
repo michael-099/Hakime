@@ -6,10 +6,9 @@ import 'dashBoard/dashboard.dart';
 
 void main() {
   runApp(
-  // Login(),
-    // DashBoard(),
-    Chat(),
-    // Profile(),
-
-  );
+      // Login(),
+      // DashBoard(),
+      // Chat(),
+      //  Profile(),
+      );
 }
