@@ -1,14 +1,18 @@
 import "package:flutter/material.dart";
 
- class Ad extends StatelessWidget {
-
-
+class Ad extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container( 
-      child:Image.asset('assets/images/black.jpg',
-      width:100.0 ,
-      height: 100.0,)
+    return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(18.0)),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: Image.asset(
+          'img/Doc.jpeg',
+          width: 400.0,
+          height: 200.0,
+        ),
+      ),
       
     );
   }
