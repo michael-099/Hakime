@@ -12,7 +12,7 @@ void main() {
     // DashBoard(),
     // Chat(),
     //  Profile(),
-    // Main(),
-    DashBoard()
+     Main(),
+    // DashBoard()
   );
 }
