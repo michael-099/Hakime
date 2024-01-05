@@ -12,7 +12,7 @@ class CatagoryCard extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
               blurRadius: 3,
-              offset: Offset(0, 2), 
+              offset: Offset(0, 2),
             ),
           ],
           borderRadius: BorderRadius.circular(10),

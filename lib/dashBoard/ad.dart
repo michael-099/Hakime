@@ -30,7 +30,7 @@ class Ad extends StatelessWidget {
             onPressed: () {
               // Add your button's functionality here
             },
-            child: Text('Click Me'),
+            child: Text('premium'),
           ),
         ),
       ],
