@@ -1,6 +1,11 @@
 import "package:flutter/material.dart";
 
 class CatagoryCard extends StatelessWidget {
+  final IconData iconData;
+  final String categories;
+  final String number_of_doctors;
+  CatagoryCard({required this.iconData, required this.categories,required this.number_of_doctors});
+
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(14.0),
@@ -12,7 +17,7 @@ class CatagoryCard extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
               blurRadius: 3,
-              offset:const  Offset(0, 2),
+              offset: const Offset(0, 2),
             ),
           ],
           borderRadius: BorderRadius.circular(10),
@@ -24,17 +29,17 @@ class CatagoryCard extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(right: 10),
-                child: Icon(Icons.health_and_safety_rounded,
-                    color: Color.fromARGB(255, 221, 17, 3), size: 40),
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Icon(iconData,
+                    color: const Color.fromARGB(255, 221, 17, 3), size: 40),
               ),
               Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Patient  catagory",
+                    Text(
+                      categories,
                       style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.w600,
@@ -43,7 +48,7 @@ class CatagoryCard extends StatelessWidget {
 
                     // alignment: AlignmentGeometry alignment = Alignment.topLeft,
                     Text(
-                      "some description",
+                      number_of_doctors,
                       style: TextStyle(
                           fontSize: 15.0,
                           fontWeight: FontWeight.w200,
@@ -60,7 +65,7 @@ class CatagoryCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 const  Text(
+                  const Text(
                     "Patient  catagory",
                     style: TextStyle(
                         fontSize: 18.0,
@@ -78,7 +83,7 @@ class CatagoryCard extends StatelessWidget {
                           color: Colors.grey[400]),
                       textAlign: TextAlign.left,
                     ),
-                   const  SizedBox(width: 40),
+                    const SizedBox(width: 40),
                     Text(
                       "some description",
                       style: TextStyle(
