@@ -44,6 +44,7 @@ class Login extends StatelessWidget {
                 label: "Login",
                 width: 600,
                 radius: 20,
+                fontSize: 10,
               ),
                         ],
                       ),

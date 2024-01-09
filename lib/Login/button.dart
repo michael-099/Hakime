@@ -6,11 +6,13 @@ class Button extends StatelessWidget {
   final double width;
   final double height;
   final double radius;
+  final double fontSize;
   const Button(
       {required this.label,
       required this.width,
       required this.height,
-      required this.radius});
+      required this.radius,
+      required this.fontSize});
 
   Widget build(BuildContext context) {
     return Container(
@@ -25,12 +27,10 @@ class Button extends StatelessWidget {
             color: Colors.green,
           ),
           child: Center(
-            child: Text(
-              label,
-              style: TextStyle(color: Colors.white),
-            ),
-            // ),
-          ),
+              child: Text(label,
+                  style: TextStyle(color: Colors.white, fontSize: fontSize))
+              // ),
+              ),
         ),
       ),
     );

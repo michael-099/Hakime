@@ -15,6 +15,7 @@ class NavpageState extends State<Main> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: pages[currentPage],
         bottomNavigationBar: NavigationBar(
