@@ -48,11 +48,11 @@ class CatagoryCard extends StatelessWidget {
 
                     // alignment: AlignmentGeometry alignment = Alignment.topLeft,
                     Text(
-                      number_of_doctors,
+                      number_of_doctors+" doctors",
                       style: TextStyle(
                           fontSize: 15.0,
                           fontWeight: FontWeight.w200,
-                          color: Colors.grey[400]),
+                          color: Colors.grey[500]),
                       textAlign: TextAlign.left,
                     ),
                   ]),

@@ -11,7 +11,7 @@ class DashBoard extends StatelessWidget {
       children: [
         Search(),
         Ad(),
-        CatagoryCard(),
+        CatagoryCard(iconData: Icons.heat_pump,categories: "cardiology",number_of_doctors: "10",),
       ],
     ));
   }
