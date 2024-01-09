@@ -4,12 +4,14 @@ class MyTextField extends StatelessWidget {
   final String labelText;
   final bool obscureText;
   final double width;
+  final Color color;
   // final double radius;
 
   const MyTextField({
     required this.labelText,
     required this.obscureText,
     required this.width,
+    required this.color ,
     // rrequired this.radius
   });
   Widget build(BuildContext context) {
@@ -17,18 +19,16 @@ class MyTextField extends StatelessWidget {
       width: width,
       // color:Colors.green,
       child: TextField(
-          style: TextStyle(color: Colors.green),
+          // style: TextStyle(color: Colors.green),
           obscureText: obscureText,
           decoration: InputDecoration(
             labelText: labelText,
-            labelStyle: TextStyle(
-              color: Colors.green,
+            labelStyle:  TextStyle(color:color.withOpacity(0.5) ,fontSize: 12),
+            enabledBorder:  UnderlineInputBorder(
+              borderSide: BorderSide(color: color),
             ),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.green),
-            ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.green),
+            focusedBorder:  UnderlineInputBorder(
+              borderSide: BorderSide(color: color),
             ),
           )),
     );
