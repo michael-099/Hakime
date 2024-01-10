@@ -4,7 +4,10 @@ class CatagoryCard extends StatelessWidget {
   final IconData iconData;
   final String categories;
   final String number_of_doctors;
-  CatagoryCard({required this.iconData, required this.categories,required this.number_of_doctors});
+  CatagoryCard(
+      {required this.iconData,
+      required this.categories,
+      required this.number_of_doctors});
 
   Widget build(BuildContext context) {
     return Container(
@@ -43,16 +46,18 @@ class CatagoryCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.w600,
-                          color: Colors.black),
+                          color: Colors.black,
+                          decoration: TextDecoration.none),
                     ),
 
                     // alignment: AlignmentGeometry alignment = Alignment.topLeft,
                     Text(
-                      number_of_doctors+" doctors",
+                      number_of_doctors + " doctors",
                       style: TextStyle(
                           fontSize: 15.0,
                           fontWeight: FontWeight.w200,
-                          color: Colors.grey[500]),
+                          color: Colors.grey[500],
+                          decoration: TextDecoration.none),
                       textAlign: TextAlign.left,
                     ),
                   ]),
@@ -70,7 +75,8 @@ class CatagoryCard extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w600,
-                        color: Colors.black),
+                        color: Colors.black,
+                        decoration: TextDecoration.none),
                   ),
 
                   // alignment: AlignmentGeometry alignment = Alignment.topLeft,
@@ -80,7 +86,8 @@ class CatagoryCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 15.0,
                           fontWeight: FontWeight.w200,
-                          color: Colors.grey[400]),
+                          color: Colors.grey[400],
+                          decoration: TextDecoration.none),
                       textAlign: TextAlign.left,
                     ),
                     const SizedBox(width: 40),
@@ -89,7 +96,8 @@ class CatagoryCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 15.0,
                           fontWeight: FontWeight.w200,
-                          color: Colors.grey[400]),
+                          color: Colors.grey[400],
+                          decoration: TextDecoration.none),
                       textAlign: TextAlign.left,
                     )
                   ]),

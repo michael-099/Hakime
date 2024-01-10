@@ -10,7 +10,7 @@ class Pay extends StatelessWidget {
       child:Column(
           children: [
             SizedBox(height: 30,),
-            Text("Payment Information", style:TextStyle(fontSize: 30,color: Colors.black,fontWeight: FontWeight.w200)),
+            Text(" Payment information", style:TextStyle(fontSize: 30,color: Colors.black,fontWeight: FontWeight.w200,decoration: TextDecoration.none)),
             MyTextField(labelText: "cardholder name",width: 300,obscureText: false,color:Colors.black ),
             MyTextField(labelText: "credit card name",width: 300,obscureText: false,color:Colors.black ),
             SizedBox(height: 30,),

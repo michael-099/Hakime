@@ -11,9 +11,9 @@ class DashBoard extends StatelessWidget {
       debugShowCheckedModeBanner: false,
         home: Column(
       children: [
-        Search(),
+        // Search(),
         // Ad(),
-        // CatagoryCard(iconData: Icons.heat_pump,categories: "cardiology",number_of_doctors: "10",),
+        CatagoryCard(iconData: Icons.heat_pump,categories: "cardiology",number_of_doctors: "10",),
         Pay()
       ],
     ));
