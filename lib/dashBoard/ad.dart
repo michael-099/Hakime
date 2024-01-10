@@ -42,21 +42,10 @@ class Ad extends StatelessWidget {
       ],
     );
   }
-  //  Future<void> openPay(BuildContext context) async {
-  //   await showDialog(
-  //     context: context,
-  //     builder: (context) =>AlertDialog() ,
-  //   );
-  // }
 }
 
-/// {@template hero_dialog_route}
-/// Custom [PageRoute] that creates an overlay dialog (popup effect).
-///
-/// Best used with a [Hero] animation.
-/// {@endtemplate}
 class HeroDialogRoute<T> extends PageRoute<T> {
-  /// {@macro hero_dialog_route}
+
   HeroDialogRoute({
     required WidgetBuilder builder,
     RouteSettings? settings,
