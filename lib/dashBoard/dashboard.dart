@@ -11,10 +11,10 @@ class DashBoard extends StatelessWidget {
       debugShowCheckedModeBanner: false,
         home: Column(
       children: [
-        // Search(),
-        // Ad(),
+        Search(),
+        Ad(),
         CatagoryCard(iconData: Icons.heat_pump,categories: "cardiology",number_of_doctors: "10",),
-        Pay()
+        // Pay()
       ],
     ));
   }
