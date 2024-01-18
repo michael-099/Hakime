@@ -3,6 +3,7 @@ import '../Chat/chat.dart';
 import '../Login/Log_in.dart';
 import '../Profile/profile.dart';
 import '../dashBoard/dashboard.dart';
+import '../Notification/Notification.dart';
 
 class Main extends StatefulWidget {
   State createState() => NavpageState();
@@ -10,7 +11,13 @@ class Main extends StatefulWidget {
 
 class NavpageState extends State<Main> {
   int currentPage = 0;
-  List<Widget> pages = [DashBoard(), Login(), Chat(), Chat(), Profile()];
+  List<Widget> pages = [
+    DashBoard(),
+    Login(),
+    Chat(),
+    Notifications(),
+    Profile()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +26,15 @@ class NavpageState extends State<Main> {
       home: Scaffold(
         body: pages[currentPage],
         bottomNavigationBar: NavigationBar(
+          // backgroundColor: Colors.white,
+          // indicatorColor: Colors.white,
+          // surfaceTintColor: Color.fromARGB(255, 92, 180, 215).withOpacity(1),
           onDestinationSelected: (index) {
             setState(() {
               currentPage = index;
             });
           },
           selectedIndex: currentPage,
-          
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: "home"),
             NavigationDestination(icon: Icon(Icons.message), label: "message"),
