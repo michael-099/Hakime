@@ -5,7 +5,7 @@ import '../Profile/profile.dart';
 import '../dashBoard/dashboard.dart';
 import '../Notification/Notification.dart';
 import '../schedule/schedule.dart';
-
+import "package:curved_navigation_bar/curved_navigation_bar.dart";
 class Main extends StatefulWidget {
   State createState() => NavpageState();
 }
@@ -20,33 +20,62 @@ class NavpageState extends State<Main> {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: pages[currentPage],
-        bottomNavigationBar: NavigationBar(
-          // backgroundColor: Colors.white,
-          // indicatorColor: Colors.white,
-          // surfaceTintColor: Color.fromARGB(255, 92, 180, 215).withOpacity(1),
-          onDestinationSelected: (index) {
-            setState(() {
-              currentPage = index;
-            });
-          },
-          selectedIndex: currentPage,
-          // ignore: prefer_const_literals_to_create_immutables
-          destinations: [
-            const NavigationDestination(icon: Icon(Icons.home), label: "home"),
-            const NavigationDestination(
-                icon: Icon(Icons.message), label: "message"),
-            const NavigationDestination(
-                icon: Icon(Icons.schedule), label: "schedule"),
-            const NavigationDestination(
-                icon: Icon(Icons.person), label: "profile"),
-          ],
-        ),
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     debugShowCheckedModeBanner: false,
+  //     home: Scaffold(
+  //       body: pages[currentPage],
+  //       bottomNavigationBar: NavigationBar(
+  //         // backgroundColor: Colors.white,
+  //         // indicatorColor: Colors.white,
+  //         // surfaceTintColor: Color.fromARGB(255, 92, 180, 215).withOpacity(1),
+  //         onDestinationSelected: (index) {
+  //           setState(() {
+  //             currentPage = index;
+  //           });
+  //         },
+  //         selectedIndex: currentPage,
+  //         // ignore: prefer_const_literals_to_create_immutables
+  //         destinations: [
+  //           const NavigationDestination(icon: Icon(Icons.home), label: "home"),
+  //           const NavigationDestination(
+  //               icon: Icon(Icons.message), label: "message"),
+  //           const NavigationDestination(
+  //               icon: Icon(Icons.schedule), label: "schedule"),
+  //           const NavigationDestination(
+  //               icon: Icon(Icons.person), label: "profile"),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+ Widget build(BuildContext context) {
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Scaffold(
+      body: pages[currentPage],
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.white, 
+        color: const Color.fromARGB(255, 234, 232, 232),
+        buttonBackgroundColor: const Color.fromARGB(255, 234, 232, 232), 
+        height: 60, 
+        onTap: (index) {
+          setState(() {
+            currentPage = index;
+          });
+        },
+        index: currentPage,
+        items: [
+          Icon(Icons.home, size: 30),
+          Icon(Icons.message, size: 30),
+          Icon(Icons.schedule, size: 30),
+          Icon(Icons.person, size: 30),
+        ],
+        // Add shadow to the navigation bar
+        // elevation: 5.0,
       ),
-    );
-  }
+    ),
+  );
+}
+
+
 }
