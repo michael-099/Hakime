@@ -2,11 +2,11 @@ import "package:flutter/material.dart";
 
 class ScheduleCard extends StatelessWidget {
   final IconData iconData;
-  final String categories;
+  final String person;
   final String number_of_doctors;
   ScheduleCard(
       {required this.iconData,
-      required this.categories,
+      required this.person,
       required this.number_of_doctors});
 
   Widget build(BuildContext context) {
@@ -39,18 +39,12 @@ class ScheduleCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        categories,
+                        person,
                         style: const TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.w600,
                             color: Colors.black,
                             decoration: TextDecoration.none),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: Icon(iconData,
-                            color: const Color.fromARGB(255, 221, 17, 3),
-                            size: 40),
                       ),
 
                       // alignment: AlignmentGeometry alignment = Alignment.topLeft,
@@ -69,32 +63,19 @@ class ScheduleCard extends StatelessWidget {
             const SizedBox(height: 10),
             Row(
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "Patient  catagory",
-                      style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w100,
-                          color: Colors.black,
-                          decoration: TextDecoration.none),
-                    ),
-
-                    // alignment: AlignmentGeometry alignment = Alignment.topLeft,
-                    Text(
-                      "some description",
-                      style: TextStyle(
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w200,
-                          color: Colors.grey[400],
-                          decoration: TextDecoration.none),
-                      textAlign: TextAlign.left,
-                    ),
-                    const SizedBox(width: 40),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Icon(iconData,
+                      color: const Color.fromARGB(255, 221, 17, 3), size: 40),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Icon(iconData,
+                      color: const Color.fromARGB(255, 221, 17, 3), size: 40),
+                ),
+                // alignment: AlignmentGeometry alignment = Alignment.topLeft,
+
+                const SizedBox(width: 40),
               ],
             )
           ],

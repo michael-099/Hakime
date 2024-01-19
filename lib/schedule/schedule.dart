@@ -16,11 +16,11 @@ class Notifications extends StatelessWidget {
             //     number_of_doctors: "fmdk"),
             SizedBox(height: 20.0),
             ScheduleCard(
-                categories: "appointment",
+                person: "appointment",
                 iconData: Icons.notifications_active,
                 number_of_doctors: "10"),
             ScheduleCard(
-                categories: "appointment",
+                person: "appointment",
                 iconData: Icons.notifications_active,
                 number_of_doctors: "10")
           ],
