@@ -16,7 +16,7 @@ class NavpageState extends State<Main> {
     DashBoard(),
     Chat(),
     Schedules(),
-    Notifications(),
+    
     Profile()
   ];
 
@@ -39,12 +39,12 @@ class NavpageState extends State<Main> {
           // ignore: prefer_const_literals_to_create_immutables
           destinations: [
             const NavigationDestination(icon: Icon(Icons.home), label: "home"),
-            const NavigationDestination(icon: Icon(Icons.message), label: "message"),
+            const NavigationDestination(
+                icon: Icon(Icons.message), label: "message"),
             const NavigationDestination(
                 icon: Icon(Icons.schedule), label: "schedule"),
             const NavigationDestination(
-                icon: Icon(Icons.notifications), label: "notification"),
-            const NavigationDestination(icon: Icon(Icons.person), label: "profile"),
+                icon: Icon(Icons.person), label: "profile"),
           ],
         ),
       ),
