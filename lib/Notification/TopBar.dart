@@ -12,7 +12,7 @@ class TopBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.all(10.0),
-        width: 450,
+       
         height: 50,
         decoration: BoxDecoration(
             boxShadow: [
