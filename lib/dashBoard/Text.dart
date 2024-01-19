@@ -15,10 +15,10 @@ class TextW extends StatelessWidget {
         alignment: Alignment.centerLeft,
         child: Text(
           texts,
-          style: const TextStyle(
+          style:  TextStyle(
               fontSize: 19.0,
               fontWeight: FontWeight.w600,
-              color: Colors.black,
+              color: Color(0xff2E4450),
               decoration: TextDecoration.none),
         ),
       ),

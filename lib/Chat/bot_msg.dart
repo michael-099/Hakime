@@ -6,17 +6,17 @@ class BotMsg extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       child: Container(
-        decoration:const  BoxDecoration(
-          color: const Color.fromARGB(255, 47, 90, 124),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15.0),
-            topRight: Radius.circular(15.0),
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(15.0),
-          ),
+        decoration: const BoxDecoration(
+          color: Color(0xff89DEE2),
+          // borderRadius: BorderRadius.only(
+          //   topLeft: Radius.circular(15.0),
+          //   topRight: Radius.circular(15.0),
+          //   bottomLeft: Radius.circular(0.0),
+          //   bottomRight: Radius.circular(15.0),
+          // ),
         ),
         padding: EdgeInsets.all(16.0),
-        margin: EdgeInsets.fromLTRB(16.0, 16.0, 100.0, 16.0),
+        margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
 
         // decoration: BoxDecoration(borderRadius: BorderRadius.circular(1.0)),
         constraints: BoxConstraints(
@@ -29,19 +29,22 @@ class BotMsg extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
+            Row(
               children: [
-                Icon(Icons.chat_bubble),
+                Icon(Icons.android),
                 Text(
-                  "bot",
+                  "hakime",
                   style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 17,
                   ),
                 ),
               ],
             ),
-            Text(message)
+            Text(message,
+                style: TextStyle(
+                  fontSize: 15,
+                )),
           ],
         ),
       ),

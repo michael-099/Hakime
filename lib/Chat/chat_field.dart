@@ -6,7 +6,7 @@ class ChatField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.0),
-      margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+        margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.0),

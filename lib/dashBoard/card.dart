@@ -47,7 +47,7 @@ class CatagoryCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.w600,
-                          color: Colors.black,
+                          color: Color(0xff2E4450).withOpacity(0.80),
                           decoration: TextDecoration.none),
                     ),
 
@@ -71,12 +71,12 @@ class CatagoryCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                   Text(
                     "Patient  catagory",
                     style: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w600,
-                        color: Colors.black,
+                        color: Color(0xff2E4450).withOpacity(0.80),
                         decoration: TextDecoration.none),
                   ),
 
