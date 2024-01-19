@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import './scheduleCard.dart';
 
 
-class Notifications extends StatelessWidget {
+class Schedules extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        // appBar: AppBar(title: Center(child: Text("Notification" ,style: TextStyle(color:Colors.white) ,)),  backgroundColor:Color.fromARGB(255, 92, 180, 215),),
+        // appBar: AppBar(title: Center(child: Text("Schedule" ,style: TextStyle(color:Colors.white) ,)),  backgroundColor:Color.fromARGB(255, 92, 180, 215),),
 
         body: Column(
           children: [
             // TopBar(
-            //     categories: "Notifications",
-            //     iconData: Icons.notifications_active_outlined,
+            //     categories: "Schedules",
+            //     iconData: Icons.Schedules_active_outlined,
             //     number_of_doctors: "fmdk"),
             SizedBox(height: 20.0),
             ScheduleCard(
-                person: "appointment",
-                iconData: Icons.notifications_active,
-                number_of_doctors: "10"),
+                person: "abebe fkroekf",
+                iconData: Icons.phone,
+                discription: "appointement was schedule for 10:00 am"),
             ScheduleCard(
-                person: "appointment",
-                iconData: Icons.notifications_active,
-                number_of_doctors: "10")
+                person: "jhon doe",
+                iconData: Icons.phone,
+                discription: "10")
           ],
         ),
       ),

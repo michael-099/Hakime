@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:hakime/Notification/Notification.dart";
 
 class TopBar extends StatelessWidget {
   final IconData iconData;
@@ -30,28 +31,33 @@ class TopBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-              children: [
-                Text(
-                  categories,
-                  style: const TextStyle(
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      decoration: TextDecoration.none),
-                ),
-      
-                // alignment: AlignmentGeometry alignment = Alignment.topLeft,
-              ]),
+          Column(children: [
+            Text(
+              categories,
+              style: const TextStyle(
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                  decoration: TextDecoration.none),
+            ),
+
+            // alignment: AlignmentGeometry alignment = Alignment.topLeft,
+          ]),
           Expanded(
             child: Align(
               alignment: Alignment.centerRight,
               child: Padding(
-                
-                padding: const EdgeInsets.only(right: 10),
-                child: Icon(iconData,
-                    color: const Color.fromARGB(255, 221, 17, 3), size: 25),
-              ),
+                  padding: const EdgeInsets.only(right: 10),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Notifications()),
+                      );
+                    },
+                    icon: Icon(Icons.notifications_none_outlined),
+                  )),
             ),
           ),
         ],

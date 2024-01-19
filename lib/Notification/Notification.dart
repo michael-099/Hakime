@@ -13,7 +13,7 @@ class Notifications extends StatelessWidget {
             TopBar(
                 categories: "Notifications",
                 iconData: Icons.notifications_active_outlined,
-                number_of_doctors: "fmdk"),
+               ),
             SizedBox(height: 20.0),
             NotificationCard(
                 categories: "appointment",

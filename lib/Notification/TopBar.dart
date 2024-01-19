@@ -1,18 +1,16 @@
 import "package:flutter/material.dart";
+import "package:hakime/dashBoard/dashboard.dart";
 
 class TopBar extends StatelessWidget {
   final IconData iconData;
   final String categories;
-  final String number_of_doctors;
-  TopBar(
-      {required this.iconData,
-      required this.categories,
-      required this.number_of_doctors});
-
+  TopBar({
+    required this.iconData,
+    required this.categories,
+  });
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.all(10.0),
-       
         height: 50,
         decoration: BoxDecoration(
             boxShadow: [
@@ -24,13 +22,19 @@ class TopBar extends StatelessWidget {
               ),
             ],
             borderRadius: BorderRadius.circular(10),
-            color:  Colors.white,
+            color: Colors.white,
             border: const Border()),
         child: Row(
           crossAxisAlignment:
               CrossAxisAlignment.start, // Align children to the start (top)
           children: [
-            Icon(Icons.arrow_back_ios_new),
+            IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios_new),
+            ),
+
             SizedBox(width: 8.0), // Add some space between the icon and text
             Expanded(
               child: Column(

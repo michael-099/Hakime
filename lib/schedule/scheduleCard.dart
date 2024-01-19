@@ -1,13 +1,14 @@
 import "package:flutter/material.dart";
+import "package:hakime/Login/discription.dart";
 
 class ScheduleCard extends StatelessWidget {
   final IconData iconData;
   final String person;
-  final String number_of_doctors;
+  final String discription;
   ScheduleCard(
       {required this.iconData,
       required this.person,
-      required this.number_of_doctors});
+      required this.discription});
 
   Widget build(BuildContext context) {
     return Center(
@@ -15,7 +16,7 @@ class ScheduleCard extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: 10.0),
         padding: const EdgeInsets.all(20.0),
         width: 450,
-        height: 150,
+        height: 170,
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -26,7 +27,7 @@ class ScheduleCard extends StatelessWidget {
               ),
             ],
             borderRadius: BorderRadius.circular(10),
-            color: Color.fromARGB(255, 241, 245, 253),
+            color: Colors.white,
             border: const Border()),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +50,7 @@ class ScheduleCard extends StatelessWidget {
 
                       // alignment: AlignmentGeometry alignment = Alignment.topLeft,
                       Text(
-                        number_of_doctors + " doctors",
+                        discription,
                         style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w200,
@@ -64,17 +65,60 @@ class ScheduleCard extends StatelessWidget {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: Icon(iconData,
-                      color: const Color.fromARGB(255, 221, 17, 3), size: 40),
-                ),
+                    padding: EdgeInsets.only(right: 10),
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.green),
+                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                10.0), // Adjust the radius as needed
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        // Handle button press
+                      },
+                      child: Column(
+                        children: [
+                          Icon(iconData, color: Colors.white, size: 30),
+                          Text(
+                            "Call",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ],
+                      ),
+                    )),
                 Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: Icon(iconData,
-                      color: const Color.fromARGB(255, 221, 17, 3), size: 40),
-                ),
-                // alignment: AlignmentGeometry alignment = Alignment.topLeft,
-
+                    padding: const EdgeInsets.only(right: 10),
+                    child: ElevatedButton(
+                       style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.red),
+                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                10.0), // Adjust the radius as needed
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Column(
+                        children: [
+                          Icon(iconData, color: Colors.white, size: 30),
+                          Text(
+                            "Cancel",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ],
+                      ),
+                    )
+                    ),
                 const SizedBox(width: 40),
               ],
             )

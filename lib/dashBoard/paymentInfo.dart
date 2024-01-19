@@ -26,24 +26,24 @@ class Pay extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const Text(" Payment information",
+             Text(" Payment information",
                 style: TextStyle(
                     fontSize: 30,
-                    color: Colors.black,
+                    color:  Color(0xff2E4450).withOpacity(0.90),
                     fontWeight: FontWeight.w200,
                     decoration: TextDecoration.none)),
             PaymentMethods(),
            
-            const MyTextField(
+             MyTextField(
                 labelText: "cardholder name",
                 width: 300,
                 obscureText: false,
-                color: Colors.black),
-            const MyTextField(
+                color: Color(0xff2E4450).withOpacity(0.60),),
+             MyTextField(
                 labelText: "credit card name",
                 width: 300,
                 obscureText: false,
-                color: Colors.black),
+                color:  Color(0xff2E4450).withOpacity(0.60),),
             const SizedBox(
               height: 30,
             ),
