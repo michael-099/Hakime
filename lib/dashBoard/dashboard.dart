@@ -15,7 +15,7 @@ class DashBoard extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               TopBar(
                   categories: "HAKIME",
@@ -31,7 +31,7 @@ class DashBoard extends StatelessWidget {
 
               Ad(),
              const  SizedBox(
-                height: 30,
+                height: 20,
               ),
               TextW(texts: "catagoreis"),
               Container(
@@ -80,7 +80,7 @@ class DashBoard extends StatelessWidget {
                 ),
               ),
                const SizedBox(
-                height: 20,
+                height: 10,
               ),
               TextW(
                 texts: "recomandiations",

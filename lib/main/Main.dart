@@ -65,10 +65,10 @@ class NavpageState extends State<Main> {
         },
         index: currentPage,
         items: [
-          Icon(Icons.home, size: 30),
-          Icon(Icons.message, size: 30),
+          Icon(Icons.home_outlined, size: 30),
+          Icon(Icons.message_outlined, size: 30),
           Icon(Icons.schedule, size: 30),
-          Icon(Icons.person, size: 30),
+          Icon(Icons.person_3_outlined, size: 30),
         ],
         // Add shadow to the navigation bar
         // elevation: 5.0,
