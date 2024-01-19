@@ -1,13 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// class TopBar extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Row(
-//       children: [Text("HAKIME"), Icon(Icons.notification_add)],
-//     );
-//   }
-// }
 import "package:flutter/material.dart";
 
 class TopBar extends StatelessWidget {
@@ -23,7 +13,7 @@ class TopBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10.0),
       width: 350,
-      height: 60,
+      height: 40,
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -36,34 +26,33 @@ class TopBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
           border: const Border()),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      categories,
-                      style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black,
-                          decoration: TextDecoration.none),
-                    ),
-
-                    // alignment: AlignmentGeometry alignment = Alignment.topLeft,
-                    
-                  ]),
-              Padding(
+          Column(
+              children: [
+                Text(
+                  categories,
+                  style: const TextStyle(
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black,
+                      decoration: TextDecoration.none),
+                ),
+      
+                // alignment: AlignmentGeometry alignment = Alignment.topLeft,
+              ]),
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                
                 padding: const EdgeInsets.only(right: 10),
                 child: Icon(iconData,
-                    color: const Color.fromARGB(255, 221, 17, 3), size: 40),
+                    color: const Color.fromARGB(255, 221, 17, 3), size: 25),
               ),
-            ],
+            ),
           ),
         ],
       ),

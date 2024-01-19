@@ -12,6 +12,7 @@ class SmallerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10.0),
+      margin: EdgeInsets.all(7.0),
       width: 350,
       height: 60,
       decoration: BoxDecoration(

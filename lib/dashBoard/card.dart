@@ -12,6 +12,7 @@ class CatagoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(14.0),
+      margin: EdgeInsets.all(15.0),
       width: 350,
       height: 150,
       decoration: BoxDecoration(

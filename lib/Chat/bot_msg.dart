@@ -6,7 +6,7 @@ class BotMsg extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       child: Container(
-        decoration: BoxDecoration(
+        decoration:const  BoxDecoration(
           color: const Color.fromARGB(255, 47, 90, 124),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(15.0),
