@@ -14,8 +14,8 @@ class NavpageState extends State<Main> {
   int currentPage = 0;
   List<Widget> pages = [
     DashBoard(),
-    Schedules(),
     Chat(),
+    Schedules(),
     Notifications(),
     Profile()
   ];
