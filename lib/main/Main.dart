@@ -16,7 +16,6 @@ class NavpageState extends State<Main> {
     DashBoard(),
     Chat(),
     Schedules(),
-    
     Profile()
   ];
 
