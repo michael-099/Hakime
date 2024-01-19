@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
 
 class TextW extends StatelessWidget {
-  const TextW({super.key});
+  final String texts;
+
+  TextW({
+    required this.texts,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(child :Text(
-      "Recomandations",
-      style: const TextStyle(
-          fontSize: 15.0,
-          fontWeight: FontWeight.w600,
-          color: Colors.black,
-          decoration: TextDecoration.none),
-    ),);
+    return Container(
+      width: 350,
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          texts,
+          style: const TextStyle(
+              fontSize: 19.0,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+              decoration: TextDecoration.none),
+        ),
+      ),
+    );
   }
 }

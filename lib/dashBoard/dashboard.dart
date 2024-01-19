@@ -5,6 +5,7 @@ import "search.dart";
 import 'paymentInfo.dart';
 import "smallerCard.dart";
 import 'TopBar.dart';
+import "Text.dart";
 
 class DashBoard extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -13,23 +14,26 @@ class DashBoard extends StatelessWidget {
         home: SingleChildScrollView(
           child: Column(
             children: [
+              const SizedBox(
+                height: 30,
+              ),
               TopBar(
                   categories: "HAKIME",
                   iconData: Icons.notifications_active_outlined,
                   number_of_doctors: "fmdk"),
-              Search(),
-              Ad(),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "catagoreis",
-                  style: const TextStyle(
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.black,
-                      decoration: TextDecoration.none),
-                ),
+             const  SizedBox(
+                height: 10,
               ),
+              Search(),
+              const SizedBox(
+                height: 10,
+              ),
+
+              Ad(),
+             const  SizedBox(
+                height: 30,
+              ),
+              TextW(texts: "catagoreis"),
               Container(
                 width: 370,
                 child: SingleChildScrollView(
@@ -75,8 +79,12 @@ class DashBoard extends StatelessWidget {
                   ),
                 ),
               ),
-          
-              
+               const SizedBox(
+                height: 20,
+              ),
+              TextW(
+                texts: "recomandiations",
+              ),
               SmallerCard(
                   iconData: Icons.notification_add_outlined,
                   categories: "njkkjnj",
@@ -101,7 +109,7 @@ class DashBoard extends StatelessWidget {
                   iconData: Icons.notification_add_outlined,
                   categories: "njkkjnj",
                   number_of_doctors: "number_of_doctors"),
-          
+
               // Pay()
             ],
           ),

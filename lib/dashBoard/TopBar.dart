@@ -13,16 +13,16 @@ class TopBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10.0),
       width: 350,
-      height: 40,
+      height: 50,
       decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1,
-              blurRadius: 3,
-              offset: const Offset(0, 2),
-            ),
-          ],
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: Colors.grey.withOpacity(0.5),
+          //     spreadRadius: 1,
+          //     blurRadius: 3,
+          //     offset: const Offset(0, 2),
+          //   ),
+          // ],
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
           border: const Border()),
