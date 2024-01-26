@@ -3,6 +3,11 @@ import "MyTextField.dart";
 import "../Login/button.dart";
 
 class Edit extends StatelessWidget {
+  TextEditingController nameController;
+  TextEditingController surnameController;
+  TextEditingController dateofbirthController;
+  TextEditingController cityController;
+  TextEditingController countryController;
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
@@ -36,16 +41,17 @@ class Edit extends StatelessWidget {
               width: 300,
               obscureText: false,
               color: Color(0xff2E4450).withOpacity(0.60),
+              myController: nameController,
             ),
             const SizedBox(
               height: 25,
             ),
             MyTextField(
-              
               labelText: " surname name",
               width: 300,
               obscureText: false,
               color: Color(0xff2E4450).withOpacity(0.60),
+              myController: surnameController,
             ),
             const SizedBox(
               height: 25,
@@ -55,6 +61,7 @@ class Edit extends StatelessWidget {
               width: 300,
               obscureText: false,
               color: Color(0xff2E4450).withOpacity(0.60),
+              myController: dateofbirthController,
             ),
             const SizedBox(
               height: 25,
@@ -64,6 +71,7 @@ class Edit extends StatelessWidget {
               width: 300,
               obscureText: false,
               color: Color(0xff2E4450).withOpacity(0.60),
+              myController: cityController,
             ),
             const SizedBox(
               height: 25,
@@ -73,6 +81,7 @@ class Edit extends StatelessWidget {
               width: 300,
               obscureText: false,
               color: Color(0xff2E4450).withOpacity(0.60),
+              myController: countryController,
             ),
             const SizedBox(
               height: 25,
