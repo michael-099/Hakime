@@ -23,7 +23,7 @@ class Edit extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             Text("Edit",
                 style: TextStyle(
@@ -38,7 +38,7 @@ class Edit extends StatelessWidget {
               color: Color(0xff2E4450).withOpacity(0.60),
             ),
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             MyTextField(
               labelText: " surname name",
@@ -47,7 +47,7 @@ class Edit extends StatelessWidget {
               color: Color(0xff2E4450).withOpacity(0.60),
             ),
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             MyTextField(
               labelText: "Date of birth",
@@ -56,7 +56,7 @@ class Edit extends StatelessWidget {
               color: Color(0xff2E4450).withOpacity(0.60),
             ),
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             MyTextField(
               labelText: "City",
@@ -65,7 +65,7 @@ class Edit extends StatelessWidget {
               color: Color(0xff2E4450).withOpacity(0.60),
             ),
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             MyTextField(
               labelText: "Country",
@@ -74,7 +74,7 @@ class Edit extends StatelessWidget {
               color: Color(0xff2E4450).withOpacity(0.60),
             ),
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             GestureDetector(
                 onTap: () => {Navigator.pop(context)},
@@ -90,7 +90,7 @@ class Edit extends StatelessWidget {
                 child: const Button(
                   height: 40,
                   radius: 20,
-                  label: "Continue",
+                  label: "discard",
                   width: 200,
                   fontSize: 20,
                 ))
