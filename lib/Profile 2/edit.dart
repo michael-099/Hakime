@@ -1,13 +1,15 @@
-import "package:flutter/material.dart";
-import "MyTextField.dart";
-import "../Login/button.dart";
+import 'package:flutter/material.dart';
+import 'MyTextField.dart';
+import '../Login/button.dart';
 
 class Edit extends StatelessWidget {
-  TextEditingController nameController;
-  TextEditingController surnameController;
-  TextEditingController dateofbirthController;
-  TextEditingController cityController;
-  TextEditingController countryController;
+  TextEditingController nameController = TextEditingController();
+  TextEditingController surnameController = TextEditingController();
+  TextEditingController dateOfBirthController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController countryController = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
@@ -30,14 +32,17 @@ class Edit extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            Text("Edit",
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Color(0xff2E4450).withOpacity(0.90),
-                    fontWeight: FontWeight.w200,
-                    decoration: TextDecoration.none)),
+            Text(
+              "Edit",
+              style: TextStyle(
+                fontSize: 30,
+                color: Color(0xff2E4450).withOpacity(0.90),
+                fontWeight: FontWeight.w200,
+                decoration: TextDecoration.none,
+              ),
+            ),
             MyTextField(
-              labelText: "name",
+              labelText: "Name",
               width: 300,
               obscureText: false,
               color: Color(0xff2E4450).withOpacity(0.60),
@@ -47,7 +52,7 @@ class Edit extends StatelessWidget {
               height: 25,
             ),
             MyTextField(
-              labelText: " surname name",
+              labelText: "Surname",
               width: 300,
               obscureText: false,
               color: Color(0xff2E4450).withOpacity(0.60),
@@ -57,11 +62,11 @@ class Edit extends StatelessWidget {
               height: 25,
             ),
             MyTextField(
-              labelText: "Date of birth",
+              labelText: "Date of Birth",
               width: 300,
               obscureText: false,
               color: Color(0xff2E4450).withOpacity(0.60),
-              myController: dateofbirthController,
+              myController: dateOfBirthController,
             ),
             const SizedBox(
               height: 25,
@@ -87,23 +92,25 @@ class Edit extends StatelessWidget {
               height: 25,
             ),
             GestureDetector(
-                onTap: () => {Navigator.pop(context)},
-                child: const Button(
-                  height: 40,
-                  radius: 20,
-                  label: "Continue",
-                  width: 200,
-                  fontSize: 20,
-                )),
+              onTap: () => Navigator.pop(context),
+              child: const Button(
+                height: 40,
+                radius: 20,
+                label: "Continue",
+                width: 200,
+                fontSize: 20,
+              ),
+            ),
             GestureDetector(
-                onTap: () => {Navigator.pop(context)},
-                child: const Button(
-                  height: 40,
-                  radius: 20,
-                  label: "discard",
-                  width: 200,
-                  fontSize: 20,
-                ))
+              onTap: () => Navigator.pop(context),
+              child: const Button(
+                height: 40,
+                radius: 20,
+                label: "Discard",
+                width: 200,
+                fontSize: 20,
+              ),
+            )
           ],
         ),
       ),
