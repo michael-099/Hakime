@@ -100,36 +100,31 @@ class Edit extends StatelessWidget {
               height: 25,
             ),
             GestureDetector(
-  onTap: () {
-   
-    String nameValue = nameController.text;
-    String surnameValue = surnameController.text;
-    String dateOfBirthValue = dateOfBirthController.text;
-    String cityValue = cityController.text;
-    String countryValue = countryController.text;
+              onTap: () {
+                String nameValue = nameController.text;
+                String surnameValue = surnameController.text;
+                String dateOfBirthValue = dateOfBirthController.text;
+                String cityValue = cityController.text;
+                String countryValue = countryController.text;
 
+                dataitems[0].subcontent = nameValue;
+                dataitems[1].subcontent = surnameValue;
+                dataitems[2].subcontent = dateOfBirthValue;
+                dataitems[3].subcontent = cityValue;
+                dataitems[4].subcontent = countryValue;
 
-    dataitems[0].subcontent = nameValue;
-    dataitems[1].subcontent = surnameValue;
-    dataitems[2].subcontent = dateOfBirthValue;
-    dataitems[3].subcontent = cityValue;
-    dataitems[4].subcontent = countryValue;
+                print('Updated dataitems list: $dataitems');
 
-    
-    print('Updated dataitems list: $dataitems');
-
-  
-    Navigator.pop(context);
-  },
-  child: const Button(
-    height: 40,
-    radius: 20,
-    label: "Continue",
-    width: 200,
-    fontSize: 20,
-  ),
-),
-
+                Navigator.pop(context);
+              },
+              child: const Button(
+                height: 40,
+                radius: 20,
+                label: "Continue",
+                width: 200,
+                fontSize: 20,
+              ),
+            ),
             GestureDetector(
               onTap: () => Navigator.pop(context),
               child: const Button(
