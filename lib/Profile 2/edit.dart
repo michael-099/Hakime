@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "../Login/MyTextField.dart";
+import "MyTextField.dart";
 import "../Login/button.dart";
 
 class Edit extends StatelessWidget {
@@ -41,6 +41,7 @@ class Edit extends StatelessWidget {
               height: 25,
             ),
             MyTextField(
+              
               labelText: " surname name",
               width: 300,
               obscureText: false,
