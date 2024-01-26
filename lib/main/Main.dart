@@ -6,18 +6,14 @@ import '../dashBoard/dashboard.dart';
 import '../Notification/Notification.dart';
 import '../schedule/schedule.dart';
 import "package:curved_navigation_bar/curved_navigation_bar.dart";
+
 class Main extends StatefulWidget {
   State createState() => NavpageState();
 }
 
 class NavpageState extends State<Main> {
   int currentPage = 0;
-  List<Widget> pages = [
-    DashBoard(),
-    Chat(),
-    Schedules(),
-    Profile()
-  ];
+  List<Widget> pages = [DashBoard(), Chat(), Schedules(), Profile()];
 
   @override
   // Widget build(BuildContext context) {
@@ -37,6 +33,7 @@ class NavpageState extends State<Main> {
   //         selectedIndex: currentPage,
   //         // ignore: prefer_const_literals_to_create_immutables
   //         destinations: [
+    
   //           const NavigationDestination(icon: Icon(Icons.home), label: "home"),
   //           const NavigationDestination(
   //               icon: Icon(Icons.message), label: "message"),
@@ -48,34 +45,32 @@ class NavpageState extends State<Main> {
   //       ),
   //     ),
   //   );
- Widget build(BuildContext context) {
-  return MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Scaffold(
-      body: pages[currentPage],
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.white, 
-        color: const Color.fromARGB(255, 234, 232, 232),
-        buttonBackgroundColor: const Color.fromARGB(255, 234, 232, 232), 
-        height: 60, 
-        onTap: (index) {
-          setState(() {
-            currentPage = index;
-          });
-        },
-        index: currentPage,
-        items: [
-          Icon(Icons.home_outlined, size: 30),
-          Icon(Icons.message_outlined, size: 30),
-          Icon(Icons.schedule, size: 30),
-          Icon(Icons.person_3_outlined, size: 30),
-        ],
-        // Add shadow to the navigation bar
-        // elevation: 5.0,
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: pages[currentPage],
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.white,
+          color: const Color.fromARGB(255, 234, 232, 232),
+          buttonBackgroundColor: const Color.fromARGB(255, 234, 232, 232),
+          height: 60,
+          onTap: (index) {
+            setState(() {
+              currentPage = index;
+            });
+          },
+          index: currentPage,
+          items: [
+            Icon(Icons.home_outlined, size: 30),
+            Icon(Icons.message_outlined, size: 30),
+            Icon(Icons.schedule, size: 30),
+            Icon(Icons.person_3_outlined, size: 30),
+          ],
+          // Add shadow to the navigation bar
+          // elevation: 5.0,
+        ),
       ),
-    ),
-  );
-}
-
-
+    );
+  }
 }

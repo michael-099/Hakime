@@ -42,7 +42,7 @@ class DashBoard extends StatelessWidget {
                     children: [
                       Container(
                         child: CatagoryCard(
-                          iconData: Icons.heat_pump,
+                          iconData: Icons.,
                           categories: "cardiology",
                           number_of_doctors: "10",
                         ),
@@ -50,28 +50,28 @@ class DashBoard extends StatelessWidget {
                       Container(
                         child: CatagoryCard(
                           iconData: Icons.heat_pump,
-                          categories: "cardiology",
+                          categories: "Dermatology",
                           number_of_doctors: "10",
                         ),
                       ),
                       Container(
                         child: CatagoryCard(
                           iconData: Icons.heat_pump,
-                          categories: "cardiology",
+                          categories: "Immunology",
                           number_of_doctors: "10",
                         ),
                       ),
                       Container(
                         child: CatagoryCard(
                           iconData: Icons.heat_pump,
-                          categories: "cardiology",
+                          categories: "Pathology",
                           number_of_doctors: "10",
                         ),
                       ),
                       Container(
                         child: CatagoryCard(
                           iconData: Icons.heat_pump,
-                          categories: "cardiology",
+                          categories: "Pulmonology",
                           number_of_doctors: "10",
                         ),
                       ),
