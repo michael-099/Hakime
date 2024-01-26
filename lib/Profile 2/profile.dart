@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
 import 'profileCard.dart';
 import 'data.dart';
-
-class Profile extends StatefulWidget {
-  @override
-  State<Profile> createState() => _ProfileState();
-}
-
-class _ProfileState extends State<Profile> {
-  // const name({super.key});
-  List<Datas> dataitems = [
+ List<Datas> dataitems = [
     Datas(
       content: 'Name',
       subcontent: 'John Doe',
@@ -42,11 +34,19 @@ class _ProfileState extends State<Profile> {
     ),
   ];
 
+
+class Profile extends StatefulWidget {
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  // const name({super.key});
+ 
   Widget getRow(int index) {
     return ProfileCard(
       content: dataitems[index].content,
       subcontent: dataitems[index].subcontent,
-      // backIcon: dataitems[index].frontIcon,
       frontIcon: dataitems[index].backIcon,
     );
   }
@@ -65,10 +65,13 @@ class _ProfileState extends State<Profile> {
             child: ListView.builder(
               itemCount: dataitems.length,
               itemBuilder: (context, index) => getRow(index),
+              
             ),
           ),
         ],
       )),
     );
   }
-}
+
+  } 
+

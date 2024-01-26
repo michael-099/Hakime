@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'MyTextField.dart';
 import '../Login/button.dart';
+import 'profile.dart';
 
 class Edit extends StatelessWidget {
   TextEditingController nameController = TextEditingController();
@@ -9,6 +10,13 @@ class Edit extends StatelessWidget {
   TextEditingController cityController = TextEditingController();
   TextEditingController countryController = TextEditingController();
 
+  Edit() {
+    nameController.text = dataitems[0].subcontent;
+    surnameController.text = dataitems[1].subcontent;
+    dateOfBirthController.text = dataitems[2].subcontent;
+    cityController.text = dataitems[3].subcontent;
+    countryController.text = dataitems[4].subcontent;
+  }
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -92,15 +100,36 @@ class Edit extends StatelessWidget {
               height: 25,
             ),
             GestureDetector(
-              onTap: () => Navigator.pop(context),
-              child: const Button(
-                height: 40,
-                radius: 20,
-                label: "Continue",
-                width: 200,
-                fontSize: 20,
-              ),
-            ),
+  onTap: () {
+   
+    String nameValue = nameController.text;
+    String surnameValue = surnameController.text;
+    String dateOfBirthValue = dateOfBirthController.text;
+    String cityValue = cityController.text;
+    String countryValue = countryController.text;
+
+
+    dataitems[0].subcontent = nameValue;
+    dataitems[1].subcontent = surnameValue;
+    dataitems[2].subcontent = dateOfBirthValue;
+    dataitems[3].subcontent = cityValue;
+    dataitems[4].subcontent = countryValue;
+
+    
+    print('Updated dataitems list: $dataitems');
+
+  
+    Navigator.pop(context);
+  },
+  child: const Button(
+    height: 40,
+    radius: 20,
+    label: "Continue",
+    width: 200,
+    fontSize: 20,
+  ),
+),
+
             GestureDetector(
               onTap: () => Navigator.pop(context),
               child: const Button(

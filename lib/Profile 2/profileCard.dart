@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'edit.dart';
 
-class ProfileCard extends StatelessWidget {
+class ProfileCard extends StatefulWidget {
   final String content;
   final String subcontent;
   final IconData frontIcon;
@@ -13,19 +13,28 @@ class ProfileCard extends StatelessWidget {
   });
 
   @override
+  State<ProfileCard> createState() => _ProfileCardState();
+}
+
+class _ProfileCardState extends State<ProfileCard> {
+  @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: Text(content),
-        subtitle: Text(subcontent),
-        leading: Icon(frontIcon),
+        title: Text(widget.content),
+        subtitle: Text(widget.subcontent),
+        leading: Icon(widget.frontIcon),
         trailing: InkWell(
           child: Icon(Icons.mode_edit_sharp),
           onTap: () {
             print('Icon tapped!');
            Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+           
                 return Edit();
               }));
+               setState(() {
+              
+            });
           },
         ),
         tileColor: Colors.white,
