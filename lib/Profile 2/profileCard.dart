@@ -32,9 +32,7 @@ class _ProfileCardState extends State<ProfileCard> {
            
                 return Edit();
               }));
-               setState(() {
-              
-            });
+           
           },
         ),
         tileColor: Colors.white,

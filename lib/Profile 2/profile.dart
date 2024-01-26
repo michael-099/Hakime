@@ -1,39 +1,39 @@
 import 'package:flutter/material.dart';
 import 'profileCard.dart';
 import 'data.dart';
- List<Datas> dataitems = [
-    Datas(
-      content: 'Name',
-      subcontent: 'John Doe',
-      backIcon: Icons.person,
-      frontIcon: Icons.arrow_forward,
-    ),
-    Datas(
-      content: 'Surname',
-      subcontent: 'Doe',
-      backIcon: Icons.person,
-      frontIcon: Icons.arrow_forward,
-    ),
-    Datas(
-      content: 'Date of Birth',
-      subcontent: 'January 1, 1990',
-      backIcon: Icons.calendar_today,
-      frontIcon: Icons.arrow_forward,
-    ),
-    Datas(
-      content: 'City',
-      subcontent: 'New York',
-      backIcon: Icons.location_city,
-      frontIcon: Icons.arrow_forward,
-    ),
-    Datas(
-      content: 'Country',
-      subcontent: 'United States',
-      backIcon: Icons.public,
-      frontIcon: Icons.location_city,
-    ),
-  ];
 
+List<Datas> dataitems = [
+  Datas(
+    content: 'Name',
+    subcontent: 'John Doe',
+    backIcon: Icons.person,
+    frontIcon: Icons.arrow_forward,
+  ),
+  Datas(
+    content: 'Surname',
+    subcontent: 'Doe',
+    backIcon: Icons.person,
+    frontIcon: Icons.arrow_forward,
+  ),
+  Datas(
+    content: 'Date of Birth',
+    subcontent: 'January 1, 1990',
+    backIcon: Icons.calendar_today,
+    frontIcon: Icons.arrow_forward,
+  ),
+  Datas(
+    content: 'City',
+    subcontent: 'New York',
+    backIcon: Icons.location_city,
+    frontIcon: Icons.arrow_forward,
+  ),
+  Datas(
+    content: 'Country',
+    subcontent: 'United States',
+    backIcon: Icons.public,
+    frontIcon: Icons.location_city,
+  ),
+];
 
 class Profile extends StatefulWidget {
   @override
@@ -42,7 +42,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   // const name({super.key});
- 
+
   Widget getRow(int index) {
     return ProfileCard(
       content: dataitems[index].content,
@@ -65,13 +65,10 @@ class _ProfileState extends State<Profile> {
             child: ListView.builder(
               itemCount: dataitems.length,
               itemBuilder: (context, index) => getRow(index),
-              
             ),
           ),
         ],
       )),
     );
   }
-
-  } 
-
+}
