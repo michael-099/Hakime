@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../Chat/chat.dart';
 import '../Login/Log_in.dart';
-import '../Profile/profile.dart';
+// import '../Profile/profile.dart';
+import '../Profile 2/profile.dart';
 import '../dashBoard/dashboard.dart';
 import '../Notification/Notification.dart';
 import '../schedule/schedule.dart';
@@ -33,7 +34,7 @@ class NavpageState extends State<Main> {
   //         selectedIndex: currentPage,
   //         // ignore: prefer_const_literals_to_create_immutables
   //         destinations: [
-    
+
   //           const NavigationDestination(icon: Icon(Icons.home), label: "home"),
   //           const NavigationDestination(
   //               icon: Icon(Icons.message), label: "message"),

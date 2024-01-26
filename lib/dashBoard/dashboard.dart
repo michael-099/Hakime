@@ -42,7 +42,7 @@ class DashBoard extends StatelessWidget {
                     children: [
                       Container(
                         child: CatagoryCard(
-                          iconData: Icons.,
+                          iconData: Icons.heat_pump_rounded,
                           categories: "cardiology",
                           number_of_doctors: "10",
                         ),
