@@ -52,9 +52,10 @@ class NavpageState extends State<Main> {
       home: Scaffold(
         body: pages[currentPage],
         bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: Colors.white,
-          color: const Color.fromARGB(255, 234, 232, 232),
-          buttonBackgroundColor: const Color.fromARGB(255, 234, 232, 232),
+          backgroundColor:const   Color(0xff16BDD5).withOpacity(0.0),
+          color:const   Color(0xff16BDD5),
+          buttonBackgroundColor: const   Color(0xff16BDD5),
+          
           height: 60,
           onTap: (index) {
             setState(() {
@@ -63,10 +64,10 @@ class NavpageState extends State<Main> {
           },
           index: currentPage,
           items: [
-            Icon(Icons.home_outlined, size: 30),
-            Icon(Icons.message_outlined, size: 30),
-            Icon(Icons.schedule, size: 30),
-            Icon(Icons.person_3_outlined, size: 30),
+            Icon(Icons.home_filled, size: 30,color: Colors.white,),
+            Icon(Icons.message_rounded, size: 30,color: Colors.white,),
+            Icon(Icons.schedule_rounded, size: 30,color: Colors.white,),
+            Icon(Icons.person_3_rounded ,size: 30,color: Colors.white,),
           ],
           // Add shadow to the navigation bar
           // elevation: 5.0,

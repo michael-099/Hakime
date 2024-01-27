@@ -120,7 +120,7 @@ class Search extends StatelessWidget {
       ),
       child: CupertinoSearchTextField(
         placeholder: 'Search',
-        style: TextStyle(color: Colors.blue[600]), 
+        style: TextStyle(color: Colors.black45), 
         decoration: BoxDecoration(
           color: Colors.white ,
           borderRadius: BorderRadius.circular(10.0),
@@ -133,7 +133,7 @@ class Search extends StatelessWidget {
             ),
           ],
         ),
-        itemColor: Colors.blue, // Color of suggested items
+        itemColor:  Colors.lightBlue.shade200, // Color of suggested items
         onChanged: (value) {
           // Handle search query changes
         },

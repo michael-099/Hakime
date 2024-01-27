@@ -28,24 +28,36 @@ class Ad extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 100.0,
-          left: 70.0,
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).push(HeroDialogRoute(builder: (context) {
-                return Pay();
-              }));
-            },
-            child: Text('premium'),
-          ),
-        ),
+            top: 90.0,
+            left: 40.0,
+            child: TextButton(
+              onPressed: () {
+                Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+                  return Pay();
+                }));
+              },
+              child: Text(
+                '     Subscribe     ',
+                style: TextStyle(color: Colors.white),
+              ),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  Colors.lightBlue.shade200, // Replace with your desired color
+                ),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                        10.0), // Replace with your desired border radius
+                  ),
+                ),
+              ),
+            )),
       ],
     );
   }
 }
 
 class HeroDialogRoute<T> extends PageRoute<T> {
-
   HeroDialogRoute({
     required WidgetBuilder builder,
     RouteSettings? settings,

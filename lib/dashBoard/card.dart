@@ -35,8 +35,12 @@ class CatagoryCard extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: Icon(iconData,
-                    color: const Color.fromARGB(255, 221, 17, 3), size: 40),
+                 child: Image.asset(
+              'img/Doc.jpeg',
+              width: 35.0,
+              height: 35.0,
+              fit: BoxFit.cover, // Adjust the BoxFit as needed
+            ),
               ),
               Column(
                   mainAxisAlignment: MainAxisAlignment.start,

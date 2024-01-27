@@ -66,6 +66,8 @@ flutter:
     - img/photo_2_2024-01-19_11-17-32.jpg
     - img/photo_3_2024-01-19_11-17-32.jpg
     - img/photo_4_2024-01-19_11-17-32.jpg
+    - img/cardiology.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
