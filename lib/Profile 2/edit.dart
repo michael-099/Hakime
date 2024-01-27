@@ -3,20 +3,35 @@ import 'MyTextField.dart';
 import '../Login/button.dart';
 import 'profile.dart';
 
-class Edit extends StatelessWidget {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController surnameController = TextEditingController();
-  TextEditingController dateOfBirthController = TextEditingController();
-  TextEditingController cityController = TextEditingController();
-  TextEditingController countryController = TextEditingController();
+class Edit extends StatefulWidget {
+  @override
+  State<Edit> createState() => _EditState();
+}
 
-  Edit() {
+class _EditState extends State<Edit> {
+  late TextEditingController nameController;
+  late TextEditingController surnameController;
+  late TextEditingController dateOfBirthController;
+  late TextEditingController cityController;
+  late TextEditingController countryController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    nameController = TextEditingController();
+    surnameController = TextEditingController();
+    dateOfBirthController = TextEditingController();
+    cityController = TextEditingController();
+    countryController = TextEditingController();
+
     nameController.text = dataitems[0].subcontent;
     surnameController.text = dataitems[1].subcontent;
     dateOfBirthController.text = dataitems[2].subcontent;
     cityController.text = dataitems[3].subcontent;
     countryController.text = dataitems[4].subcontent;
   }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -106,14 +121,16 @@ class Edit extends StatelessWidget {
                 String dateOfBirthValue = dateOfBirthController.text;
                 String cityValue = cityController.text;
                 String countryValue = countryController.text;
+                setState(() {
+                  dataitems[0].subcontent = nameValue;
+                  dataitems[1].subcontent = surnameValue;
+                  dataitems[2].subcontent = dateOfBirthValue;
+                  dataitems[3].subcontent = cityValue;
+                  dataitems[4].subcontent = countryValue;
+                });
 
-                dataitems[0].subcontent = nameValue;
-                dataitems[1].subcontent = surnameValue;
-                dataitems[2].subcontent = dateOfBirthValue;
-                dataitems[3].subcontent = cityValue;
-                dataitems[4].subcontent = countryValue;
-
-                print('Updated dataitems list: $dataitems');
+                print('Updated dataitems list: $dataitems ' +
+                    dataitems[0].subcontent);
 
                 Navigator.pop(context);
               },

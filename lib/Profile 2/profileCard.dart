@@ -24,17 +24,17 @@ class _ProfileCardState extends State<ProfileCard> {
         title: Text(widget.content),
         subtitle: Text(widget.subcontent),
         leading: Icon(widget.frontIcon),
-        trailing: InkWell(
-          child: Icon(Icons.mode_edit_sharp),
-          onTap: () {
-            print('Icon tapped!');
-           Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+        // trailing: InkWell(
+        //   child: Icon(Icons.mode_edit_sharp),
+        //   onTap: () {
+        //     print('Icon tapped!');
+        //    Navigator.of(context).push(HeroDialogRoute(builder: (context) {
            
-                return Edit();
-              }));
+        //         return Edit();
+        //       }));
            
-          },
-        ),
+        //   },
+        // ),
         tileColor: Colors.white,
       ),
     );

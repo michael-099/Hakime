@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'profileCard.dart';
 import 'data.dart';
+import 'edit.dart';
 
 List<Datas> dataitems = [
   Datas(
@@ -41,8 +42,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  // const name({super.key});
-
   Widget getRow(int index) {
     return ProfileCard(
       content: dataitems[index].content,
@@ -55,20 +54,40 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          body: Column(
-        children: [
-          const CircleAvatar(
-            backgroundImage: AssetImage('img/Doc.jpeg'),
-            radius: 70,
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: dataitems.length,
-              itemBuilder: (context, index) => getRow(index),
+        body: Column(
+          children: [
+            const CircleAvatar(
+              backgroundImage: AssetImage('img/Doc.jpeg'),
+              radius: 60,
             ),
-          ),
-        ],
-      )),
+            TextButton(
+              onPressed: () async {
+                await showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Edit();
+                  },
+                );
+                // Update the UI when the list is modified
+                setState(() {});
+              },
+              child: Text('Edit profile '),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: dataitems.length,
+                itemBuilder: (context, index) => getRow(index),
+              ),
+            ),
+            // Place the "Edit" button below the profile content
+            
+          ],
+        ),
+      ),
     );
   }
 }
+
+// void main() {
+//   runApp(Profile());
+// }
