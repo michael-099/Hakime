@@ -45,6 +45,7 @@ class DashBoard extends StatelessWidget {
                           iconData: Icons.heat_pump_rounded,
                           categories: "cardiology",
                           number_of_doctors: "10",
+                          image:"img/cardiology.png" ,
                         ),
                       ),
                       Container(
@@ -52,6 +53,7 @@ class DashBoard extends StatelessWidget {
                           iconData: Icons.heat_pump,
                           categories: "Dermatology",
                           number_of_doctors: "10",
+                          image: "img/dermatologically-tested.png",
                         ),
                       ),
                       Container(
@@ -59,6 +61,7 @@ class DashBoard extends StatelessWidget {
                           iconData: Icons.heat_pump,
                           categories: "Immunology",
                           number_of_doctors: "10",
+                          image: "img/immune-system (1).png",
                         ),
                       ),
                       Container(
@@ -66,13 +69,15 @@ class DashBoard extends StatelessWidget {
                           iconData: Icons.heat_pump,
                           categories: "Pathology",
                           number_of_doctors: "10",
+                          image: "img/microscope.png",
                         ),
                       ),
                       Container(
                         child: CatagoryCard(
                           iconData: Icons.heat_pump,
-                          categories: "Pulmonology",
+                          categories: "neurology",
                           number_of_doctors: "10",
+                          image: "img/neurology.png",
                         ),
                       ),
                     ],
@@ -87,11 +92,11 @@ class DashBoard extends StatelessWidget {
               ),
               SmallerCard(
                   iconData: Icons.notification_add_outlined,
-                  categories: "njkkjnj",
+                  categories: "D.r abebe beso",
                   number_of_doctors: "number_of_doctors"),
               SmallerCard(
                   iconData: Icons.notification_add_outlined,
-                  categories: "njkkjnj",
+                  categories: "D.r Bela",
                   number_of_doctors: "number_of_doctors"),
               SmallerCard(
                   iconData: Icons.notification_add_outlined,

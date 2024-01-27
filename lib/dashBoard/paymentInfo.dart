@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "../Login/MyTextField.dart";
-import "../Login/button.dart";
+import "./button.dart";
 import './paymentMethods.dart';
 
 class Pay extends StatelessWidget {
@@ -51,10 +51,10 @@ class Pay extends StatelessWidget {
                 onTap: () => {Navigator.pop(context)},
                 child: const Button(
                   height: 40,
-                  radius: 20,
+                  // radius: 20,
                   label: "Continue",
                   width: 200,
-                  fontSize: 20,
+                  // fontSize: 20,
                 ))
           ],
         ),

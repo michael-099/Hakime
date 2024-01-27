@@ -14,7 +14,7 @@ class SmallerCard extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       margin: EdgeInsets.all(7.0),
       width: 350,
-      height: 60,
+      height: 70,
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -35,8 +35,10 @@ class SmallerCard extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: Icon(iconData,
-                    color: Color.fromARGB(255, 3, 196, 221), size: 40),
+                child:  CircleAvatar(
+              backgroundImage: AssetImage('img/Doc.jpeg'),
+              radius: 25,
+            ),
               ),
               Column(
                   mainAxisAlignment: MainAxisAlignment.start,

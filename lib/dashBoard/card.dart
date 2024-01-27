@@ -4,10 +4,14 @@ class CatagoryCard extends StatelessWidget {
   final IconData iconData;
   final String categories;
   final String number_of_doctors;
+  final String image;
   CatagoryCard(
       {required this.iconData,
       required this.categories,
-      required this.number_of_doctors});
+      required this.number_of_doctors,
+      required this.image}
+    
+    );
 
   Widget build(BuildContext context) {
     return Container(
@@ -35,12 +39,12 @@ class CatagoryCard extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 10),
-                 child: Image.asset(
-              'img/Doc.jpeg',
-              width: 35.0,
-              height: 35.0,
-              fit: BoxFit.cover, // Adjust the BoxFit as needed
-            ),
+                child: Image.asset(
+                  image,
+                  width: 35.0,
+                  height: 35.0,
+                  fit: BoxFit.cover, // Adjust the BoxFit as needed
+                ),
               ),
               Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -75,7 +79,7 @@ class CatagoryCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   Text(
+                  Text(
                     "Patient  catagory",
                     style: TextStyle(
                         fontSize: 18.0,
