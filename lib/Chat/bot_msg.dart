@@ -15,6 +15,7 @@ class BotMsg extends StatelessWidget {
           //   bottomRight: Radius.circular(15.0),
           // ),
         ),
+        
         padding: EdgeInsets.all(16.0),
         margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
 
