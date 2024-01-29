@@ -29,7 +29,6 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 10,),
         Column(
           children: [
             SizedBox(height: 15,),

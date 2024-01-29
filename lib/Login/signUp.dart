@@ -3,11 +3,12 @@ import "discription.dart";
 import "MyTextField.dart";
 import "button.dart";
 import "dropdown.dart";
+import 'Log_in.dart';
 
 class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
-    final List<String> dropdown=["Male","Female"];
-    final List<String> dropdown2=["Normal", "Admin", "Doctor"];
+    final List<String> dropdown = ["Male", "Female"];
+    final List<String> dropdown2 = ["Normal", "Admin", "Doctor"];
 
     return MaterialApp(
         home: Scaffold(
@@ -27,34 +28,16 @@ class SignUp extends StatelessWidget {
                   color: Colors.green
                   // radius: 20.0,
                   ),
-
-              Row(
-                children:  [
-                 
-              
-                  const MyTextField(
-                      labelText: "Phone Number",
-                      obscureText: true,
-                      width: 200,
-                      color: Colors.green
-                      // radius: 20.0,
-                      ),
-                          const SizedBox(
-                    width: 50,
-                  ),
-                       MyDropdownButton(options:dropdown ,option1: dropdown[0],label: "gender",),
-                ],
-
-              ),
-              //  MyDropdownButton(options: ,),
               const MyTextField(
-                  labelText: "Profession",
+                  labelText: "Phone Number",
                   obscureText: true,
                   width: 600,
                   color: Colors.green
                   // radius: 20.0,
                   ),
-                 MyDropdownButton(options:dropdown2 ,option1: dropdown2[0],label: "Role",),
+
+              //  MyDropdownButton(options: ,),
+
               const MyTextField(
                   labelText: "password",
                   obscureText: true,
@@ -69,20 +52,42 @@ class SignUp extends StatelessWidget {
                   color: Colors.green
                   // radius: 20.0,
                   ),
-              
+              Row(
+                children: [
+                  MyDropdownButton(
+                    options: dropdown,
+                    option1: dropdown[0],
+                    label: "gender",
+                  ),
+                  const SizedBox(
+                    width: 100,
+                  ),
+                  MyDropdownButton(
+                    options: dropdown2,
+                    option1: dropdown2[0],
+                    label: "Role",
+                  ),
+                ],
+              ),
               Align(
                 alignment: Alignment.bottomRight,
                 child: TextButton(
                   child: Text(
-                    "forget password? ",
+                    "sign in ",
                     style: TextStyle(color: Colors.blue[400]),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Login(),
+                        ));
+                  },
                 ),
               ),
               const Button(
                 height: 50,
-                label: "Login",
+                label: "Sign UP",
                 width: 600,
                 radius: 20,
                 fontSize: 10,
