@@ -91,7 +91,9 @@ class DashBoard extends StatelessWidget {
               TextW(
                 texts: "recomandiations",
               ),
-              ListView(
+              
+             
+              Column(
                 children: dataitems.map((item) {
                   return SmallerCard(
                     name: item.name,
