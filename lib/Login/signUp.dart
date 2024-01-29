@@ -30,8 +30,8 @@ class SignUp extends StatelessWidget {
                   ),
               const MyTextField(
                   labelText: "Phone Number",
-                  obscureText: true,
-                  width: 600,
+                  obscureText: false,
+                  width: 400,
                   color: Colors.green
                   // radius: 20.0,
                   ),
@@ -41,14 +41,14 @@ class SignUp extends StatelessWidget {
               const MyTextField(
                   labelText: "password",
                   obscureText: true,
-                  width: 600,
+                  width: 400,
                   color: Colors.green
                   // radius: 20.0,
                   ),
               const MyTextField(
                   labelText: "confirmPassword",
                   obscureText: true,
-                  width: 600,
+                  width: 400,
                   color: Colors.green
                   // radius: 20.0,
                   ),
@@ -69,28 +69,24 @@ class SignUp extends StatelessWidget {
                   ),
                 ],
               ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: TextButton(
-                  child: Text(
-                    "sign in ",
-                    style: TextStyle(color: Colors.blue[400]),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Login(),
-                        ));
-                  },
-                ),
-              ),
+
               const Button(
                 height: 50,
                 label: "Sign UP",
                 width: 600,
                 radius: 20,
                 fontSize: 10,
+              ),
+              TextButton(
+                child: Text(
+                  "sign in",
+                  style: TextStyle(color: Colors.blue[400]),
+                  textAlign: TextAlign.right,
+                ),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Login()));
+                },
               ),
             ],
           ),
