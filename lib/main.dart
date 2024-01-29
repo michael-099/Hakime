@@ -15,7 +15,7 @@ void main() {
     // Chat(),
     //  Profile(),
     // Main(),
-    SignUp(),
+    SignUp()
    
     // MaterialApp(home: SignUp()),
     // DashBoard()

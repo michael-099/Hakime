@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import "discription.dart";
 import "MyTextField.dart";
 import "button.dart";
+import "dropdown.dart";
 
 class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
+    final List<String> dropdown=["Male","Female"];
     return MaterialApp(
         home: Scaffold(
             body: Padding(
@@ -23,16 +25,10 @@ class SignUp extends StatelessWidget {
                   color: Colors.green
                   // radius: 20.0,
                   ),
-              // ignore: prefer_const_constructors
+
               Row(
-                children: const [
-                  MyTextField(
-                      labelText: "gender",
-                      obscureText: true,
-                      width: 100,
-                      color: Colors.green
-                      // radius: 20.0,
-                      ),
+                children:  [
+                  MyDropdownButton(options:dropdown),
                   SizedBox(
                     width: 50,
                   ),
@@ -45,6 +41,7 @@ class SignUp extends StatelessWidget {
                       ),
                 ],
               ),
+              //  MyDropdownButton(options: ,),
               const MyTextField(
                   labelText: "Profession",
                   obscureText: true,

@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
 
 class MyDropdownButton extends StatefulWidget {
+  final List<String> options;
+  final String Option1;
+
+  MyDropdownButton({required this.options, required this.Option1});
+
   @override
   _MyDropdownButtonState createState() => _MyDropdownButtonState();
 }
 
 class _MyDropdownButtonState extends State<MyDropdownButton> {
-  String selectedValue = 'Option 1'; 
-
-  List<String> dropdownItems = ['Option 1', 'Option 2', 'Option 3'];
+  String selectedValue = Option1;
 
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: selectedValue,
       icon: const Icon(Icons.arrow_downward),
-      iconSize: 24,
+      iconSize: 10,
       elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
+      style: TextStyle(
+        color: Colors.deepPurple,
+        fontSize: 8, // Adjust the font size as needed
+      ),
       underline: Container(
         height: 2,
         color: Colors.deepPurpleAccent,
@@ -27,7 +33,7 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
           selectedValue = newValue!;
         });
       },
-      items: dropdownItems.map<DropdownMenuItem<String>>((String value) {
+      items: widget.options.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
@@ -35,17 +41,4 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
       }).toList(),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text('Dropdown Button Example'),
-      ),
-      body: Center(
-        child: MyDropdownButton(),
-      ),
-    ),
-  ));
 }
