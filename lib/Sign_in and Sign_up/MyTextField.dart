@@ -15,6 +15,7 @@ class MyTextField extends StatelessWidget {
     return Container(
       width: width,
       child: TextField(
+        
         obscureText: obscureText,
         //  controller: textController2,
         decoration: InputDecoration(

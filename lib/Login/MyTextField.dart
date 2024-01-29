@@ -5,6 +5,7 @@ class MyTextField extends StatelessWidget {
   final bool obscureText;
   final double width;
   final Color color;
+  final TextEditingController myController;
   // final double radius;
 
   const MyTextField({
@@ -12,6 +13,7 @@ class MyTextField extends StatelessWidget {
     required this.obscureText,
     required this.width,
     required this.color ,
+    required this.myController,
     // rrequired this.radius
   });
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class MyTextField extends StatelessWidget {
       width: width,
       // color:Colors.green,
       child: TextField(
+        controller: myController,
           // style: TextStyle(color: Colors.green),
           obscureText: obscureText,
           decoration: InputDecoration(

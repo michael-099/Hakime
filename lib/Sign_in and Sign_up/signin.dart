@@ -35,10 +35,15 @@ class SignIn extends StatelessWidget {
               radius: 10,
               width: 500,
             ),
-            Button(
-                label: "sign in ",
-                width: MediaQuery.of(context).size.width * 1,
-                height: 50),
+            GestureDetector(
+              child: Button(
+                  label: "sign in ",
+                  width: MediaQuery.of(context).size.width * 1,
+                  height: 50),
+                  onTap: (){
+                    
+                  },
+            ),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),

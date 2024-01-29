@@ -7,8 +7,9 @@ import 'dropdown.dart';
 import 'discription.dart';
 
 class SignIn extends StatelessWidget {
-  final TextEditingController textController = TextEditingController();
-  final TextEditingController textController2 = TextEditingController();
+  final TextEditingController EmailController = TextEditingController();
+  final TextEditingController pnoController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
@@ -16,49 +17,49 @@ class SignIn extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                      Discription(),
-              const MyTextField(
-                  labelText: "Email",
-                  obscureText: false,
-                  width: 400,
-                  color: Colors.green
-                  // radius: 20.0,
-                  ),
-              const MyTextField(
-                  labelText: "Phone Number",
-                  obscureText: false,
-                  width: 400,
-                  color: Colors.green
-                  // radius: 20.0,
-                  ),
+                    Discription(),
+                    MyTextField(
+                        labelText: "Email",
+                        obscureText: false,
+                        width: 400,
+                        color: Colors.green,
+                        // radius: 20.0,
+                        myController: EmailController,
+                        ),
+                    MyTextField(
+                        labelText: "Phone Number",
+                        obscureText: false,
+                        width: 400,
+                        color: Colors.green,
+                        // radius: 20.0,
+                        myController: pnoController,
+                        ),
 
-              //  MyDropdownButton(options: ,),
+                    //  MyDropdownButton(options: ,),
 
-              const MyTextField(
-                  labelText: "password",
-                  obscureText: true,
-                  width: 400,
-                  color: Colors.green
-                  // radius: 20.0,
-                  ),
-            
-            
-              
+                    MyTextField(
+                        labelText: "password",
+                        obscureText: true,
+                        width: 400,
+                        color: Colors.green,
+                        myController: passwordController,
+                        // radius: 20.0,
+                        ),
+
                     // ignore: prefer_const_constructors
                     Button(
-                    height: 50,
-                    label: "Sign Up",
-                    width: 600,
-                    radius: 20,
-                    fontSize: 10,
-                  ),
+                      height: 50,
+                      label: "Sign Up",
+                      width: 600,
+                      radius: 20,
+                      fontSize: 10,
+                    ),
                     TextButton(
                       child: Text(
                         "sign in",
