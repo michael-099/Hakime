@@ -5,6 +5,8 @@ import './paymentMethods.dart';
 
 class Pay extends StatelessWidget {
   Widget build(BuildContext context) {
+    final TextEditingController name  = TextEditingController();
+  final TextEditingController number = TextEditingController();
     return Dialog(
       child: Container(
         width: 350,
@@ -35,15 +37,18 @@ class Pay extends StatelessWidget {
             PaymentMethods(),
            
              MyTextField(
-                labelText: "cardholder name",
+                labelText: "cardholder number ",
                 width: 300,
                 obscureText: false,
-                color: Color(0xff2E4450).withOpacity(0.60),),
+                color: Color(0xff2E4450).withOpacity(0.60),
+                myController: number   ),
+                
              MyTextField(
                 labelText: "credit card name",
                 width: 300,
                 obscureText: false,
-                color:  Color(0xff2E4450).withOpacity(0.60),),
+                color:  Color(0xff2E4450).withOpacity(0.60),
+                myController:name ),
             const SizedBox(
               height: 30,
             ),
