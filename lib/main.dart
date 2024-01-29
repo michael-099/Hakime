@@ -5,7 +5,7 @@ import 'Profile/profile.dart';
 import 'dashBoard/dashboard.dart';
 import 'main/Main.dart';
 import 'dashBoard/dashboard.dart';
-import 'Login/signUp.dart';
+import 'Login/signup.dart';
 // import 'Sign_in and Sign_up/signup.dart';
 
 void main() {
@@ -15,9 +15,9 @@ void main() {
     // Chat(),
     //  Profile(),
     // Main(),
-    SignUp()
+    // SignUp()
    
-    // MaterialApp(home: SignUp()),
+    MaterialApp(home: SignUp()),
     // DashBoard()
   );
 }
