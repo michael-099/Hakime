@@ -6,6 +6,7 @@ import 'paymentInfo.dart';
 import "smallerCard.dart";
 import 'TopBar.dart';
 import "Text.dart";
+import 'docData.dart';
 
 class DashBoard extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class DashBoard extends StatelessWidget {
                   categories: "HAKIME",
                   iconData: Icons.notifications_active_outlined,
                   number_of_doctors: "fmdk"),
-             const  SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Search(),
@@ -30,7 +31,7 @@ class DashBoard extends StatelessWidget {
               ),
 
               Ad(),
-             const  SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextW(texts: "catagoreis"),
@@ -45,7 +46,7 @@ class DashBoard extends StatelessWidget {
                           iconData: Icons.heat_pump_rounded,
                           categories: "cardiology",
                           number_of_doctors: "10",
-                          image:"img/cardiology.png" ,
+                          image: "img/cardiology.png",
                         ),
                       ),
                       Container(
@@ -84,38 +85,21 @@ class DashBoard extends StatelessWidget {
                   ),
                 ),
               ),
-               const SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextW(
                 texts: "recomandiations",
               ),
-              SmallerCard(
-                  iconData: Icons.notification_add_outlined,
-                  categories: "D.r abebe beso",
-                  number_of_doctors: "number_of_doctors"),
-              SmallerCard(
-                  iconData: Icons.notification_add_outlined,
-                  categories: "D.r Bela",
-                  number_of_doctors: "number_of_doctors"),
-              SmallerCard(
-                  iconData: Icons.notification_add_outlined,
-                  categories: "njkkjnj",
-                  number_of_doctors: "number_of_doctors"),
-              SmallerCard(
-                  iconData: Icons.notification_add_outlined,
-                  categories: "njkkjnj",
-                  number_of_doctors: "number_of_doctors"),
-              SmallerCard(
-                  iconData: Icons.notification_add_outlined,
-                  categories: "njkkjnj",
-                  number_of_doctors: "number_of_doctors"),
-              SmallerCard(
-                  iconData: Icons.notification_add_outlined,
-                  categories: "njkkjnj",
-                  number_of_doctors: "number_of_doctors"),
-
-              // Pay()
+              ListView(
+                children: dataitems.map((item) {
+                  return SmallerCard(
+                    name: item.name,
+                    specialization: item.specialization,
+                   
+                  );
+                }).toList(),
+              ),
             ],
           ),
         ));

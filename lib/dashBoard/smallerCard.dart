@@ -2,13 +2,9 @@ import "package:flutter/material.dart";
 import 'details.dart';
 
 class SmallerCard extends StatelessWidget {
-  final IconData iconData;
-  final String categories;
-  final String number_of_doctors;
-  SmallerCard(
-      {required this.iconData,
-      required this.categories,
-      required this.number_of_doctors});
+  final String name ;
+  final String specialization;
+  SmallerCard({required this.name, required this.specialization});
 
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -47,7 +43,7 @@ class SmallerCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        categories,
+                        name,
                         style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.w600,
@@ -57,7 +53,7 @@ class SmallerCard extends StatelessWidget {
 
                       // alignment: AlignmentGeometry alignment = Alignment.topLeft,
                       Text(
-                        number_of_doctors + " doctors",
+                       specialization ,
                         style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w200,

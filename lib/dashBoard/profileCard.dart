@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 
 class ProfileCard extends StatelessWidget {
-  final String name ;
+  final String name;
   final String specialization;
-
-
-  
-
-
-  final IconData frontIcon;
+  final String city;
+  final String country;
+  final String experience;
 
   ProfileCard({
-    required this.content,
-    required this.subcontent,
-    required this.frontIcon,
+    required this.name,
+    required this.specialization,
+    required this.city,
+    required this.country,
+    required this.experience,
   });
- 
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +23,19 @@ class ProfileCard extends StatelessWidget {
           ListTile(
             title: Text("Name"),
             subtitle: Text(name),
-            leading: Icon( Icons.person),
+            leading: Icon(Icons.person),
             tileColor: Colors.white,
           ),
           ListTile(
             title: Text("Specilaization"),
-            subtitle: Text(specialization,
+            subtitle: Text(specialization),
             leading: Icon(Icons.medical_information),
             tileColor: Colors.white,
           ),
-           ListTile(
+          ListTile(
             title: Text("Expriance"),
-            subtitle: Text(expriance),
-            leading: Icon(frontIcon),
+            subtitle: Text(experience),
+            leading: Icon(Icons.badge),
             tileColor: Colors.white,
           ),
           ListTile(
@@ -49,10 +47,11 @@ class ProfileCard extends StatelessWidget {
           ListTile(
             title: Text("Country"),
             subtitle: Text(country),
-            leading: Icon(Icons.place_sharp,),
+            leading: Icon(
+              Icons.place_sharp,
+            ),
             tileColor: Colors.white,
           ),
-         
         ],
       ),
     );

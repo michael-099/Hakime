@@ -3,39 +3,7 @@ import "../Login/MyTextField.dart";
 import "./button.dart";
 import './paymentMethods.dart';
 import 'profileCard.dart';
-import "data.dart";
-
-List<Datas> dataitems = [
-  Datas(
-    content: 'Name',
-    subcontent: 'vmfk',
-    backIcon: Icons.arrow_forward,
-    frontIcon: Icons.person,
-  ),
-  Datas(
-    content: 'Specialization',
-    subcontent:
-        'January 1, 1990 vnfjdkvnfvnfvjf nvfdjkvn vnfjda lvnjfka nvjfak vnafkj vnfjk nfajkbf bnfjk bnbfjdk bdfjbk fnjbfd bnfjda b',
-    backIcon: Icons.arrow_forward,
-    frontIcon: Icons.medical_information,
-  ),
-  Datas(
-    content: 'City',
-    subcontent: 'New York',
-    backIcon: Icons.arrow_forward,
-    frontIcon: Icons.location_city,
-  ),
-  Datas(
-    content: 'Country',
-    subcontent: 'United States',
-    backIcon: Icons.public,
-    frontIcon: Icons.place_sharp,
-  ),
-];
-List<Datas> subcontents=[
-  
-
-]
+import 'docData.dart';
 
 class Details extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -70,25 +38,19 @@ class Details extends StatelessWidget {
                     color: Color(0xff2E4450).withOpacity(0.90),
                     fontWeight: FontWeight.w200,
                     decoration: TextDecoration.none)),
-            Expanded(
-              child: ListView(
-                children: dataitems.map((item) {
-                  return ProfileCard(
-                    content: item.content,
-                    subcontent: item.subcontent,
-                    frontIcon: item.frontIcon,
-                  );
-                }).toList(),
-              ),
-            ),
+            // Expanded(
+            //   child: ListView(
+            //     children: dataitems.map((item) {
+                  
+            //     }).toList(),
+            //   ),
+            // ),
             GestureDetector(
                 onTap: () => {Navigator.pop(context)},
                 child: const Button(
                   height: 40,
-                  // radius: 20,
                   label: "Done",
                   width: 200,
-                  // fontSize: 20,
                 ))
           ],
         ),

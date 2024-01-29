@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Datas {
-  String content;
-  String subcontent;
-  IconData frontIcon;
-  IconData backIcon;
+   String name;
+   String specialization;
+   String city;
+   String country;
+   String experience;
 
   Datas(
-      {required this.content,
-      required this.subcontent,
-      required this.frontIcon,
-      required this.backIcon});
+      { required this.name,
+    required this.specialization,
+    required this.city,
+    required this.country,
+    required this.experience,});
 }
