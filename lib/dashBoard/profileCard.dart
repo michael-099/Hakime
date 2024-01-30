@@ -6,6 +6,7 @@ class ProfileCard extends StatelessWidget {
   final String city;
   final String country;
   final String experience;
+  final String pno;
 
   ProfileCard({
     required this.name,
@@ -13,6 +14,7 @@ class ProfileCard extends StatelessWidget {
     required this.city,
     required this.country,
     required this.experience,
+    required this.pno
   });
 
   @override
@@ -49,6 +51,14 @@ class ProfileCard extends StatelessWidget {
             subtitle: Text(country),
             leading: Icon(
               Icons.place_sharp,
+            ),
+            tileColor: Colors.white,
+          ),
+          ListTile(
+            title: Text("pno"),
+            subtitle: Text(pno),
+            leading: Icon(
+              Icons.phone,
             ),
             tileColor: Colors.white,
           ),

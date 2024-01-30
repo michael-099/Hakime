@@ -102,7 +102,7 @@ class DashBoard extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context)
                           .push(HeroDialogRoute(builder: (context) {
-                        return Details(name: item.name,specialization: item.specialization,expriance: item.experience,city: item.city,country: item.country,imgs:item.image,);
+                        return Details(name: item.name,specialization: item.specialization,expriance: item.experience,city: item.city,country: item.country,imgs:item.image,pno:item.pno);
                       }));
                     },
                   );

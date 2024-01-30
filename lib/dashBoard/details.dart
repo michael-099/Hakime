@@ -6,13 +6,15 @@ import 'profileCard.dart';
 import 'docData.dart';
 import 'data.dart';
 
-class Details extends StatelessWidget {
+class Details extends StatefulWidget {
   final String name;
   final String specialization;
   final String city;
   final String expriance;
   final String country;
   final String imgs;
+  final String pno;
+ 
 
   Details(
       {required this.name,
@@ -20,12 +22,30 @@ class Details extends StatelessWidget {
       required this.city,
       required this.expriance,
       required this.country,
-      required this.imgs});
+      required this.imgs,
+      required this.pno});
+
+  @override
+  State<Details> createState() => _DetailsState();
+}
+
+class _DetailsState extends State<Details> {
+  void _showDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2025),
+    ).then((value) {
+      DateTime? pickedDate = value;
+    });
+  }
+
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
         width: 450,
-        height: 600,
+        height: 700,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -43,22 +63,23 @@ class Details extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-             CircleAvatar(
-              backgroundImage: AssetImage(imgs),
+            CircleAvatar(
+              backgroundImage: AssetImage(widget.imgs),
               radius: 40,
             ),
-            Text(name,
+            Text(widget.name,
                 style: TextStyle(
                     fontSize: 30,
                     color: Color(0xff2E4450).withOpacity(0.90),
                     fontWeight: FontWeight.w200,
                     decoration: TextDecoration.none)),
             ProfileCard(
-                name: name,
-                specialization: specialization,
-                city: city,
-                country: country,
-                experience: expriance),
+                name: widget.name,
+                specialization: widget.specialization,
+                city: widget.city,
+                country: widget.country,
+                experience: widget.expriance,
+                pno: widget.pno),
             // Expanded(
             //   child: ListView.builder(
             //     itemCount: dataitems.length,
@@ -76,6 +97,14 @@ class Details extends StatelessWidget {
                   height: 40,
                   label: "Done",
                   width: 200,
+                )),
+            GestureDetector(
+                onTap: _showDatePicker,
+                child: const Button(
+                  height: 40,
+                  label: "Schedule",
+                  width: 200,
+                  
                 ))
           ],
         ),

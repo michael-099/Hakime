@@ -7,6 +7,7 @@ class Datas {
   String country;
   String experience;
   String image;
+  String pno;
 
   Datas({
     required this.name,
@@ -15,5 +16,6 @@ class Datas {
     required this.country,
     required this.experience,
     required this.image,
+    required this.pno,
   });
 }
