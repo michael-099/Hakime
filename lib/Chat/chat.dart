@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 
 class Chat extends StatelessWidget {
   List<Map<String, dynamic>> dummyChatData = [];
-
+TextEditingController messageController = TextEditingController();
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -37,7 +37,7 @@ class Chat extends StatelessWidget {
                   }).toList(),
                 ),
               ),
-              ChatField(onPressed: (){},),
+              ChatField(onPressed: (){},textController:messageController),
             ],
           ),
         ));

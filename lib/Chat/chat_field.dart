@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class ChatField extends StatelessWidget {
   final VoidCallback? onPressed;
+  final TextEditingController? textController;
 
-  ChatField({Key? key, this.onPressed}) : super(key: key);
+  ChatField({Key? key, this.onPressed, this.textController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class ChatField extends StatelessWidget {
         children: [
           Expanded(
             child: TextField(
+              controller: textController,
               decoration: InputDecoration(
                 hintText: 'Type your message...',
                 border: InputBorder.none,
