@@ -4,11 +4,15 @@ class MyDropdownButton extends StatefulWidget {
   final List<String> options;
   final String option1;
   final String label;
+  final ValueChanged<String> onChanged;
+  final String? initialValue;
 
   MyDropdownButton({
     required this.options,
     required this.option1,
     required this.label,
+    required this.onChanged,
+    this.initialValue,
   });
 
   @override
@@ -21,7 +25,7 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
   @override
   void initState() {
     super.initState();
-    selectedValue = widget.option1;
+    selectedValue = widget.initialValue ?? widget.option1;
   }
 
   @override
@@ -38,12 +42,11 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
                 color: Colors.green.withOpacity(0.5),
-              
               ),
             ),
           ],
         ),
-         SizedBox(width: 10,),
+        SizedBox(width: 10,),
         DropdownButton<String>(
           value: selectedValue,
           icon: const Icon(Icons.arrow_downward),
@@ -60,6 +63,7 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
           onChanged: (String? newValue) {
             setState(() {
               selectedValue = newValue!;
+              widget.onChanged(newValue!);
             });
           },
           items: widget.options.map<DropdownMenuItem<String>>((String value) {
@@ -73,19 +77,3 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
     );
   }
 }
-
-// void main() {
-//   runApp(
-//     MaterialApp(
-//       home: Scaffold(
-//         body: Center(
-//           child: MyDropdownButton(
-//             options: ['Option 1', 'Option 2', 'Option 3'],
-//             option1: 'Option 1',
-//             label: 'Select an option:',
-//           ),
-//         ),
-//       ),
-//     ),
-//   );
-// }
