@@ -5,43 +5,12 @@ import "bot_msg.dart";
 import "chat_field.dart";
 import "data.dart";
 import '../dashBoard/TopBar.dart';
+import 'package:http/http.dart' as http;
 
 class Chat extends StatelessWidget {
-  Widget build(BuildContext context) {
-    const List<Map<String, dynamic>> dummyChatData = [
-      {
-        'sender': 'user',
-        'message': 'Hey there!',
-        'timestamp': '2023-01-01T12:34:56',
-      },
-      {
-        'sender': 'bot',
-        'message': 'Hi user! How can I assist you today?',
-        'timestamp': '2023-01-01T12:36:15',
-      },
-      {
-        'sender': 'user',
-        'message': 'I have a question about Flutter.',
-        'timestamp': '2023-01-01T12:37:42',
-      },
-      {
-        'sender': 'bot',
-        'message': 'Sure, go ahead and ask. Im here to help!',
-        'timestamp': '2023-01-01T12:39:18',
-      },
-      {
-        'sender': 'user',
-        'message': 'How do I use ListView.builder in Flutter?',
-        'timestamp': '2023-01-01T12:41:05',
-      },
-      {
-        'sender': 'bot',
-        'message':
-            'ListView.builder is great for efficiently creating lists in Flutter. You provide a builder function that creates widgets on-demand as they are scrolled into view.',
-        'timestamp': '2023-01-01T12:43:20',
-      },
-    ];
+  List<Map<String, dynamic>> dummyChatData = [];
 
+  Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
@@ -73,4 +42,67 @@ class Chat extends StatelessWidget {
           ),
         ));
   }
+
+Future<void> setDummyData(BuildContext context) async {
+    try {
+      const String authenticationEndpoint =
+          'http://localhost:5072/api/auth/login';
+
+      final Map<String, String> headers = {
+        'Content-Type': 'application/json',
+      };
+
+      final response = await http.get(
+        Uri.parse(authenticationEndpoint),
+        headers: headers,
+      );
+
+      if (response.statusCode == 200) {
+        print('Authentication successful');
+        print('Response Body: ${response.body}');
+      } else {
+        print('Authentication failed');
+        // Show AlertDialog
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Authentication Failed'),
+              content: Text('There was an issue with authentication.'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } catch (error) {
+      print('Error: $error');
+      // Show AlertDialog for other errors
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Error'),
+            content: Text('An error occurred: $error'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+}
+
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 // import 'package:namer_app/Sign_in%20and%20Sign_up/signin.dart';
 import 'MyTextField.dart';
@@ -5,6 +7,7 @@ import 'button.dart';
 import "signin.dart";
 import "discription.dart";
 import "dropdown.dart";
+import 'package:http/http.dart' as http;
 
 class SignUp extends StatelessWidget {
   final TextEditingController EmailController = TextEditingController();
@@ -69,14 +72,6 @@ class SignUp extends StatelessWidget {
           ],
         ),
         // ignore: prefer_const_constructors
-        Button(
-          height: 50,
-          label: "Sign Up",
-          width: 600,
-          radius: 20,
-          fontSize: 10,
-        ),
-
         TextButton(
           child: Text(
             "sign in",
@@ -87,7 +82,67 @@ class SignUp extends StatelessWidget {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => SignIn()));
           },
-        )
+        ),
+
+        GestureDetector(
+            child: Button(
+              height: 50,
+              label: "Sign Up",
+              width: 600,
+              radius: 20,
+              fontSize: 10,
+            ),
+            onTap: () async {
+              Future<void> authenticateUser() async {
+                String email = EmailController.text;
+                // String pno = pnoController.text;
+                String pass = passwordController.text;
+                String gender = "M";
+                String phone = pnoController.text;
+                String role = "Normal";
+                String confirmPass = confirmPasswordController.text;
+                print(email);
+                // print(pno);
+                print(pass);
+
+                try {
+                  final String authenticationEndpoint =
+                      'http://localhost:5072/api/auth/signup'; // Replace with your actual backend URL
+
+                  final Map<String, String> headers = {
+                    'Content-Type': 'application/json',
+                    // Add any additional headers if required
+                  };
+
+                  final Map<String, String> body = {
+                    'email': email, // Replace with the actual email
+                    'password': pass, // Replace with the actual password
+                    "gender": gender,
+                    "phonenumber": phone,
+                    "role": role,
+                    "confirmPassword": confirmPass
+                  };
+
+                  final response = await http.post(
+                    Uri.parse(authenticationEndpoint),
+                    headers: headers,
+                    body: jsonEncode(body),
+                  );
+
+                  if (response.statusCode == 200) {
+                    print('Authentication successful');
+                    print('Response Body: ${response.body}');
+                  } else {
+                    print(response.body);
+                    // print('Authentication failed');
+                  }
+                } catch (error) {
+                  print('Error: $error');
+                }
+              }
+
+              authenticateUser();
+            })
       ]),
     ));
   }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 // import 'package:namer_app/Sign_in%20and%20Sign_up/signup.dart';
 import 'signup.dart';
@@ -9,7 +11,7 @@ import 'package:http/http.dart' as http;
 
 class SignIn extends StatelessWidget {
   final TextEditingController EmailController = TextEditingController();
-  final TextEditingController pnoController = TextEditingController();
+  // final TextEditingController pnoController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,14 +34,6 @@ class SignIn extends StatelessWidget {
                       color: Colors.green,
                       // radius: 20.0,
                       myController: EmailController,
-                    ),
-                    MyTextField(
-                      labelText: "Phone Number",
-                      obscureText: false,
-                      width: 400,
-                      color: Colors.green,
-                      // radius: 20.0,
-                      myController: pnoController,
                     ),
 
                     //  MyDropdownButton(options: ,),
@@ -66,23 +60,35 @@ class SignIn extends StatelessWidget {
                         onTap: () async {
                           Future<void> authenticateUser() async {
                             String email = EmailController.text;
-                            String pno = pnoController.text;
+                            // String pno = pnoController.text;
                             String pass = passwordController.text;
                             print(email);
-                            print(pno);
+                            // print(pno);
                             print(pass);
 
-                            final String authenticationEndpoint =
-                                'http://localhost:5072/api/auth/login';
-
                             try {
+                              final String authenticationEndpoint =
+                                  'http://localhost:5072/api/auth/login'; // Replace with your actual backend URL
+
+                              final Map<String, String> headers = {
+                                'Content-Type': 'application/json',
+                                // Add any additional headers if required
+                              };
+
+                              final Map<String, String> body = {
+                                'email': email, // Replace with the actual email
+                                'password':
+                                    pass, // Replace with the actual password
+                              };
+
                               final response = await http.post(
                                 Uri.parse(authenticationEndpoint),
+                                headers: headers,
+                                body: jsonEncode(body),
                               );
 
                               if (response.statusCode == 200) {
                                 print('Authentication successful');
-
                                 print('Response Body: ${response.body}');
                               } else {
                                 print('Authentication failed');
@@ -90,7 +96,9 @@ class SignIn extends StatelessWidget {
                             } catch (error) {
                               print('Error: $error');
                             }
-                          }  authenticateUser();
+                          }
+
+                          authenticateUser();
                         }),
 
                     TextButton(
