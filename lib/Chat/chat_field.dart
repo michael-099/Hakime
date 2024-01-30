@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
-
 class ChatField extends StatelessWidget {
+  final VoidCallback? onPressed;
+
+  ChatField({Key? key, this.onPressed}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.0),
-        margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+      margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.0),
@@ -31,9 +34,7 @@ class ChatField extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.send),
-            onPressed: () {
-              // Add your send message logic here
-            },
+            onPressed: onPressed,
           ),
         ],
       ),

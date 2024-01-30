@@ -7,6 +7,7 @@ import 'button.dart';
 import 'dropdown.dart';
 import 'discription.dart';
 import 'package:http/http.dart' as http;
+import '../main/Main.dart';
 
 class SignIn extends StatelessWidget {
   final TextEditingController EmailController = TextEditingController();
@@ -20,7 +21,8 @@ class SignIn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -53,7 +55,8 @@ class SignIn extends StatelessWidget {
                           String pass = passwordController.text;
 
                           try {
-                            final String authenticationEndpoint = 'http://localhost:5072/api/auth/login';
+                            final String authenticationEndpoint =
+                                'http://localhost:5072/api/auth/login';
 
                             final Map<String, String> headers = {
                               'Content-Type': 'application/json',
@@ -73,6 +76,14 @@ class SignIn extends StatelessWidget {
                             if (response.statusCode == 200) {
                               print('Authentication successful');
                               print('Response Body: ${response.body}');
+
+                              // If authentication is successful, navigate to another page
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Main(),
+                                ),
+                              );
                             } else {
                               print('Authentication failed');
                               // Show alert dialog in case of authentication failure
@@ -81,7 +92,8 @@ class SignIn extends StatelessWidget {
                                 builder: (BuildContext context) {
                                   return AlertDialog(
                                     title: Text('Authentication Failed'),
-                                    content: Text('Please check your credentials and try again.'),
+                                    content: Text(
+                                        'Please check your credentials and try again.'),
                                     actions: [
                                       TextButton(
                                         onPressed: () {
@@ -102,7 +114,8 @@ class SignIn extends StatelessWidget {
                               builder: (BuildContext context) {
                                 return AlertDialog(
                                   title: Text('Error'),
-                                  content: Text('An error occurred. Please try again later.'),
+                                  content: Text(
+                                      'An error occurred. Please try again later.'),
                                   actions: [
                                     TextButton(
                                       onPressed: () {

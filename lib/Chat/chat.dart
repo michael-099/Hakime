@@ -37,19 +37,20 @@ class Chat extends StatelessWidget {
                   }).toList(),
                 ),
               ),
-              ChatField(),
+              ChatField(onPressed: (){},),
             ],
           ),
         ));
   }
 
-Future<void> setDummyData(BuildContext context) async {
+  Future<void> setDummyData() async {
     try {
       const String authenticationEndpoint =
-          'http://localhost:5072/api/auth/login';
+          'http://localhost:5072/api/auth/login'; 
 
       final Map<String, String> headers = {
         'Content-Type': 'application/json',
+      
       };
 
       final response = await http.get(
@@ -62,47 +63,9 @@ Future<void> setDummyData(BuildContext context) async {
         print('Response Body: ${response.body}');
       } else {
         print('Authentication failed');
-        // Show AlertDialog
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text('Authentication Failed'),
-              content: Text('There was an issue with authentication.'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
       }
     } catch (error) {
       print('Error: $error');
-      // Show AlertDialog for other errors
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Error'),
-            content: Text('An error occurred: $error'),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
     }
   }
 }
-
-
