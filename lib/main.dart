@@ -13,10 +13,10 @@ void main() {
     // DashBoard(),
     // Chat(),
     //  Profile(),
-    // Main(),
+    Main(),
     // SignUp()
    
-    MaterialApp(home: SignUp()),
+    // MaterialApp(home: SignUp()),
     // DashBoard()
   );
 }

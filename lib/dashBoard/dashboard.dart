@@ -7,6 +7,7 @@ import "smallerCard.dart";
 import 'TopBar.dart';
 import "Text.dart";
 import 'docData.dart';
+import 'details.dart';
 
 class DashBoard extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -29,7 +30,6 @@ class DashBoard extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-
               Ad(),
               const SizedBox(
                 height: 20,
@@ -91,14 +91,20 @@ class DashBoard extends StatelessWidget {
               TextW(
                 texts: "recomandiations",
               ),
-              
-             
               Column(
                 children: dataitems.map((item) {
-                  return SmallerCard(
-                    name: item.name,
-                    specialization: item.specialization,
-                   
+                  return GestureDetector(
+                    child: SmallerCard(
+                      name: item.name,
+                      specialization: item.specialization,
+                      img:item.image,
+                    ),
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(HeroDialogRoute(builder: (context) {
+                        return Details(name: item.name,specialization: item.specialization,expriance: item.experience,city: item.city,country: item.country,imgs:item.image,);
+                      }));
+                    },
                   );
                 }).toList(),
               ),
@@ -106,4 +112,45 @@ class DashBoard extends StatelessWidget {
           ),
         ));
   }
+}
+
+class HeroDialogRoute<T> extends PageRoute<T> {
+  HeroDialogRoute({
+    required WidgetBuilder builder,
+    RouteSettings? settings,
+    bool fullscreenDialog = false,
+  })  : _builder = builder,
+        super(settings: settings, fullscreenDialog: fullscreenDialog);
+
+  final WidgetBuilder _builder;
+
+  @override
+  bool get opaque => false;
+
+  @override
+  bool get barrierDismissible => true;
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 300);
+
+  @override
+  bool get maintainState => true;
+
+  @override
+  Color get barrierColor => Colors.black54;
+
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    return child;
+  }
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return _builder(context);
+  }
+
+  @override
+  String get barrierLabel => 'Popup dialog open';
 }

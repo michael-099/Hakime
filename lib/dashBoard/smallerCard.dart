@@ -2,9 +2,10 @@ import "package:flutter/material.dart";
 import 'details.dart';
 
 class SmallerCard extends StatelessWidget {
-  final String name ;
+  final String name;
   final String specialization;
-  SmallerCard({required this.name, required this.specialization});
+  final String img;
+  SmallerCard({required this.name, required this.specialization,required this.img});
 
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -31,10 +32,10 @@ class SmallerCard extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.only(right: 10),
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('img/Doc.jpeg'),
+                    backgroundImage: AssetImage(img),
                     radius: 25,
                   ),
                 ),
@@ -53,7 +54,7 @@ class SmallerCard extends StatelessWidget {
 
                       // alignment: AlignmentGeometry alignment = Alignment.topLeft,
                       Text(
-                       specialization ,
+                        specialization,
                         style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.w200,
@@ -67,52 +68,6 @@ class SmallerCard extends StatelessWidget {
           ],
         ),
       ),
-      onTap: () {
-        Navigator.of(context).push(HeroDialogRoute(builder: (context) {
-          return Details();
-        }));
-      },
     );
   }
-}
-
-class HeroDialogRoute<T> extends PageRoute<T> {
-  HeroDialogRoute({
-    required WidgetBuilder builder,
-    RouteSettings? settings,
-    bool fullscreenDialog = false,
-  })  : _builder = builder,
-        super(settings: settings, fullscreenDialog: fullscreenDialog);
-
-  final WidgetBuilder _builder;
-
-  @override
-  bool get opaque => false;
-
-  @override
-  bool get barrierDismissible => true;
-
-  @override
-  Duration get transitionDuration => const Duration(milliseconds: 300);
-
-  @override
-  bool get maintainState => true;
-
-  @override
-  Color get barrierColor => Colors.black54;
-
-  @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    return child;
-  }
-
-  @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
-    return _builder(context);
-  }
-
-  @override
-  String get barrierLabel => 'Popup dialog open';
 }
