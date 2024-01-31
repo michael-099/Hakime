@@ -11,10 +11,10 @@ List<Datas> dataitems = [
     frontIcon: Icons.arrow_forward,
   ),
   Datas(
-    content: 'Surname',
-    subcontent: 'Doe',
-    backIcon: Icons.person,
-    frontIcon: Icons.arrow_forward,
+    content: 'Pno',
+    subcontent: '+251987654321',
+    backIcon: Icons.phone,
+    frontIcon: Icons.phone_android_outlined,
   ),
   Datas(
     content: 'Date of Birth',
