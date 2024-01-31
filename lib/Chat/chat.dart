@@ -53,8 +53,7 @@ class Chat extends StatelessWidget {
     String userId = "";
     String token = "";
     try {
-      String authenticationEndpoint =
-          'http://localhost:5072/api/user/$userId/chat';
+      String messagesEndpoint = 'http://localhost:5072/api/user/$userId/chat';
 
       final Map<String, String> headers = {
         'Content-Type': 'application/json',
@@ -62,7 +61,7 @@ class Chat extends StatelessWidget {
       };
 
       final response = await http.get(
-        Uri.parse(authenticationEndpoint),
+        Uri.parse(messagesEndpoint),
         headers: headers,
       );
 
@@ -85,17 +84,18 @@ class Chat extends StatelessWidget {
 
   Future<void> askAI(String message) async {
     try {
+      //TODO: Load from cookies
+
       String userId = "";
       String token = "";
-      String authenticationEndpoint =
-          'http://localhost:5072/api/user/$userId/chat';
+      String chattingEndpoint = 'http://localhost:5072/api/user/$userId/chat';
 
       final Map<String, String> headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer $token'
       };
       final response = await http.post(
-        Uri.parse(authenticationEndpoint),
+        Uri.parse(chattingEndpoint),
         headers: headers,
         body: jsonEncode(message),
       );
