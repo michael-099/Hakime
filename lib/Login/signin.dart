@@ -3,7 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'signup.dart';
+import 'signUp.dart';
 import 'MyTextField.dart';
 import 'button.dart';
 import 'dropdown.dart';
@@ -28,12 +28,15 @@ class SignIn extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Discription(text1: "Welcome back", text2: "" ,),
+                    Discription(
+                      text1: "Welcome back",
+                      text2: "",
+                    ),
                     MyTextField(
                       labelText: "Email",
                       obscureText: false,
                       width: 400,
-                      color: Colors.blue ,
+                      color: Colors.blue,
                       myController: EmailController,
                     ),
                     MyTextField(
@@ -95,7 +98,7 @@ class SignIn extends StatelessWidget {
                                   return AlertDialog(
                                     title: const Text('Authentication Failed'),
                                     content: const Text(
-'Please check your credentials and try again.'),
+                                        'Please check your credentials and try again.'),
                                     actions: [
                                       TextButton(
                                         onPressed: () {

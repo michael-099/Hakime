@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:namer_app/Sign_in%20and%20Sign_up/signin.dart';
 import 'MyTextField.dart';
 import 'button.dart';
-import "Signin.dart";
+import "signin.dart";
 
 class SignUp extends StatelessWidget {
   final TextEditingController textController = TextEditingController();
