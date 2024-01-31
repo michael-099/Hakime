@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -26,23 +28,23 @@ class SignIn extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Discription(),
+                    Discription(text1: "Welcome back", text2: "" ,),
                     MyTextField(
                       labelText: "Email",
                       obscureText: false,
                       width: 400,
-                      color: Colors.green,
+                      color: Colors.blue ,
                       myController: EmailController,
                     ),
                     MyTextField(
                       labelText: "password",
                       obscureText: true,
                       width: 400,
-                      color: Colors.green,
+                      color: Colors.blue,
                       myController: passwordController,
                     ),
                     GestureDetector(
-                      child: Button(
+                      child: const Button(
                         height: 50,
                         label: "Sign In",
                         width: 600,
@@ -91,15 +93,15 @@ class SignIn extends StatelessWidget {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                    title: Text('Authentication Failed'),
-                                    content: Text(
-                                        'Please check your credentials and try again.'),
+                                    title: const Text('Authentication Failed'),
+                                    content: const Text(
+'Please check your credentials and try again.'),
                                     actions: [
                                       TextButton(
                                         onPressed: () {
                                           Navigator.of(context).pop();
                                         },
-                                        child: Text('OK'),
+                                        child: const Text('OK'),
                                       ),
                                     ],
                                   );
@@ -113,15 +115,15 @@ class SignIn extends StatelessWidget {
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title: Text('Error'),
-                                  content: Text(
+                                  title: const Text('Error'),
+                                  content: const Text(
                                       'An error occurred. Please try again later.'),
                                   actions: [
                                     TextButton(
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
-                                      child: Text('OK'),
+                                      child: const Text('OK'),
                                     ),
                                   ],
                                 );
