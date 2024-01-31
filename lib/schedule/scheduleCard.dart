@@ -2,12 +2,12 @@ import "package:flutter/material.dart";
 import "package:hakime/Login/discription.dart";
 
 class ScheduleCard extends StatelessWidget {
-  final IconData iconData;
+ 
   final String person;
   final String discription;
   final DateTime time;
   ScheduleCard(
-      {required this.iconData,
+      {
       required this.person,
       required this.discription,
       required this.time});
