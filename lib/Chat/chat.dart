@@ -9,6 +9,7 @@ import "chat_field.dart";
 import "data.dart";
 import '../dashBoard/TopBar.dart';
 import 'package:http/http.dart' as http;
+import "../utils/session.dart";
 
 class Chat extends StatelessWidget {
   List<Map<String, dynamic>> messages = [];
@@ -48,23 +49,11 @@ class Chat extends StatelessWidget {
   }
 
   Future<void> loadMessages() async {
-    //TODO: Load from cookies
-
-    String userId = "";
-    String token = "";
+    String userId = Session.state["userId"]!;
     try {
       String messagesEndpoint = 'http://localhost:5072/api/user/$userId/chat';
 
-      final Map<String, String> headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer $token'
-      };
-
-      final response = await http.get(
-        Uri.parse(messagesEndpoint),
-        headers: headers,
-      );
-
+      final response = await Session.get(messagesEndpoint);
       Map<String, List<Map<String, dynamic>>> decodedResponse =
           jsonDecode(response.body);
 
@@ -84,21 +73,10 @@ class Chat extends StatelessWidget {
 
   Future<void> askAI(String message) async {
     try {
-      //TODO: Load from cookies
-
-      String userId = "";
-      String token = "";
+      String userId = Session.state["userId"]!;
       String chattingEndpoint = 'http://localhost:5072/api/user/$userId/chat';
 
-      final Map<String, String> headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer $token'
-      };
-      final response = await http.post(
-        Uri.parse(chattingEndpoint),
-        headers: headers,
-        body: jsonEncode(message),
-      );
+      final response = await Session.post(chattingEndpoint, message);
 
       Map<String, List<Map<String, dynamic>>> decodedResponse =
           jsonDecode(response.body);

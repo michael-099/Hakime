@@ -6,17 +6,17 @@ class Session {
   static Map<String, String> state = {};
   static Map<String, String> headers = {};
 
-  static Future<Map> get(String url) async {
+  static Future<dynamic> get(String url) async {
     http.Response response = await http.get(Uri.parse(url), headers: headers);
     updateHeader(response);
-    return json.decode(response.body);
+    return response;
   }
 
-  static Future<Map> post(String url, dynamic data) async {
+  static Future<dynamic> post(String url, dynamic data) async {
     http.Response response =
         await http.post(Uri.parse(url), body: data, headers: headers);
     updateHeader(response);
-    return json.decode(response.body);
+    return response;
   }
 
   static void updateHeader(http.Response response) {
