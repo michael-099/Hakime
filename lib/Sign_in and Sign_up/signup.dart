@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:namer_app/Sign_in%20and%20Sign_up/signin.dart';
 import 'MyTextField.dart';
 import 'button.dart';
-import "Signin.dart";
+import "signin.dart";
 
 class SignUp extends StatelessWidget {
   final TextEditingController textController = TextEditingController();
@@ -14,24 +14,24 @@ class SignUp extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Sign Up",
+            const Text("Sign Up",
                 style: TextStyle(
                     fontSize: 40,
                     color: Color.fromARGB(255, 117, 116, 114),
                     fontWeight: FontWeight.w600)),
-            MyTextField(
+            const MyTextField(
               labelText: "User Name",
               obscureText: false,
               radius: 10,
               width: 500,
             ),
-            MyTextField(
+            const MyTextField(
               labelText: "Email",
               obscureText: false,
               radius: 10,
               width: 500,
             ),
-            MyTextField(
+            const MyTextField(
               labelText: "password",
               obscureText: true,
               radius: 10,
