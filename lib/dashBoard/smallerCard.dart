@@ -51,8 +51,6 @@ class SmallerCard extends StatelessWidget {
                             color: Color(0xff2E4450).withOpacity(0.80),
                             decoration: TextDecoration.none),
                       ),
-
-                      // alignment: AlignmentGeometry alignment = Alignment.topLeft,
                       Text(
                         specialization,
                         style: TextStyle(

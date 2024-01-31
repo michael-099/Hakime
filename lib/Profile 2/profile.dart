@@ -68,7 +68,7 @@ class _ProfileState extends State<Profile> {
                     return Edit();
                   },
                 );
-                // Update the UI when the list is modified
+                
                 setState(() {});
               },
               child: Text('Edit profile '),
@@ -79,7 +79,7 @@ class _ProfileState extends State<Profile> {
                 itemBuilder: (context, index) => getRow(index),
               ),
             ),
-            // Place the "Edit" button below the profile content
+            
             
           ],
         ),
