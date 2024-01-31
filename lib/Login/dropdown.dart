@@ -41,7 +41,7 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
-                color: Colors.green.withOpacity(0.5),
+                color: Colors.blue.withOpacity(0.5),
               ),
             ),
           ],
@@ -53,12 +53,12 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
           iconSize: 12,
           elevation: 16,
           style: TextStyle(
-            color: Colors.green.withOpacity(0.5),
+            color: Colors.blue.withOpacity(0.5),
             fontSize: 12,
           ),
           underline: Container(
             height: 0.5,
-            color: Colors.green,
+            color: Colors.blue,
           ),
           onChanged: (String? newValue) {
             setState(() {

@@ -1,11 +1,15 @@
 import "package:flutter/material.dart";
 
 class Discription extends StatelessWidget {
+  final String text1;
+  final String text2;
+
+  Discription({required this.text1, required this.text2});
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.topLeft,
       child: Container(
-          width: 300,
+          width: 400,
           height: 200,
           child: Column(
             children: [
@@ -13,28 +17,28 @@ class Discription extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text("Hello,",
                     style: TextStyle(
-                      color: Color.fromARGB(255, 0, 136, 20),
-                      fontSize: 50,
+                      color: Color.fromARGB(249, 0, 72, 136),
+                      fontSize: 40,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.5,
                     )),
               ),
               Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("login now.",
+                  child: Text(text1,
                       style: TextStyle(
                           color: Colors.blue[90],
-                          fontSize: 50,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1.5))),
               SizedBox(
-                height: 20,
+                height: 10,
                 width: 10,
               ),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "welcome back please fillin the form to sign in and continue ",
+                  text2,
                   style: TextStyle(
                     color: Colors.blue[90],
                     fontWeight: FontWeight.w300,
