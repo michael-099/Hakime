@@ -1,40 +1,8 @@
 import 'package:flutter/material.dart';
+import '../utils/session.dart';
 import 'profileCard.dart';
 import 'data.dart';
 import 'edit.dart';
-
-List<Datas> dataitems = [
-  Datas(
-    content: 'Name',
-    subcontent: 'John Doe',
-    backIcon: Icons.person,
-    frontIcon: Icons.arrow_forward,
-  ),
-  Datas(
-    content: 'Surname',
-    subcontent: 'Doe',
-    backIcon: Icons.person,
-    frontIcon: Icons.arrow_forward,
-  ),
-  Datas(
-    content: 'Date of Birth',
-    subcontent: 'January 1, 1990',
-    backIcon: Icons.calendar_today,
-    frontIcon: Icons.arrow_forward,
-  ),
-  Datas(
-    content: 'City',
-    subcontent: 'New York',
-    backIcon: Icons.location_city,
-    frontIcon: Icons.arrow_forward,
-  ),
-  Datas(
-    content: 'Country',
-    subcontent: 'United States',
-    backIcon: Icons.public,
-    frontIcon: Icons.location_city,
-  ),
-];
 
 class Profile extends StatefulWidget {
   @override
@@ -42,12 +10,56 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  List<Datas> dataitems = [];
+  Map<String, dynamic> profileData = Session.cache["user"];
+
+  @override
+  initState() {
+    super.initState();
+    populateList();
+  }
+
+  void populateList() {
+    print("User : $profileData");
+    print("Sur name: ${profileData["fullname"].toString().split(" ")}");
+    dataitems = [
+      Datas(
+          content: "Name",
+          subcontent: profileData["fullname"],
+          backIcon: Icons.person,
+          frontIcon: Icons.arrow_forward),
+      Datas(
+        content: 'Surname',
+        subcontent: profileData["fullname"].toString().split(" ")[1],
+        backIcon: Icons.person,
+        frontIcon: Icons.arrow_forward,
+      ),
+      Datas(
+        content: 'Date of Birth',
+        subcontent: 'January 1, 1990',
+        backIcon: Icons.calendar_today,
+        frontIcon: Icons.arrow_forward,
+      ),
+      Datas(
+        content: 'City',
+        subcontent: profileData["city"],
+        backIcon: Icons.location_city,
+        frontIcon: Icons.arrow_forward,
+      ),
+    ];
+  }
+
   Widget getRow(int index) {
-    return ProfileCard(
-      content: dataitems[index].content,
-      subcontent: dataitems[index].subcontent,
-      frontIcon: dataitems[index].backIcon,
-    );
+    if (index < dataitems.length) {
+      return ProfileCard(
+        content: dataitems[index].content,
+        subcontent: dataitems[index].subcontent,
+        frontIcon: dataitems[index].backIcon,
+      );
+    } else {
+      return ProfileCard(
+          content: "", subcontent: "", frontIcon: Icons.arrow_forward);
+    }
   }
 
   @override
@@ -69,7 +81,9 @@ class _ProfileState extends State<Profile> {
                   },
                 );
                 // Update the UI when the list is modified
-                setState(() {});
+                setState(() {
+                  profileData = Session.cache["user"];
+                });
               },
               child: Text('Edit profile '),
             ),
@@ -80,7 +94,6 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             // Place the "Edit" button below the profile content
-            
           ],
         ),
       ),

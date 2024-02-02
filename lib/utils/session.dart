@@ -11,10 +11,10 @@ class Session {
   static Future<dynamic> login(String url, dynamic data) async {
     http.Response response = await http.post(Uri.parse(url),
         body: jsonEncode(data), headers: headers);
-    cache["login $url"] = response.body;
     dynamic body = jsonDecode(response.body);
     String token = body["token"];
-
+    Map<String, dynamic> user = body["user"];
+    cache["user"] = user;
     state["userId"] = body["user"]["id"];
     state["token"] = token;
     headers["Authorization"] = "Bearer $token";
@@ -23,14 +23,14 @@ class Session {
 
   static Future<dynamic> get(String url) async {
     http.Response response = await http.get(Uri.parse(url), headers: headers);
-    cache["post $url"] = response.body;
+    cache["getData $url"] = response.body;
     return response;
   }
 
   static Future<dynamic> post(String url, dynamic data) async {
     http.Response response = await http.post(Uri.parse(url),
         body: jsonEncode(data), headers: headers);
-    cache["post $url"] = response.body;
+    cache["postData $url"] = response.body;
     return response;
   }
 }

@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:hakime/utils/session.dart';
 import 'MyTextField.dart';
 import '../Login/button.dart';
 import 'profile.dart';
@@ -14,6 +17,43 @@ class _EditState extends State<Edit> {
   late TextEditingController dateOfBirthController;
   late TextEditingController cityController;
   late TextEditingController countryController;
+  late String dateOfBirth;
+  Map<String, dynamic> profile = Session.cache["user"];
+
+  Future<void> updateProfile() async {
+    String userId = Session.state["userId"]!;
+    String nameValue = nameController.text;
+    String cityValue = cityController.text;
+    String updateProfileUrl = "http://localhost:5072/api/user/$userId";
+
+    Map<String, dynamic> updatedProfile = {
+      "city": cityValue,
+      "fullname": nameValue,
+    };
+    try {
+      final response = await Session.post(updateProfileUrl, updatedProfile);
+      print(response.body);
+      Map<String, dynamic> decodedResponse = jsonDecode(response.body);
+      print(decodedResponse);
+      if (response.statusCode == 200) {
+        setState(() {
+          List<Map<String, dynamic>> temp =
+              decodedResponse["user"].cast<Map<String, dynamic>>();
+          print(temp);
+          Session.cache["user"] = temp;
+        });
+        print('Profile Update successful.');
+      } else {
+        print("Error while updating profile");
+        print(decodedResponse["errors"] ??
+            decodedResponse["error"] ??
+            "Unknown error occurred $decodedResponse");
+      }
+    } catch (error) {
+      // print('Something went wrong: $error');
+      rethrow;
+    }
+  }
 
   @override
   void initState() {
@@ -25,11 +65,10 @@ class _EditState extends State<Edit> {
     cityController = TextEditingController();
     countryController = TextEditingController();
 
-    nameController.text = dataitems[0].subcontent;
-    surnameController.text = dataitems[1].subcontent;
-    dateOfBirthController.text = dataitems[2].subcontent;
-    cityController.text = dataitems[3].subcontent;
-    countryController.text = dataitems[4].subcontent;
+    nameController.text = profile["fullname"];
+    surnameController.text = profile["fullname"].toString().split(" ")[1];
+    dateOfBirthController.text = "'January 1, 1990'";
+    cityController.text = profile["city"];
   }
 
   @override
@@ -104,33 +143,23 @@ class _EditState extends State<Edit> {
             const SizedBox(
               height: 25,
             ),
-            MyTextField(
-              labelText: "Country",
-              width: 300,
-              obscureText: false,
-              color: Color(0xff2E4450).withOpacity(0.60),
-              myController: countryController,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
+            // MyTextField(
+            //   labelText: "Country",
+            //   width: 300,
+            //   obscureText: false,
+            //   color: Color(0xff2E4450).withOpacity(0.60),
+            //   myController: countryController,
+            // ),
+            // const SizedBox(
+            //   height: 25,
+            // ),
             GestureDetector(
               onTap: () {
-                String nameValue = nameController.text;
-                String surnameValue = surnameController.text;
                 String dateOfBirthValue = dateOfBirthController.text;
-                String cityValue = cityController.text;
-                String countryValue = countryController.text;
                 setState(() {
-                  dataitems[0].subcontent = nameValue;
-                  dataitems[1].subcontent = surnameValue;
-                  dataitems[2].subcontent = dateOfBirthValue;
-                  dataitems[3].subcontent = cityValue;
-                  dataitems[4].subcontent = countryValue;
+                  dateOfBirth = dateOfBirthValue;
+                  updateProfile();
                 });
-
-                print('Updated dataitems list: $dataitems ' +
-                    dataitems[0].subcontent);
 
                 Navigator.pop(context);
               },
