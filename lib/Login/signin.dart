@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import '../utils/session.dart';
 import 'signUp.dart';
 import 'MyTextField.dart';
 import 'button.dart';
@@ -60,24 +61,16 @@ class SignIn extends StatelessWidget {
                           String pass = passwordController.text;
 
                           try {
-                            final String authenticationEndpoint =
+                            const String authenticationEndpoint =
                                 'http://localhost:5072/api/auth/login';
-
-                            final Map<String, String> headers = {
-                              'Content-Type': 'application/json',
-                            };
 
                             final Map<String, String> body = {
                               'email': email,
                               'password': pass,
                             };
 
-                            final response = await http.post(
-                              Uri.parse(authenticationEndpoint),
-                              headers: headers,
-                              body: jsonEncode(body),
-                            );
-
+                            final response = await Session.post(
+                                authenticationEndpoint, body);
                             if (response.statusCode == 200) {
                               print('Authentication successful');
                               print('Response Body: ${response.body}');
