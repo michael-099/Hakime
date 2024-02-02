@@ -38,8 +38,9 @@ class _DetailsState extends State<Details> {
       firstDate: DateTime(2000),
       lastDate: DateTime(2025),
     ).then((value) {
-      if (value != null) {
+      if (value != null && DateTime.now().isBefore(value)) {
         setState(() {
+          print("Date picked $value");
           selectedDate = value;
         });
 
@@ -52,9 +53,10 @@ class _DetailsState extends State<Details> {
   Future<void> _createSchedule(DateTime? selectedDate) async {
     if (selectedDate != null) {
       const String scheduleEndpoint = 'http://localhost:5072/api/user/schedule';
-
+      final String temp = selectedDate.toIso8601String();
+      print("Stored Schedule: $temp");
       final Map<String, dynamic> requestBody = {
-        'selectedTime': selectedDate.toIso8601String(),
+        'scheduleTime': temp,
         'doctorId': widget.id
       };
 
