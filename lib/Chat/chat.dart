@@ -148,6 +148,7 @@ class ChatState extends State<Chat> {
       final response = await Session.post(chattingEndpoint, message);
 
       dynamic decodedResponse = jsonDecode(response.body);
+      print(decodedResponse);
 
       if (response.statusCode == 200) {
         setState(() {
@@ -192,7 +193,11 @@ class ChatState extends State<Chat> {
               ),
             ),
             // Your ChatField widget goes here
-            ChatField(onPressed: () {}, textController: messageController),
+            ChatField(
+                onPressed: () async {
+                  await askAI(messageController.text);
+                },
+                textController: messageController),
           ],
         ),
       ),
