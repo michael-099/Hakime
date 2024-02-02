@@ -101,7 +101,7 @@ class Chat extends StatefulWidget {
 
 class ChatState extends State<Chat> {
   List<Map<String, dynamic>> messages = [];
-  List<Map<String, dynamic>> aiMessage = [];
+  Map<String, dynamic> aiMessage = {};
   TextEditingController messageController = TextEditingController();
 
   @override
@@ -117,13 +117,15 @@ class ChatState extends State<Chat> {
       String messagesEndpoint = 'http://localhost:5072/api/user/$userId/chat';
 
       final response = await Session.get(messagesEndpoint);
-      Map<String, List<Map<String, dynamic>>> decodedResponse =
-          jsonDecode(response.body);
+      Map<String, dynamic> decodedResponse = jsonDecode(response.body);
 
-      print(response.body);
       if (response.statusCode == 200) {
         setState(() {
-          messages = decodedResponse["messages"]!;
+          List<Map<String, dynamic>> temp =
+              (decodedResponse["messages"] as List)
+                  .cast<Map<String, dynamic>>();
+          print(temp);
+          messages = temp;
         });
         print('Message loading successful. Found ${messages.length} messages');
       } else {
@@ -133,7 +135,8 @@ class ChatState extends State<Chat> {
             "Unknown error occurred $decodedResponse");
       }
     } catch (error) {
-      print('Something went wrong: $error');
+      // print('Something went wrong: $error');
+      rethrow;
     }
   }
 
@@ -144,12 +147,11 @@ class ChatState extends State<Chat> {
 
       final response = await Session.post(chattingEndpoint, message);
 
-      Map<String, List<Map<String, dynamic>>> decodedResponse =
-          jsonDecode(response.body);
+      dynamic decodedResponse = jsonDecode(response.body);
 
       if (response.statusCode == 200) {
         setState(() {
-          aiMessage = decodedResponse["response"]!;
+          aiMessage = decodedResponse["response"]! as Map<String, dynamic>;
         });
         print("Ai response: $aiMessage");
       } else {
@@ -159,7 +161,8 @@ class ChatState extends State<Chat> {
             "Unknown error occurred $decodedResponse");
       }
     } catch (error) {
-      print('Error: $error');
+      // print('Error: $error');
+      rethrow;
     }
   }
 
@@ -179,10 +182,11 @@ class ChatState extends State<Chat> {
             Expanded(
               child: ListView(
                 children: messages.map((message) {
-                  if (message['Type'] == 'Ai') {
-                    return BotMsg(message: message['Content']);
+                  if (message['type'] == 1) //To indicate that it is ai
+                  {
+                    return BotMsg(message: message['content']);
                   } else {
-                    return UserMsg(message: message['Content']);
+                    return UserMsg(message: message['content']);
                   }
                 }).toList(),
               ),
