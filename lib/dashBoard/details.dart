@@ -14,6 +14,7 @@ class Details extends StatefulWidget {
   final String expriance;
   final String imgs;
   final String pno;
+  final String id;
 
   Details(
       {required this.name,
@@ -21,7 +22,8 @@ class Details extends StatefulWidget {
       required this.city,
       required this.expriance,
       required this.imgs,
-      required this.pno});
+      required this.pno,
+      required this.id});
 
   @override
   State<Details> createState() => _DetailsState();
@@ -49,14 +51,11 @@ class _DetailsState extends State<Details> {
 
   Future<void> _createSchedule(DateTime? selectedDate) async {
     if (selectedDate != null) {
-      // Example URL, replace it with your actual server endpoint
       const String scheduleEndpoint = 'http://localhost:5072/api/user/schedule';
 
-      // Example request body, modify it based on your server requirements
       final Map<String, dynamic> requestBody = {
         'selectedTime': selectedDate.toIso8601String(),
-        'doctorId': "someone"
-        // Add other required parameters
+        'doctorId': widget.id
       };
 
       try {
@@ -116,7 +115,8 @@ class _DetailsState extends State<Details> {
                 specialization: widget.specialization,
                 city: widget.city,
                 experience: widget.expriance,
-                pno: widget.pno),
+                pno: widget.pno,
+                id: widget.id),
             // Expanded(
             //   child: ListView.builder(
             //     itemCount: dataitems.length,

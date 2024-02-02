@@ -6,13 +6,15 @@ class ProfileCard extends StatelessWidget {
   final String city;
   final String experience;
   final String pno;
+  final String id;
 
   ProfileCard(
       {required this.name,
       required this.specialization,
       required this.city,
       required this.experience,
-      required this.pno});
+      required this.pno,
+      required this.id});
 
   @override
   Widget build(BuildContext context) {

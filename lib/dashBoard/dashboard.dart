@@ -158,7 +158,8 @@ class DashboardState extends State<DashBoard> {
                             expriance: item["yearOfExperience"].toString(),
                             city: item["city"],
                             imgs: "img/img($i).jpeg",
-                            pno: "Phone number");
+                            pno: item["phonenumber"].toString(),
+                            id: item["id"]);
                       }));
                     },
                   );
