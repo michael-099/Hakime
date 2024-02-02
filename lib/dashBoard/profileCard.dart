@@ -4,18 +4,15 @@ class ProfileCard extends StatelessWidget {
   final String name;
   final String specialization;
   final String city;
-  final String country;
   final String experience;
   final String pno;
 
-  ProfileCard({
-    required this.name,
-    required this.specialization,
-    required this.city,
-    required this.country,
-    required this.experience,
-    required this.pno
-  });
+  ProfileCard(
+      {required this.name,
+      required this.specialization,
+      required this.city,
+      required this.experience,
+      required this.pno});
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +41,6 @@ class ProfileCard extends StatelessWidget {
             title: Text("City"),
             subtitle: Text(city),
             leading: Icon(Icons.location_city),
-            tileColor: Colors.white,
-          ),
-          ListTile(
-            title: Text("Country"),
-            subtitle: Text(country),
-            leading: Icon(
-              Icons.place_sharp,
-            ),
             tileColor: Colors.white,
           ),
           ListTile(

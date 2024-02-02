@@ -12,7 +12,6 @@ class Details extends StatefulWidget {
   final String specialization;
   final String city;
   final String expriance;
-  final String country;
   final String imgs;
   final String pno;
 
@@ -21,7 +20,6 @@ class Details extends StatefulWidget {
       required this.specialization,
       required this.city,
       required this.expriance,
-      required this.country,
       required this.imgs,
       required this.pno});
 
@@ -117,7 +115,6 @@ class _DetailsState extends State<Details> {
                 name: widget.name,
                 specialization: widget.specialization,
                 city: widget.city,
-                country: widget.country,
                 experience: widget.expriance,
                 pno: widget.pno),
             // Expanded(
