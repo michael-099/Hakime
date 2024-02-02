@@ -11,10 +11,10 @@ List<Datas> dataitems = [
     frontIcon: Icons.arrow_forward,
   ),
   Datas(
-    content: 'Surname',
-    subcontent: 'Doe',
-    backIcon: Icons.person,
-    frontIcon: Icons.arrow_forward,
+    content: 'Pno',
+    subcontent: '+251987654321',
+    backIcon: Icons.phone,
+    frontIcon: Icons.phone_android_outlined,
   ),
   Datas(
     content: 'Date of Birth',
@@ -68,7 +68,7 @@ class _ProfileState extends State<Profile> {
                     return Edit();
                   },
                 );
-                // Update the UI when the list is modified
+                
                 setState(() {});
               },
               child: Text('Edit profile '),
@@ -79,7 +79,7 @@ class _ProfileState extends State<Profile> {
                 itemBuilder: (context, index) => getRow(index),
               ),
             ),
-            // Place the "Edit" button below the profile content
+            
             
           ],
         ),

@@ -133,9 +133,8 @@ class Search extends StatelessWidget {
             ),
           ],
         ),
-        itemColor:  Colors.lightBlue.shade200, // Color of suggested items
+        itemColor:  Colors.lightBlue.shade200, 
         onChanged: (value) {
-          // Handle search query changes
         },
       ),
     );

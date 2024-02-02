@@ -75,7 +75,7 @@ class _EditState extends State<Edit> {
               height: 25,
             ),
             MyTextField(
-              labelText: "Surname",
+              labelText: "Pno",
               width: 300,
               obscureText: false,
               color: Color(0xff2E4450).withOpacity(0.60),
