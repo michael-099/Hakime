@@ -7,6 +7,10 @@ import '../Login/button.dart';
 import 'profile.dart';
 
 class Edit extends StatefulWidget {
+  Function()? onUpdate;
+
+  Edit(this.onUpdate);
+
   @override
   State<Edit> createState() => _EditState();
 }
@@ -31,14 +35,14 @@ class _EditState extends State<Edit> {
       "fullname": nameValue,
     };
     try {
-      final response = await Session.post(updateProfileUrl, updatedProfile);
+      final response = await Session.put(updateProfileUrl, updatedProfile);
       print(response.body);
       Map<String, dynamic> decodedResponse = jsonDecode(response.body);
       print(decodedResponse);
       if (response.statusCode == 200) {
         setState(() {
-          List<Map<String, dynamic>> temp =
-              decodedResponse["user"].cast<Map<String, dynamic>>();
+          Map<String, dynamic> temp =
+              decodedResponse["user"] as Map<String, dynamic>;
           print(temp);
           Session.cache["user"] = temp;
         });
@@ -154,11 +158,17 @@ class _EditState extends State<Edit> {
             //   height: 25,
             // ),
             GestureDetector(
-              onTap: () {
+              onTap: () async {
                 String dateOfBirthValue = dateOfBirthController.text;
+                await updateProfile();
                 setState(() {
                   dateOfBirth = dateOfBirthValue;
-                  updateProfile();
+                  if (widget.onUpdate != null) {
+                    widget.onUpdate!();
+                    print("widget updated");
+                  } else {
+                    print("widget function null");
+                  }
                 });
 
                 Navigator.pop(context);

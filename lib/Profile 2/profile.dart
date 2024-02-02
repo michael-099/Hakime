@@ -49,6 +49,13 @@ class _ProfileState extends State<Profile> {
     ];
   }
 
+  void updateProfile() {
+    setState(() {
+      profileData = Session.cache["user"];
+      populateList();
+    });
+  }
+
   Widget getRow(int index) {
     if (index < dataitems.length) {
       return ProfileCard(
@@ -77,12 +84,13 @@ class _ProfileState extends State<Profile> {
                 await showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return Edit();
+                    return Edit(updateProfile);
                   },
                 );
                 // Update the UI when the list is modified
                 setState(() {
                   profileData = Session.cache["user"];
+                  populateList();
                 });
               },
               child: Text('Edit profile '),

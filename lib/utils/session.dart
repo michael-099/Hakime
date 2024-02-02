@@ -31,6 +31,15 @@ class Session {
     http.Response response = await http.post(Uri.parse(url),
         body: jsonEncode(data), headers: headers);
     cache["postData $url"] = response.body;
+    print("response from session post ${response.body}");
+    return response;
+  }
+
+  static Future<dynamic> put(String url, dynamic data) async {
+    http.Response response = await http.put(Uri.parse(url),
+        body: jsonEncode(data), headers: headers);
+    cache["postData $url"] = response.body;
+    print("response from session put ${response.body}");
     return response;
   }
 }
