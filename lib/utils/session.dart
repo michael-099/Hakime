@@ -8,8 +8,9 @@ class Session {
   static Map<String, String> headers = {"Content-Type": "application/json"};
   // static Map<String, String> headers = {};
 
-  static Future<dynamic> login(String url) async {
-    http.Response response = await http.get(Uri.parse(url), headers: headers);
+  static Future<dynamic> login(String url, dynamic data) async {
+    http.Response response = await http.post(Uri.parse(url),
+        body: jsonEncode(data), headers: headers);
     cache["login $url"] = response.body;
     dynamic body = jsonDecode(response.body);
     String token = body["token"];

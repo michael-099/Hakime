@@ -69,7 +69,7 @@ class SignIn extends StatelessWidget {
                               'password': pass,
                             };
 
-                            final response = await Session.post(
+                            final response = await Session.login(
                                 authenticationEndpoint, body);
                             if (response.statusCode == 200) {
                               print('Authentication successful');
