@@ -20,29 +20,36 @@ class _ProfileState extends State<Profile> {
   }
 
   void populateList() {
+    bool hasName = profileData["fullname"] != null &&
+        profileData["fullname"].toString().length > 0 &&
+        profileData["fullname"].toString().contains(" ");
+    String surName =
+        hasName ? profileData["fullname"].toString().split(" ")[1] : "";
+    String name = hasName ? profileData["fullname"] : "";
+    String city = hasName ? profileData["city"] : "";
     print("User : $profileData");
-    print("Sur name: ${profileData["fullname"].toString().split(" ")}");
+    print("Sur name: $surName");
     dataitems = [
       Datas(
           content: "Name",
-          subcontent: profileData["fullname"],
+          subcontent: name,
           backIcon: Icons.person,
           frontIcon: Icons.arrow_forward),
       Datas(
         content: 'Surname',
-        subcontent: profileData["fullname"].toString().split(" ")[1],
+        subcontent: surName,
         backIcon: Icons.person,
         frontIcon: Icons.arrow_forward,
       ),
       Datas(
         content: 'Date of Birth',
-        subcontent: 'January 1, 1990',
+        subcontent: hasName ? 'January 1, 1990' : "",
         backIcon: Icons.calendar_today,
         frontIcon: Icons.arrow_forward,
       ),
       Datas(
         content: 'City',
-        subcontent: profileData["city"],
+        subcontent: city,
         backIcon: Icons.location_city,
         frontIcon: Icons.arrow_forward,
       ),

@@ -69,10 +69,17 @@ class _EditState extends State<Edit> {
     cityController = TextEditingController();
     countryController = TextEditingController();
 
-    nameController.text = profile["fullname"];
-    surnameController.text = profile["fullname"].toString().split(" ")[1];
-    dateOfBirthController.text = "'January 1, 1990'";
-    cityController.text = profile["city"];
+    bool hasName = profile["fullname"] != null &&
+        profile["fullname"].toString().length > 0 &&
+        profile["fullname"].toString().contains(" ");
+    String surName =
+        hasName ? profile["fullname"].toString().split(" ")[1] : "";
+    String name = hasName ? profile["fullname"] : "";
+    String city = hasName ? profile["city"] : "";
+    nameController.text = name;
+    surnameController.text = surName;
+    dateOfBirthController.text = hasName ? "January 1, 1990" : "";
+    cityController.text = city;
   }
 
   @override
