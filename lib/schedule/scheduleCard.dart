@@ -2,15 +2,15 @@ import "package:flutter/material.dart";
 import "package:hakime/Login/discription.dart";
 
 class ScheduleCard extends StatelessWidget {
- 
   final String person;
   final String discription;
-  final DateTime time;
+  final String time;
+  final String remainingDays;
   ScheduleCard(
-      {
-      required this.person,
+      {required this.person,
       required this.discription,
-      required this.time});
+      required this.time,
+      required this.remainingDays});
 
   Widget build(BuildContext context) {
     return Center(
@@ -33,8 +33,14 @@ class ScheduleCard extends StatelessWidget {
             border: const Border()),
         child: Row(
           children: [
-            Icon(Icons.calendar_month_outlined,size: 40,color: Colors.lightBlue.withOpacity(0.5),),
-            SizedBox(width: 10,),
+            Icon(
+              Icons.calendar_month_outlined,
+              size: 40,
+              color: Colors.lightBlue.withOpacity(0.5),
+            ),
+            SizedBox(
+              width: 10,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -53,7 +59,7 @@ class ScheduleCard extends StatelessWidget {
                                 color: Colors.black,
                                 decoration: TextDecoration.none),
                           ),
-            
+
                           // alignment: AlignmentGeometry alignment = Alignment.topLeft,
                           Text(
                             discription,

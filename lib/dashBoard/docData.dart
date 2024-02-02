@@ -7,7 +7,7 @@ List<Datas> dataitems = [
       city: 'New York',
       country: 'United States',
       experience: '5 years',
-      image: "img/img (1).jpeg",
+      image: "img/img(1).jpeg",
       pno: "1234567890"),
   Datas(
       name: 'Alice Johnson',
@@ -15,7 +15,7 @@ List<Datas> dataitems = [
       city: 'Chicago',
       country: 'United States',
       experience: '7 years',
-      image: "img/img (2).jpeg",
+      image: "img/img(2).jpeg",
       pno: "1234567890"),
   Datas(
       name: 'Michael Brown',
@@ -23,7 +23,7 @@ List<Datas> dataitems = [
       city: 'Houston',
       country: 'United States',
       experience: '10 years',
-      image: "img/img (3).jpeg",
+      image: "img/img(3).jpeg",
       pno: "1234567890"),
   Datas(
       name: 'Emily Davis',
@@ -31,7 +31,7 @@ List<Datas> dataitems = [
       city: 'San Francisco',
       country: 'United States',
       experience: '6 years',
-      image: "img/img (4).jpeg",
+      image: "img/img(4).jpeg",
       pno: "1234567890"),
   Datas(
       name: 'Robert Wilson',
@@ -39,7 +39,7 @@ List<Datas> dataitems = [
       city: 'Miami',
       country: 'United States',
       experience: '9 years',
-      image: "img/img (5).jpeg",
+      image: "img/img(5).jpeg",
       pno: "1234567890"),
   Datas(
       name: 'Olivia Moore',
@@ -47,6 +47,6 @@ List<Datas> dataitems = [
       city: 'Seattle',
       country: 'United States',
       experience: '4 years',
-      image: "img/img (6).jpeg",
+      image: "img/img(6).jpeg",
       pno: "1234567890"),
 ];

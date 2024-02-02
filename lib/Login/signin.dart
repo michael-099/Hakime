@@ -3,7 +3,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'signup.dart';
+import '../utils/session.dart';
+import 'signUp.dart';
 import 'MyTextField.dart';
 import 'button.dart';
 import 'dropdown.dart';
@@ -28,12 +29,15 @@ class SignIn extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Discription(text1: "Welcome back", text2: "" ,),
+                    Discription(
+                      text1: "Welcome back",
+                      text2: "",
+                    ),
                     MyTextField(
                       labelText: "Email",
                       obscureText: false,
                       width: 400,
-                      color: Colors.blue ,
+                      color: Colors.blue,
                       myController: EmailController,
                     ),
                     MyTextField(
@@ -57,24 +61,16 @@ class SignIn extends StatelessWidget {
                           String pass = passwordController.text;
 
                           try {
-                            final String authenticationEndpoint =
+                            const String authenticationEndpoint =
                                 'http://localhost:5072/api/auth/login';
-
-                            final Map<String, String> headers = {
-                              'Content-Type': 'application/json',
-                            };
 
                             final Map<String, String> body = {
                               'email': email,
                               'password': pass,
                             };
 
-                            final response = await http.post(
-                              Uri.parse(authenticationEndpoint),
-                              headers: headers,
-                              body: jsonEncode(body),
-                            );
-
+                            final response = await Session.login(
+                                authenticationEndpoint, body);
                             if (response.statusCode == 200) {
                               print('Authentication successful');
                               print('Response Body: ${response.body}');
@@ -95,7 +91,7 @@ class SignIn extends StatelessWidget {
                                   return AlertDialog(
                                     title: const Text('Authentication Failed'),
                                     content: const Text(
-'Please check your credentials and try again.'),
+                                        'Please check your credentials and try again.'),
                                     actions: [
                                       TextButton(
                                         onPressed: () {
