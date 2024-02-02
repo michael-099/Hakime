@@ -11,6 +11,21 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   List<Datas> dataitems = [];
+  /* Here are some examples data for the following variables
+  
+    profileData = {
+                  "id": "65bcc28f9e7d2e27a91cb82d",
+                  "profession": "string",
+                  "fullname": "Some one",
+                  "phonenumber": "0911926066",
+                  "city": "Dire Dawa",
+                  "age": 24,
+                  "imageUrl": "/ProfilePics/65aa80034e3f9f40cfe50e13_66afa0f9-1df5-415a-a933-46a24a6f7cd0.jpg",
+                  "role": "Admin",
+                  "email": "user@example.com",
+                  "gender": "Male"
+                }
+   */
   Map<String, dynamic> profileData = Session.cache["user"];
 
   @override

@@ -3,11 +3,12 @@ import "package:flutter/material.dart";
 import "a_user_msg.dart";
 import "bot_msg.dart";
 import "chat_field.dart";
-import "data.dart";
 import '../dashBoard/TopBar.dart';
 import "../utils/session.dart";
 
 class Chat extends StatefulWidget {
+  const Chat({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return ChatState();
@@ -15,6 +16,33 @@ class Chat extends StatefulWidget {
 }
 
 class ChatState extends State<Chat> {
+/* Here are some examples data for the following variables
+      messages =  [
+                    {
+                      "createdDate": "2024-01-30T21:26:46.605Z",
+                      "content": "What are you?",
+                      "type": 0,
+                      "userId": "65b9679db44315585bdb9302"
+                    },
+                    {
+                      "createdDate": "2024-01-30T21:27:08.339Z",
+                      "content": "I am a health assistant for patients, especially on stroke.",
+                      "type": 1,
+                      "userId": "65b9679db44315585bdb9302"
+                    }
+                  ]
+        "0" - means it is a human message
+        "1" - means it is an AI message
+
+      aiMessage = {
+                    "createdDate": "2024-01-30T21:28:12.778Z",
+                    "content": "What are you?",
+                    "type": 0,
+                    "userId": "65b9679db44315585bdb9302"
+                  }
+
+  */
+
   List<Map<String, dynamic>> messages = [];
   Map<String, dynamic> aiMessage = {};
   TextEditingController messageController = TextEditingController();
@@ -27,7 +55,7 @@ class ChatState extends State<Chat> {
 
   Future<void> loadMessages() async {
     String userId = Session.state["userId"] ?? "None";
-    print("User id : $userId");
+    // print("User id : $userId");
     try {
       String messagesEndpoint = 'http://localhost:5072/api/user/$userId/chat';
 
@@ -39,7 +67,7 @@ class ChatState extends State<Chat> {
           List<Map<String, dynamic>> temp =
               (decodedResponse["messages"] as List)
                   .cast<Map<String, dynamic>>();
-          print(temp);
+          // print(temp);
           messages = temp;
         });
         print('Message loading successful. Found ${messages.length} messages');
@@ -50,8 +78,8 @@ class ChatState extends State<Chat> {
             "Unknown error occurred $decodedResponse");
       }
     } catch (error) {
-      // print('Something went wrong: $error');
-      rethrow;
+      print('Something went wrong: $error');
+      // rethrow;
     }
   }
 
@@ -63,7 +91,7 @@ class ChatState extends State<Chat> {
       final response = await Session.post(chattingEndpoint, message);
 
       Map<String, dynamic> decodedResponse = jsonDecode(response.body);
-      print(decodedResponse);
+      // print(decodedResponse);
 
       if (response.statusCode == 200) {
         setState(() {
@@ -77,8 +105,8 @@ class ChatState extends State<Chat> {
             "Unknown error occurred $decodedResponse");
       }
     } catch (error) {
-      // print('Error: $error');
-      rethrow;
+      print('Error: $error');
+      // rethrow;
     }
   }
 

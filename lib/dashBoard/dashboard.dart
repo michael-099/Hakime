@@ -20,6 +20,28 @@ class DashBoard extends StatefulWidget {
 }
 
 class DashboardState extends State<DashBoard> {
+  /* Here are some examples data for the following variables
+    
+    doctorsData = [
+                    {
+                      "licensePath": "Licenses/65bcc2789e7d2e27a91cb82c_6f9d0530-4100-42b9-86d7-1398a83098ab.pdf",
+                      "specialization": "",
+                      "yearOfExperience": 0,
+                      "verified": true,
+                      "id": "65bcc2789e7d2e27a91cb82c",
+                      "profession": "string",
+                      "fullname": "Yeabesera Derese",
+                      "phonenumber": "0911926066",
+                      "city": null,
+                      "age": null,
+                      "imageUrl": null,
+                      "role": "Doctor",
+                      "email": "user2@example.com",
+                      "gender": "Male"
+                    }
+                  ]
+   */
+
   List<Map<String, dynamic>> doctorsData = [];
 
   @override
@@ -51,8 +73,8 @@ class DashboardState extends State<DashBoard> {
             "Unknown error occurred $decodedResponse");
       }
     } catch (error) {
-      // print('Something went wrong: $error');
-      rethrow;
+      print('Something went wrong: $error');
+      // rethrow;
     }
   }
 
@@ -142,7 +164,7 @@ class DashboardState extends State<DashBoard> {
                 children: doctorsData.map((item) {
                   i += 1;
                   if (i > 6) i = 0;
-                  print("Phone number: ${item["phonenumber"]}");
+                  // print("Phone number: ${item["phonenumber"]}");
                   return GestureDetector(
                     child: SmallerCard(
                       name: item["fullname"],

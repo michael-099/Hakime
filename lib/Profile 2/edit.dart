@@ -22,6 +22,22 @@ class _EditState extends State<Edit> {
   late TextEditingController cityController;
   late TextEditingController countryController;
   late String dateOfBirth;
+
+  /* Here are some examples data for the following variables
+  
+    profile = {
+                  "id": "65bcc28f9e7d2e27a91cb82d",
+                  "profession": "string",
+                  "fullname": "Some one",
+                  "phonenumber": "0911926066",
+                  "city": "Dire Dawa",
+                  "age": 24,
+                  "imageUrl": "/ProfilePics/65aa80034e3f9f40cfe50e13_66afa0f9-1df5-415a-a933-46a24a6f7cd0.jpg",
+                  "role": "Admin",
+                  "email": "user@example.com",
+                  "gender": "Male"
+              }
+   */
   Map<String, dynamic> profile = Session.cache["user"];
 
   Future<void> updateProfile() async {
@@ -36,14 +52,14 @@ class _EditState extends State<Edit> {
     };
     try {
       final response = await Session.put(updateProfileUrl, updatedProfile);
-      print(response.body);
+      // print(response.body);
       Map<String, dynamic> decodedResponse = jsonDecode(response.body);
-      print(decodedResponse);
+      // print(decodedResponse);
       if (response.statusCode == 200) {
         setState(() {
           Map<String, dynamic> temp =
               decodedResponse["user"] as Map<String, dynamic>;
-          print(temp);
+          // print(temp);
           Session.cache["user"] = temp;
         });
         print('Profile Update successful.');
