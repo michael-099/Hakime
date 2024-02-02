@@ -59,15 +59,15 @@ class ChatState extends State<Chat> {
     try {
       String userId = Session.state["userId"] ?? "None";
       String chattingEndpoint = 'http://localhost:5072/api/user/$userId/chat';
-
+      print("Asking llm with message: $message");
       final response = await Session.post(chattingEndpoint, message);
 
-      dynamic decodedResponse = jsonDecode(response.body);
+      Map<String, dynamic> decodedResponse = jsonDecode(response.body);
       print(decodedResponse);
 
       if (response.statusCode == 200) {
         setState(() {
-          aiMessage = decodedResponse["response"]! as Map<String, dynamic>;
+          aiMessage = decodedResponse["response"];
         });
         print("Ai response: $aiMessage");
       } else {
@@ -110,7 +110,23 @@ class ChatState extends State<Chat> {
             // Your ChatField widget goes here
             ChatField(
                 onPressed: () async {
-                  await askAI(messageController.text);
+                  setState(() {
+                    messages.add({
+                      'type': 0, // Assuming 0 is used for user messages
+                      'content': messageController.text,
+                    });
+                  });
+                  try {
+                    await askAI(messageController.text);
+                    if (aiMessage != {}) {
+                      setState(() {
+                        messages.add(aiMessage);
+                      });
+                    }
+                  } catch (error) {
+                    print("Error: $error");
+                  }
+                  messageController.clear();
                 },
                 textController: messageController),
           ],
