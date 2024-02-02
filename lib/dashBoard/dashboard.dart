@@ -177,7 +177,8 @@ class DashboardState extends State<DashBoard> {
                         return Details(
                             name: item["fullname"],
                             specialization: item["specialization"],
-                            expriance: item["yearOfExperience"].toString(),
+                            expriance:
+                                "${item["yearOfExperience"].toString()} year",
                             city: item["city"],
                             imgs: "img/img($i).jpeg",
                             pno: item["phonenumber"].toString(),
