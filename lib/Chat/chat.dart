@@ -100,18 +100,19 @@ class Chat extends StatefulWidget {
 }
 
 class ChatState extends State<Chat> {
-  List<Map<String, dynamic>> messages = dummyChatData;
-  late List<Map<String, dynamic>> aiMessage;
+  List<Map<String, dynamic>> messages = [];
+  List<Map<String, dynamic>> aiMessage = [];
   TextEditingController messageController = TextEditingController();
 
   @override
-  void initState() {
+  initState() {
     super.initState();
     loadMessages();
   }
 
   Future<void> loadMessages() async {
-    String userId = Session.state["userId"]!;
+    String userId = Session.state["userId"] ?? "None";
+    print("User id : $userId");
     try {
       String messagesEndpoint = 'http://localhost:5072/api/user/$userId/chat';
 
@@ -119,6 +120,7 @@ class ChatState extends State<Chat> {
       Map<String, List<Map<String, dynamic>>> decodedResponse =
           jsonDecode(response.body);
 
+      print(response.body);
       if (response.statusCode == 200) {
         setState(() {
           messages = decodedResponse["messages"]!;
@@ -128,16 +130,16 @@ class ChatState extends State<Chat> {
         print("Error while loading messages");
         print(decodedResponse["errors"] ??
             decodedResponse["error"] ??
-            "Unknown error occured $decodedResponse");
+            "Unknown error occurred $decodedResponse");
       }
     } catch (error) {
-      print('Error: $error');
+      print('Something went wrong: $error');
     }
   }
 
   Future<void> askAI(String message) async {
     try {
-      String userId = Session.state["userId"]!;
+      String userId = Session.state["userId"] ?? "None";
       String chattingEndpoint = 'http://localhost:5072/api/user/$userId/chat';
 
       final response = await Session.post(chattingEndpoint, message);
@@ -161,24 +163,6 @@ class ChatState extends State<Chat> {
     }
   }
 
-  Future<void> fetchData() async {
-    // Your asynchronous data fetching logic goes here
-    // Replace the following line with your actual data fetching code
-    // For example, you can use http package to make a network request
-    // final response = await http.get('your_api_endpoint');
-
-    // Simulating fetched data
-    final List<Map<String, String>> fetchedChatData = [
-      {'sender': 'bot', 'message': 'Hello, how can I help you?'},
-      {'sender': 'user', 'message': 'I have a question.'},
-      // Add more fetched messages as needed
-    ];
-
-    setState(() {
-      messages = fetchedChatData;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -194,7 +178,7 @@ class ChatState extends State<Chat> {
             ),
             Expanded(
               child: ListView(
-                children: dummyChatData.map((message) {
+                children: messages.map((message) {
                   if (message['Type'] == 'Ai') {
                     return BotMsg(message: message['Content']);
                   } else {
