@@ -1,46 +1,52 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 class UserMsg extends StatelessWidget {
   final String message;
+
   UserMsg({required this.message});
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 255, 247, 247),
-        // borderRadius: BorderRadius.only(
-        //   topLeft: Radius.circular(15.0),
-        //   topRight: Radius.circular(15.0),
-        //   bottomLeft: Radius.circular(15.0),
-        //   bottomRight: Radius.circular(0.0),
-        // ),
+        color:  Color(0xfff1f9ff), // Change the color to something attractive
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15.0),
+          topRight: Radius.circular(15.0),
+          bottomLeft: Radius.circular(15.0),
+          bottomRight: Radius.circular(0.0),
+        ),
       ),
       constraints: BoxConstraints(
-        minHeight: 100, // Set your minimum height
-        maxHeight: double.infinity, // Optionally, set a maximum height
-        minWidth: MediaQuery.of(context).size.width * 0.99,
-        maxWidth: MediaQuery.of(context).size.width * 0.99,
+        minHeight: 100,
+        maxHeight: double.infinity,
+        minWidth: MediaQuery.of(context).size.width,
+        maxWidth: MediaQuery.of(context).size.width,
       ),
-      padding: EdgeInsets.all(16.0),
-      margin: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+      padding: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(Icons.person),
+              Icon(Icons.person,color: Color(0xff2E4450).withOpacity(0.80),),
               Text(
                 "you",
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
                   fontSize: 17,
+                  color: Color(0xff2E4450).withOpacity(0.80),
                 ),
               ),
             ],
           ),
-          Text(message,
-              style: TextStyle(
-                fontSize: 15,
-              )),
+          Text(
+            message,
+            style: const TextStyle(
+              fontSize: 15,
+            ),
+          ),
         ],
       ),
     );

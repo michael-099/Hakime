@@ -105,7 +105,7 @@ class _ProfileState extends State<Profile> {
         body: Column(
           children: [
             const CircleAvatar(
-              backgroundImage: AssetImage('img/Doc.jpeg'),
+              backgroundImage: AssetImage('img/img(1).jpeg'),
               radius: 60,
             ),
             TextButton(

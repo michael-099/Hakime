@@ -7,13 +7,13 @@ class BotMsg extends StatelessWidget {
     return ClipRRect(
       child: Container(
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 214, 253, 255),
-          // borderRadius: BorderRadius.only(
-          //   topLeft: Radius.circular(15.0),
-          //   topRight: Radius.circular(15.0),
-          //   bottomLeft: Radius.circular(0.0),
-          //   bottomRight: Radius.circular(15.0),
-          // ),
+         color: Color.fromARGB(255, 166, 240, 251),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(15.0),
+            topRight: Radius.circular(15.0),
+            bottomLeft: Radius.circular(0.0),
+            bottomRight: Radius.circular(15.0),
+          ),
         ),
         
         padding: EdgeInsets.all(16.0),
@@ -23,8 +23,8 @@ class BotMsg extends StatelessWidget {
         constraints: BoxConstraints(
           minHeight: 100, // Set your minimum height
           maxHeight: double.infinity, // Optionally, set a maximum height
-          minWidth: MediaQuery.of(context).size.width * 0.99,
-          maxWidth: MediaQuery.of(context).size.width * 0.99,
+          minWidth: MediaQuery.of(context).size.width * 0.80,
+          maxWidth: MediaQuery.of(context).size.width * 0.80,
         ),
 
         child: Column(
@@ -32,12 +32,13 @@ class BotMsg extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(Icons.android),
+                Icon(Icons.android,color: Color(0xff2E4450).withOpacity(0.80),),
                 Text(
                   "hakime",
                   style: TextStyle(
                     fontWeight: FontWeight.w900,
                     fontSize: 17,
+                    color: Color(0xff2E4450).withOpacity(0.80),
                   ),
                 ),
               ],
