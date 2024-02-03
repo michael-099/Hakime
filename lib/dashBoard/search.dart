@@ -108,6 +108,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Search extends StatelessWidget {
+  final TextEditingController searchController;
+
+  Search({required this.searchController});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -119,25 +123,28 @@ class Search extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: CupertinoSearchTextField(
+        controller: searchController,
         placeholder: 'Search',
-        style: TextStyle(color: Colors.black45), 
+        style: TextStyle(color: Colors.black45),
         decoration: BoxDecoration(
-          color: Colors.white ,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(10.0),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.12), 
+              color: Colors.black.withOpacity(0.12),
               spreadRadius: 1,
               blurRadius: 5,
               offset: Offset(0, 1),
             ),
           ],
         ),
-        itemColor:  Colors.lightBlue.shade200, 
+        itemColor: Colors.lightBlue.shade200,
         onChanged: (value) {
+          // You can perform actions when the text changes
         },
       ),
     );
   }
 }
+
 

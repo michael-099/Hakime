@@ -20,6 +20,8 @@ class DashBoard extends StatefulWidget {
 }
 
 class DashboardState extends State<DashBoard> {
+   final TextEditingController searchController = TextEditingController();
+
   /* Here are some examples data for the following variables
     
     doctorsData = [
@@ -95,7 +97,7 @@ class DashboardState extends State<DashBoard> {
               const SizedBox(
                 height: 10,
               ),
-              Search(),
+               Search(searchController: searchController),
               const SizedBox(
                 height: 10,
               ),
