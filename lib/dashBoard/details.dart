@@ -104,7 +104,7 @@ class _DetailsState extends State<Details> {
     return Dialog(
       child: Container(
         width: 450,
-        height: 700,
+        height: 600,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(

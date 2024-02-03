@@ -51,9 +51,9 @@ class _ProfileState extends State<Profile> {
           backIcon: Icons.person,
           frontIcon: Icons.arrow_forward),
       Datas(
-        content: 'Surname',
+        content: 'Phone number',
         subcontent: surName,
-        backIcon: Icons.person,
+        backIcon: Icons.phone,
         frontIcon: Icons.arrow_forward,
       ),
       Datas(
@@ -68,6 +68,13 @@ class _ProfileState extends State<Profile> {
         backIcon: Icons.location_city,
         frontIcon: Icons.arrow_forward,
       ),
+       Datas(
+        content: 'email',
+        subcontent: city,
+        backIcon: Icons.mail,
+        frontIcon: Icons.arrow_forward,
+      ),
+    
     ];
   }
 
