@@ -16,7 +16,7 @@ class ChatField extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: const Color.fromARGB(255, 219, 219, 219).withOpacity(0.5),
             spreadRadius: 1,
             blurRadius: 3,
             offset: Offset(0, 2),

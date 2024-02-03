@@ -124,29 +124,34 @@ class ScheduleState extends State<Schedules> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Column(
-          children: [
-            SizedBox(height: 20.0),
-            TopBar(
-              categories: "HAKIME",
-              iconData: Icons.notifications_active_outlined,
-              number_of_doctors: "fmdk",
-            ),
-            SizedBox(height: 20.0),
-            // Use the map function to create a list of ScheduleCard widgets
-            ...schedules.map((schedule) {
-              DateTime dateTime = DateTime.parse(schedule['scheduleTime']);
-              String formattedDate = DateFormat("yyyy-MM-dd").format(dateTime);
-              DateTime currentDate = DateTime.now();
-              int daysDifference = dateTime.difference(currentDate).inDays;
-              return ScheduleCard(
-                person: schedule['doctor']['fullname'],
-                discription: schedule['doctor']['specialization'],
-                time: "Date $formattedDate",
-                remainingDays: "In $daysDifference days",
-              );
-            }).toList(),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 20.0),
+              Center(
+                child: TopBar(
+                  categories: "HAKIME",
+                  iconData: Icons.notifications_active_outlined,
+                  number_of_doctors: "fmdk",
+                ),
+              ),
+              SizedBox(height: 20.0),
+              // Use the map function to create a list of ScheduleCard widgets
+              ...schedules.map((schedule) {
+                DateTime dateTime = DateTime.parse(schedule['scheduleTime']);
+                String formattedDate =
+                    DateFormat("yyyy-MM-dd").format(dateTime);
+                DateTime currentDate = DateTime.now();
+                int daysDifference = dateTime.difference(currentDate).inDays;
+                return ScheduleCard(
+                  person: schedule['doctor']['fullname'],
+                  discription: schedule['doctor']['specialization'],
+                  time: "Date $formattedDate",
+                  remainingDays: "In $daysDifference days",
+                );
+              }).toList(),
+            ],
+          ),
         ),
       ),
     );

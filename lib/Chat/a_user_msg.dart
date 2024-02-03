@@ -6,7 +6,7 @@ class UserMsg extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 240, 238, 238),
+        color: Color.fromARGB(255, 255, 247, 247),
         // borderRadius: BorderRadius.only(
         //   topLeft: Radius.circular(15.0),
         //   topRight: Radius.circular(15.0),
@@ -29,7 +29,7 @@ class UserMsg extends StatelessWidget {
             children: [
               Icon(Icons.person),
               Text(
-                "user",
+                "you",
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
                   fontSize: 17,
