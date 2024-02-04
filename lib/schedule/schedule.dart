@@ -144,8 +144,12 @@ class ScheduleState extends State<Schedules> {
                 DateTime currentDate = DateTime.now();
                 int daysDifference = dateTime.difference(currentDate).inDays;
                 return ScheduleCard(
-                  person: schedule['doctor']['fullname'],
-                  discription: schedule['doctor']['specialization'],
+                  person: schedule['doctor'] != null
+                      ? schedule['doctor']['fullname']
+                      : "None",
+                  discription: schedule['doctor'] != null
+                      ? schedule['doctor']['specialization']
+                      : "None",
                   time: "Date $formattedDate",
                   remainingDays: "In $daysDifference days",
                 );
