@@ -124,41 +124,50 @@ class DashboardState extends State<DashBoard> {
                       Container(
                         child: CatagoryCard(
                           iconData: Icons.heat_pump_rounded,
-                          categories: "cardiology",
-                          number_of_doctors: "10",
+                          categories: "Cardiology",
+                          number_of_doctors: "0",
                           image: "img/cardiology.png",
+                          description: "",
                         ),
                       ),
                       Container(
                         child: CatagoryCard(
                           iconData: Icons.heat_pump,
                           categories: "Dermatology",
-                          number_of_doctors: "10",
+                          number_of_doctors: "0",
                           image: "img/dermatologically-tested.png",
+                          description:
+                              "Focuses on the skin, diagnosing and treating disorders, infections, and conditions related to skin health.",
                         ),
                       ),
                       Container(
                         child: CatagoryCard(
                           iconData: Icons.heat_pump,
                           categories: "Immunology",
-                          number_of_doctors: "10",
+                          number_of_doctors: "0",
                           image: "img/immune-system (1).png",
+                          description:
+                              "Explores the body's immune system, its functions, and responses to infections, allergies, and diseases.",
                         ),
                       ),
                       Container(
                         child: CatagoryCard(
                           iconData: Icons.heat_pump,
                           categories: "Pathology",
-                          number_of_doctors: "10",
+                          number_of_doctors: "0",
                           image: "img/microscope.png",
+                          description:
+                              "About any disease, examining its causes, mechanisms, and effects on bodily structures and functions.",
                         ),
                       ),
                       Container(
                         child: CatagoryCard(
                           iconData: Icons.heat_pump,
-                          categories: "neurology",
-                          number_of_doctors: "10",
+                          categories: "Neurology",
+                          number_of_doctors: "1",
                           image: "img/neurology.png",
+                          description:
+                              "Focuses on the diagnosis and treatment of disorders affecting the nervous system, including the brain.",
                         ),
                       ),
                     ],
