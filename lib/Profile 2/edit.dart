@@ -21,6 +21,7 @@ class _EditState extends State<Edit> {
   late TextEditingController dateOfBirthController;
   late TextEditingController cityController;
   late TextEditingController countryController;
+  late TextEditingController emailController;
   late String dateOfBirth;
 
   /* Here are some examples data for the following variables
@@ -43,12 +44,16 @@ class _EditState extends State<Edit> {
   Future<void> updateProfile() async {
     String userId = Session.state["userId"]!;
     String nameValue = nameController.text;
+    String pnoValue = surnameController.text;
     String cityValue = cityController.text;
+    String emailValue = emailController.text;
     String updateProfileUrl = "http://localhost:5072/api/user/$userId";
 
     Map<String, dynamic> updatedProfile = {
       "city": cityValue,
       "fullname": nameValue,
+      "email": emailValue,
+      "phonenumber": pnoValue
     };
     try {
       final response = await Session.put(updateProfileUrl, updatedProfile);
@@ -84,18 +89,20 @@ class _EditState extends State<Edit> {
     dateOfBirthController = TextEditingController();
     cityController = TextEditingController();
     countryController = TextEditingController();
+    emailController = TextEditingController();
 
     bool hasName = profile["fullname"] != null &&
         profile["fullname"].toString().length > 0 &&
         profile["fullname"].toString().contains(" ");
-    String surName =
-        hasName ? profile["fullname"].toString().split(" ")[1] : "";
+    String phonenumber = hasName ? profile["phonenumber"].toString() : "";
     String name = hasName ? profile["fullname"] : "";
     String city = hasName ? profile["city"] : "";
+    String email = hasName ? profile["email"] : "";
     nameController.text = name;
-    surnameController.text = surName;
+    surnameController.text = phonenumber;
     dateOfBirthController.text = hasName ? "January 1, 1990" : "";
     cityController.text = city;
+    emailController.text = email;
   }
 
   @override
@@ -139,6 +146,13 @@ class _EditState extends State<Edit> {
             ),
             const SizedBox(
               height: 25,
+            ),
+            MyTextField(
+              labelText: "Pno",
+              width: 300,
+              obscureText: false,
+              color: Color(0xff2E4450).withOpacity(0.60),
+              myController: emailController,
             ),
             MyTextField(
               labelText: "Pno",

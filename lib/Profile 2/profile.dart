@@ -38,12 +38,11 @@ class _ProfileState extends State<Profile> {
     bool hasName = profileData["fullname"] != null &&
         profileData["fullname"].toString().length > 0 &&
         profileData["fullname"].toString().contains(" ");
-    String surName =
-        hasName ? profileData["fullname"].toString().split(" ")[1] : "";
+    String phonenumber = hasName ? profileData["phonenumber"].toString() : "";
     String name = hasName ? profileData["fullname"] : "";
     String city = hasName ? profileData["city"] : "";
+    String email = hasName ? profileData["email"] : "";
     print("User : $profileData");
-    print("Sur name: $surName");
     dataitems = [
       Datas(
           content: "Name",
@@ -52,7 +51,7 @@ class _ProfileState extends State<Profile> {
           frontIcon: Icons.arrow_forward),
       Datas(
         content: 'Phone number',
-        subcontent: surName,
+        subcontent: phonenumber,
         backIcon: Icons.phone,
         frontIcon: Icons.arrow_forward,
       ),
@@ -68,13 +67,12 @@ class _ProfileState extends State<Profile> {
         backIcon: Icons.location_city,
         frontIcon: Icons.arrow_forward,
       ),
-       Datas(
+      Datas(
         content: 'email',
-        subcontent: city,
+        subcontent: email,
         backIcon: Icons.mail,
         frontIcon: Icons.arrow_forward,
       ),
-    
     ];
   }
 
