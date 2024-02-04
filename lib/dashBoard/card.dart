@@ -85,7 +85,10 @@ class CatagoryCard extends StatelessWidget {
                         fontSize: 18.0,
                         fontWeight: FontWeight.w600,
                         color: Color(0xff2E4450).withOpacity(0.80),
-                        decoration: TextDecoration.none),
+                        decoration: TextDecoration.none,
+                        //  fontStyle: FontStyle.normal,
+                         ),
+
                   ),
 
                   // alignment: AlignmentGeometry alignment = Alignment.topLeft,
