@@ -47,7 +47,8 @@ class _EditState extends State<Edit> {
     String pnoValue = surnameController.text;
     String cityValue = cityController.text;
     String emailValue = emailController.text;
-    String updateProfileUrl = "http://localhost:5072/api/user/$userId";
+    String updateProfileUrl = "https://03f5-196-188-160-63.ngrok-free.app/api/user/$userId";
+    //  String updateProfileUrl = "http://localhost:5072/api/user/$userId";
 
     Map<String, dynamic> updatedProfile = {
       "city": cityValue,
@@ -109,7 +110,7 @@ class _EditState extends State<Edit> {
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
-        width: 350,
+        width: 450,
         height: 600,
         decoration: BoxDecoration(
           boxShadow: [
@@ -123,112 +124,114 @@ class _EditState extends State<Edit> {
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
         ),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 25,
-            ),
-            Text(
-              "Edit",
-              style: TextStyle(
-                fontSize: 30,
-                color: Color(0xff2E4450).withOpacity(0.90),
-                fontWeight: FontWeight.w200,
-                decoration: TextDecoration.none,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 25,
               ),
-            ),
-            MyTextField(
-              labelText: "Name",
-              width: 300,
-              obscureText: false,
-              color: Color(0xff2E4450).withOpacity(0.60),
-              myController: nameController,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            MyTextField(
-              labelText: "Pno",
-              width: 300,
-              obscureText: false,
-              color: Color(0xff2E4450).withOpacity(0.60),
-              myController: emailController,
-            ),
-            MyTextField(
-              labelText: "Pno",
-              width: 300,
-              obscureText: false,
-              color: Color(0xff2E4450).withOpacity(0.60),
-              myController: surnameController,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            MyTextField(
-              labelText: "Date of Birth",
-              width: 300,
-              obscureText: false,
-              color: Color(0xff2E4450).withOpacity(0.60),
-              myController: dateOfBirthController,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            MyTextField(
-              labelText: "City",
-              width: 300,
-              obscureText: false,
-              color: Color(0xff2E4450).withOpacity(0.60),
-              myController: cityController,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            // MyTextField(
-            //   labelText: "Country",
-            //   width: 300,
-            //   obscureText: false,
-            //   color: Color(0xff2E4450).withOpacity(0.60),
-            //   myController: countryController,
-            // ),
-            // const SizedBox(
-            //   height: 25,
-            // ),
-            GestureDetector(
-              onTap: () async {
-                String dateOfBirthValue = dateOfBirthController.text;
-                await updateProfile();
-                setState(() {
-                  dateOfBirth = dateOfBirthValue;
-                  if (widget.onUpdate != null) {
-                    widget.onUpdate!();
-                    print("widget updated");
-                  } else {
-                    print("widget function null");
-                  }
-                });
-
-                Navigator.pop(context);
-              },
-              child: const Button(
-                height: 40,
-                radius: 20,
-                label: "Continue",
+              Text(
+                "Edit",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Color(0xff2E4450).withOpacity(0.90),
+                  fontWeight: FontWeight.w200,
+                  decoration: TextDecoration.none,
+                ),
+              ),
+              MyTextField(
+                labelText: "Name",
                 width: 200,
-                fontSize: 20,
+                obscureText: false,
+                color: Color(0xff2E4450).withOpacity(0.60),
+                myController: nameController,
               ),
-            ),
-            GestureDetector(
-              onTap: () => Navigator.pop(context),
-              child: const Button(
-                height: 40,
-                radius: 20,
-                label: "Discard",
+              const SizedBox(
+                height: 25,
+              ),
+              MyTextField(
+                labelText: "email",
                 width: 200,
-                fontSize: 20,
+                obscureText: false,
+                color: Color(0xff2E4450).withOpacity(0.60),
+                myController: emailController,
               ),
-            )
-          ],
+              MyTextField(
+                labelText: "Pno",
+                width: 200,
+                obscureText: false,
+                color: Color(0xff2E4450).withOpacity(0.60),
+                myController: surnameController,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              MyTextField(
+                labelText: "Date of Birth",
+                width: 200,
+                obscureText: false,
+                color: Color(0xff2E4450).withOpacity(0.60),
+                myController: dateOfBirthController,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              MyTextField(
+                labelText: "City",
+                width: 200,
+                obscureText: false,
+                color: Color(0xff2E4450).withOpacity(0.60),
+                myController: cityController,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              // MyTextField(
+              //   labelText: "Country",
+              //   width: 300,
+              //   obscureText: false,
+              //   color: Color(0xff2E4450).withOpacity(0.60),
+              //   myController: countryController,
+              // ),
+              // const SizedBox(
+              //   height: 25,
+              // ),
+              GestureDetector(
+                onTap: () async {
+                  String dateOfBirthValue = dateOfBirthController.text;
+                  await updateProfile();
+                  setState(() {
+                    dateOfBirth = dateOfBirthValue;
+                    if (widget.onUpdate != null) {
+                      widget.onUpdate!();
+                      print("widget updated");
+                    } else {
+                      print("widget function null");
+                    }
+                  });
+          
+                  Navigator.pop(context);
+                },
+                child: const Button(
+                  height: 40,
+                  radius: 20,
+                  label: "Continue",
+                  width: 200,
+                  fontSize: 20,
+                ),
+              ),
+              GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: const Button(
+                  height: 40,
+                  radius: 20,
+                  label: "Discard",
+                  width: 200,
+                  fontSize: 20,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

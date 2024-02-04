@@ -57,7 +57,8 @@ class ChatState extends State<Chat> {
     String userId = Session.state["userId"] ?? "None";
     // print("User id : $userId");
     try {
-      String messagesEndpoint = 'http://localhost:5072/api/user/$userId/chat';
+      // String messagesEndpoint = 'http://localhost:5072/api/user/$userId/chat';
+      String messagesEndpoint = 'https://03f5-196-188-160-63.ngrok-free.app/api/user/$userId/chat';
 
       final response = await Session.get(messagesEndpoint);
       Map<String, dynamic> decodedResponse = jsonDecode(response.body);
@@ -86,7 +87,8 @@ class ChatState extends State<Chat> {
   Future<void> askAI(String message) async {
     try {
       String userId = Session.state["userId"] ?? "None";
-      String chattingEndpoint = 'http://localhost:5072/api/user/$userId/chat';
+      String chattingEndpoint = 'https://03f5-196-188-160-63.ngrok-free.app/api/user/$userId/chat';
+      //  String chattingEndpoint = 'http://localhost:5072/api/user/$userId/chat';
       print("Asking llm with message: $message");
       final response = await Session.post(chattingEndpoint, message);
 
@@ -118,10 +120,12 @@ class ChatState extends State<Chat> {
         body: Column(
           children: [
             // Your TopBar widget goes here
-            TopBar(
-              categories: "HAKIME",
-              iconData: Icons.notifications_active_outlined,
-              number_of_doctors: "fmdk",
+            SafeArea(
+              child: TopBar(
+                categories: "HAKIME",
+                iconData: Icons.notifications_active_outlined,
+                number_of_doctors: "fmdk",
+              ),
             ),
             Expanded(
               child: ListView(

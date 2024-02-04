@@ -51,7 +51,8 @@ class DashboardState extends State<DashBoard> {
   }
 
   Future<void> fetchDoctors({String queryParameter = ""}) async {
-    String baseUrl = "http://localhost:5072/api/doctor";
+    // String baseUrl = "http://localhost:5072/api/doctor";
+    String baseUrl = "https://03f5-196-188-160-63.ngrok-free.app/api/doctor";
     try {
       String doctorsEndpoint = queryParameter != ""
           ? "$baseUrl?specialization=$queryParameter"
@@ -87,128 +88,130 @@ class DashboardState extends State<DashBoard> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              TopBar(
-                  categories: "HAKIME",
-                  iconData: Icons.notifications_active_outlined,
-                  number_of_doctors: "fmdk"),
-              const SizedBox(
-                height: 10,
-              ),
-              Search(
-                  searchController: searchController,
-                  onSearch: () async {
-                    await fetchDoctors(queryParameter: searchController.text);
-                    print(
-                        "Enter key pressed! Search term: ${searchController.text}");
-                    searchController.clear();
-                  }),
-              const SizedBox(
-                height: 10,
-              ),
-              Ad(),
-              const SizedBox(
-                height: 20,
-              ),
-              TextW(texts: "catagories"),
-              Container(
-                width: 370,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        child: CatagoryCard(
-                          iconData: Icons.heat_pump_rounded,
-                          categories: "Cardiology",
-                          number_of_doctors: "0",
-                          image: "img/cardiology.png",
-                          description: "",
+          child: SafeArea(
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                TopBar(
+                    categories: "HAKIME",
+                    iconData: Icons.notifications_active_outlined,
+                    number_of_doctors: "fmdk"),
+                const SizedBox(
+                  height: 10,
+                ),
+                Search(
+                    searchController: searchController,
+                    onSearch: () async {
+                      await fetchDoctors(queryParameter: searchController.text);
+                      print(
+                          "Enter key pressed! Search term: ${searchController.text}");
+                      searchController.clear();
+                    }),
+                const SizedBox(
+                  height: 10,
+                ),
+                Ad(),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextW(texts: "catagories"),
+                Container(
+                  width: 370,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Container(
+                          child: CatagoryCard(
+                            iconData: Icons.heat_pump_rounded,
+                            categories: "Cardiology",
+                            number_of_doctors: "0",
+                            image: "img/cardiology.png",
+                            description: "",
+                          ),
                         ),
-                      ),
-                      Container(
-                        child: CatagoryCard(
-                          iconData: Icons.heat_pump,
-                          categories: "Dermatology",
-                          number_of_doctors: "0",
-                          image: "img/dermatologically-tested.png",
-                          description:
-                              "Focuses on the skin, diagnosing and treating disorders, infections, and conditions related to skin health.",
+                        Container(
+                          child: CatagoryCard(
+                            iconData: Icons.heat_pump,
+                            categories: "Dermatology",
+                            number_of_doctors: "0",
+                            image: "img/dermatologically-tested.png",
+                            description:
+                                "Focuses on the skin, diagnosing and treating disorders, infections, and conditions related to skin health.",
+                          ),
                         ),
-                      ),
-                      Container(
-                        child: CatagoryCard(
-                          iconData: Icons.heat_pump,
-                          categories: "Immunology",
-                          number_of_doctors: "0",
-                          image: "img/immune-system (1).png",
-                          description:
-                              "Explores the body's immune system, its functions, and responses to infections, allergies, and diseases.",
+                        Container(
+                          child: CatagoryCard(
+                            iconData: Icons.heat_pump,
+                            categories: "Immunology",
+                            number_of_doctors: "0",
+                            image: "img/immune-system (1).png",
+                            description:
+                                "Explores the body's immune system, its functions, and responses to infections, allergies, and diseases.",
+                          ),
                         ),
-                      ),
-                      Container(
-                        child: CatagoryCard(
-                          iconData: Icons.heat_pump,
-                          categories: "Pathology",
-                          number_of_doctors: "0",
-                          image: "img/microscope.png",
-                          description:
-                              "About any disease, examining its causes, mechanisms, and effects on bodily structures and functions.",
+                        Container(
+                          child: CatagoryCard(
+                            iconData: Icons.heat_pump,
+                            categories: "Pathology",
+                            number_of_doctors: "0",
+                            image: "img/microscope.png",
+                            description:
+                                "About any disease, examining its causes, mechanisms, and effects on bodily structures and functions.",
+                          ),
                         ),
-                      ),
-                      Container(
-                        child: CatagoryCard(
-                          iconData: Icons.heat_pump,
-                          categories: "Neurology",
-                          number_of_doctors: "1",
-                          image: "img/neurology.png",
-                          description:
-                              "Focuses on the diagnosis and treatment of disorders affecting the nervous system, including the brain.",
+                        Container(
+                          child: CatagoryCard(
+                            iconData: Icons.heat_pump,
+                            categories: "Neurology",
+                            number_of_doctors: "1",
+                            image: "img/neurology.png",
+                            description:
+                                "Focuses on the diagnosis and treatment of disorders affecting the nervous system, including the brain.",
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextW(
-                texts: "Recommendations",
-              ),
-              Column(
-                children: doctorsData.map((item) {
-                  i += 1;
-                  if (i > 6) i = 0;
-                  // print("Phone number: ${item["phonenumber"]}");
-                  return GestureDetector(
-                    child: SmallerCard(
-                      name: item["fullname"],
-                      specialization: item["specialization"],
-                      img: "img/img($i).jpeg",
-                    ),
-                    onTap: () {
-                      Navigator.of(context)
-                          .push(HeroDialogRoute(builder: (context) {
-                        return Details(
-                            name: item["fullname"],
-                            specialization: item["specialization"],
-                            experience:
-                                "${item["yearOfExperience"].toString()} years",
-                            city: item["city"],
-                            imgs: "img/img($i).jpeg",
-                            pno: item["phonenumber"].toString(),
-                            id: item["id"]);
-                      }));
-                    },
-                  );
-                }).toList(),
-              ),
-            ],
+                const SizedBox(
+                  height: 10,
+                ),
+                TextW(
+                  texts: "Recommendations",
+                ),
+                Column(
+                  children: doctorsData.map((item) {
+                    i += 1;
+                    if (i > 6) i = 0;
+                    // print("Phone number: ${item["phonenumber"]}");
+                    return GestureDetector(
+                      child: SmallerCard(
+                        name: item["fullname"],
+                        specialization: item["specialization"],
+                        img: "img/img($i).jpeg",
+                      ),
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(HeroDialogRoute(builder: (context) {
+                          return Details(
+                              name: item["fullname"],
+                              specialization: item["specialization"],
+                              experience:
+                                  "${item["yearOfExperience"].toString()} years",
+                              city: item["city"],
+                              imgs: "img/img($i).jpeg",
+                              pno: item["phonenumber"].toString(),
+                              id: item["id"]);
+                        }));
+                      },
+                    );
+                  }).toList(),
+                ),
+              ],
+            ),
           ),
         ));
   }

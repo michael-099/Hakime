@@ -71,7 +71,8 @@ class _DetailsState extends State<Details> {
 
   Future<void> _createSchedule(DateTime? selectedDate) async {
     if (selectedDate != null) {
-      const String scheduleEndpoint = 'http://localhost:5072/api/user/schedule';
+      // const String scheduleEndpoint = 'http://localhost:5072/api/user/schedule';
+      const String scheduleEndpoint = 'https://03f5-196-188-160-63.ngrok-free.app/api/user/schedule';
       final String temp = selectedDate.toIso8601String();
       print("Stored Schedule: $temp");
       final Map<String, dynamic> requestBody = {
@@ -116,54 +117,56 @@ class _DetailsState extends State<Details> {
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
         ),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 30,
-            ),
-            CircleAvatar(
-              backgroundImage: AssetImage(widget.imgs),
-              radius: 40,
-            ),
-            Text(widget.name,
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Color(0xff2E4450).withOpacity(0.90),
-                    fontWeight: FontWeight.w200,
-                    decoration: TextDecoration.none)),
-            ProfileCard(
-                name: widget.name,
-                specialization: widget.specialization,
-                city: widget.city,
-                experience: widget.experience,
-                pno: widget.pno,
-                id: widget.id),
-            // Expanded(
-            //   child: ListView.builder(
-            //     itemCount: dataitems.length,
-            //     itemBuilder: (context, index) => ProfileCard(
-            //         name: dataitems[index].name,
-            //         specialization: dataitems[index].specialization,
-            //         city: dataitems[index].city,
-            //         country: dataitems[index].city,
-            //         experience: dataitems[index].experience),
-            //   ),
-            // ),
-            GestureDetector(
-                onTap: () => {Navigator.pop(context)},
-                child: const Button(
-                  height: 40,
-                  label: "Done",
-                  width: 200,
-                )),
-            GestureDetector(
-                onTap: _showDatePicker,
-                child: const Button(
-                  height: 40,
-                  label: "Schedule",
-                  width: 200,
-                ))
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              CircleAvatar(
+                backgroundImage: AssetImage(widget.imgs),
+                radius: 40,
+              ),
+              Text(widget.name,
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: Color(0xff2E4450).withOpacity(0.90),
+                      fontWeight: FontWeight.w200,
+                      decoration: TextDecoration.none)),
+              ProfileCard(
+                  name: widget.name,
+                  specialization: widget.specialization,
+                  city: widget.city,
+                  experience: widget.experience,
+                  pno: widget.pno,
+                  id: widget.id),
+              // Expanded(
+              //   child: ListView.builder(
+              //     itemCount: dataitems.length,
+              //     itemBuilder: (context, index) => ProfileCard(
+              //         name: dataitems[index].name,
+              //         specialization: dataitems[index].specialization,
+              //         city: dataitems[index].city,
+              //         country: dataitems[index].city,
+              //         experience: dataitems[index].experience),
+              //   ),
+              // ),
+              GestureDetector(
+                  onTap: () => {Navigator.pop(context)},
+                  child: const Button(
+                    height: 40,
+                    label: "Done",
+                    width: 200,
+                  )),
+              GestureDetector(
+                  onTap: _showDatePicker,
+                  child: const Button(
+                    height: 40,
+                    label: "Schedule",
+                    width: 200,
+                  ))
+            ],
+          ),
         ),
       ),
     );

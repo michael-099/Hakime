@@ -102,6 +102,7 @@ class _ProfileState extends State<Profile> {
       home: Scaffold(
         body: Column(
           children: [
+            SizedBox(height:60),
             const CircleAvatar(
               backgroundImage: AssetImage('img/img(1).jpeg'),
               radius: 60,
@@ -120,7 +121,8 @@ class _ProfileState extends State<Profile> {
                   populateList();
                 });
               },
-              child: Text('Edit profile '),
+             
+              child: Text('Edit profile', style: TextStyle(color: Colors.blue[400],fontWeight: FontWeight.w800,),),
             ),
             Expanded(
               child: ListView.builder(
@@ -139,3 +141,17 @@ class _ProfileState extends State<Profile> {
 // void main() {
 //   runApp(Profile());
 // }
+
+//  TextButton(
+//               child: Text(
+//                 "sign in",
+//                 style: TextStyle(color: Colors.blue[400]),
+//                 textAlign: TextAlign.right,
+//               ),
+//               onPressed: () {
+//                 Navigator.push(
+//                   context,
+//                   MaterialPageRoute(builder: (context) => SignIn()),
+//                 );
+//               },
+            // ),

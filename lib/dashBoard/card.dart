@@ -93,22 +93,22 @@ class CatagoryCard extends StatelessWidget {
                     Text(
                       "Short description of what $categories is",
                       style: TextStyle(
-                          fontSize: 15.0,
+                          fontSize: 11.0,
                           fontWeight: FontWeight.w200,
                           color: Colors.grey[400],
                           decoration: TextDecoration.none),
                       textAlign: TextAlign.left,
                     ),
                     const SizedBox(width: 40),
-                    Text(
-                      description,
-                      style: TextStyle(
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w200,
-                          color: Colors.grey[400],
-                          decoration: TextDecoration.none),
-                      textAlign: TextAlign.left,
-                    )
+                    // Text(
+                    //   description,
+                    //   style: TextStyle(
+                    //       fontSize: 15.0,
+                    //       fontWeight: FontWeight.w200,
+                    //       color: Colors.grey[400],
+                    //       decoration: TextDecoration.none),
+                    //   textAlign: TextAlign.left,
+                    // )
                   ]),
                 ],
               ),

@@ -93,7 +93,8 @@ class ScheduleState extends State<Schedules> {
 
   Future<void> loadSchedules() async {
     try {
-      String scheduleEndpoint = 'http://localhost:5072/api/user/schedule';
+      // String scheduleEndpoint = 'http://localhost:5072/api/user/schedule';
+       String scheduleEndpoint = 'https://03f5-196-188-160-63.ngrok-free.app/api/user/schedule';
 
       final response = await Session.get(scheduleEndpoint);
       Map<String, dynamic> decodedResponse = jsonDecode(response.body);

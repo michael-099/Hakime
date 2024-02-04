@@ -10,8 +10,8 @@ class Pay extends StatelessWidget {
 
     return Dialog(
       child: Container(
-        width: 350,
-        height: 350,
+        width: 500,
+        height: 400,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -32,20 +32,20 @@ class Pay extends StatelessWidget {
             Text(
                 " Payment information",
                 style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 25,
                     color: Color(0xff2E4450).withOpacity(0.90),
                     fontWeight: FontWeight.w200,
                     decoration: TextDecoration.none)),
             PaymentMethods(),
             MyTextField(
                 labelText: "cardholder number ",
-                width: 300,
+                width: 200,
                 obscureText: false,
                 color: Color(0xff2E4450).withOpacity(0.60),
                 myController: number),
             MyTextField(
                 labelText: "credit card name",
-                width: 300,
+                width: 200,
                 obscureText: false,
                 color: Color(0xff2E4450).withOpacity(0.60),
                 myController: name),

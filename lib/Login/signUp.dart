@@ -107,7 +107,9 @@ class SignUp extends StatelessWidget {
                   print(roleval);
                   try {
                     const String authenticationEndpoint =
-                        'http://localhost:5072/api/auth/signup';
+                        'https://03f5-196-188-160-63.ngrok-free.app/api/auth/signup';
+                        //   const String authenticationEndpoint =
+                        // 'http://localhost:5072/api/auth/signup';
 
                     final Map<String, String> body = {
                       'email': email,
