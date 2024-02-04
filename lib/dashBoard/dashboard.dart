@@ -5,11 +5,9 @@ import "../utils/session.dart";
 import "ad.dart";
 import "card.dart";
 import "search.dart";
-import 'paymentInfo.dart';
 import "smallerCard.dart";
 import 'TopBar.dart';
 import "Text.dart";
-import 'docData.dart';
 import 'details.dart';
 
 class DashBoard extends StatefulWidget {
@@ -20,7 +18,7 @@ class DashBoard extends StatefulWidget {
 }
 
 class DashboardState extends State<DashBoard> {
-   final TextEditingController searchController = TextEditingController();
+  final TextEditingController searchController = TextEditingController();
 
   /* Here are some examples data for the following variables
     
@@ -52,10 +50,14 @@ class DashboardState extends State<DashBoard> {
     fetchDoctors();
   }
 
-  Future<void> fetchDoctors() async {
+  Future<void> fetchDoctors({String queryParameter = ""}) async {
+    String baseUrl = "http://localhost:5072/api/doctor";
     try {
-      String doctorsEndpoint = 'http://localhost:5072/api/doctor';
+      String doctorsEndpoint = queryParameter != ""
+          ? "$baseUrl?specialization=$queryParameter"
+          : baseUrl;
 
+      print(doctorsEndpoint);
       final response = await Session.get(doctorsEndpoint);
       Map<String, dynamic> decodedResponse = jsonDecode(response.body);
       print(decodedResponse);
@@ -97,7 +99,14 @@ class DashboardState extends State<DashBoard> {
               const SizedBox(
                 height: 10,
               ),
-               Search(searchController: searchController),
+              Search(
+                  searchController: searchController,
+                  onSearch: () async {
+                    await fetchDoctors(queryParameter: searchController.text);
+                    print(
+                        "Enter key pressed! Search term: ${searchController.text}");
+                    searchController.clear();
+                  }),
               const SizedBox(
                 height: 10,
               ),
@@ -105,7 +114,7 @@ class DashboardState extends State<DashBoard> {
               const SizedBox(
                 height: 20,
               ),
-              TextW(texts: "catagoreis"),
+              TextW(texts: "catagories"),
               Container(
                 width: 370,
                 child: SingleChildScrollView(

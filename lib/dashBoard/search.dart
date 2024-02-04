@@ -106,11 +106,13 @@
 // }
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Search extends StatelessWidget {
   final TextEditingController searchController;
+  final VoidCallback onSearch;
 
-  Search({required this.searchController});
+  Search({required this.searchController, required this.onSearch});
 
   @override
   Widget build(BuildContext context) {
@@ -140,11 +142,10 @@ class Search extends StatelessWidget {
         ),
         itemColor: Colors.lightBlue.shade200,
         onChanged: (value) {
-          // You can perform actions when the text changes
+          //You can perform actions when the text changes
         },
+        onSubmitted: (_) => onSearch(),
       ),
     );
   }
 }
-
-
