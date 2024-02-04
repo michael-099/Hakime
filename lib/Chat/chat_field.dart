@@ -32,6 +32,7 @@ class ChatField extends StatelessWidget {
                 hintText: 'Type your message...',
                 border: InputBorder.none,
               ),
+              onSubmitted: (_) => onPressed!(),
             ),
           ),
           IconButton(

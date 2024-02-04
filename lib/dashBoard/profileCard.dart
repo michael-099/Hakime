@@ -34,7 +34,7 @@ class ProfileCard extends StatelessWidget {
             tileColor: Colors.white,
           ),
           ListTile(
-            title: Text("Expriance"),
+            title: Text("Experience"),
             subtitle: Text(experience),
             leading: Icon(Icons.badge),
             tileColor: Colors.white,

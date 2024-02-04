@@ -145,7 +145,9 @@ class ChatState extends State<Chat> {
                     });
                   });
                   try {
-                    await askAI(messageController.text);
+                    String message = messageController.text;
+                    messageController.clear();
+                    await askAI(message);
                     if (aiMessage != {}) {
                       setState(() {
                         messages.add(aiMessage);
@@ -154,7 +156,6 @@ class ChatState extends State<Chat> {
                   } catch (error) {
                     print("Error: $error");
                   }
-                  messageController.clear();
                 },
                 textController: messageController),
           ],

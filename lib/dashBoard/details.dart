@@ -11,7 +11,7 @@ class Details extends StatefulWidget {
   final String name;
   final String specialization;
   final String city;
-  final String expriance;
+  final String experience;
   final String imgs;
   final String pno;
   final String id;
@@ -20,7 +20,7 @@ class Details extends StatefulWidget {
       {required this.name,
       required this.specialization,
       required this.city,
-      required this.expriance,
+      required this.experience,
       required this.imgs,
       required this.pno,
       required this.id});
@@ -32,43 +32,42 @@ class Details extends StatefulWidget {
 class _DetailsState extends State<Details> {
   DateTime? selectedDate;
   void _showDatePicker() {
-  showDatePicker(
-    context: context,
-    initialDate: DateTime.now(),
-    firstDate: DateTime(2000),
-    lastDate: DateTime(2025),
-  ).then((value) {
-    if (value != null && DateTime.now().isBefore(value)) {
-      setState(() {
-        print("Date picked $value");
-        selectedDate = value;
-      });
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2025),
+    ).then((value) {
+      if (value != null && DateTime.now().isBefore(value)) {
+        setState(() {
+          print("Date picked $value");
+          selectedDate = value;
+        });
 
-      // Add your logic to send a request to the server with the selectedDate
-      _createSchedule(selectedDate);
+        // Add your logic to send a request to the server with the selectedDate
+        _createSchedule(selectedDate);
 
-      // Show an alert for successful schedule addition
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Success'),
-            content: Text('Schedule added successfully for $selectedDate.'),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop(); // Close the AlertDialog
-                },
-                child: Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
-    }
-  });
-}
-
+        // Show an alert for successful schedule addition
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Success'),
+              content: Text('Schedule added successfully for $selectedDate.'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(); // Close the AlertDialog
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    });
+  }
 
   Future<void> _createSchedule(DateTime? selectedDate) async {
     if (selectedDate != null) {
@@ -136,7 +135,7 @@ class _DetailsState extends State<Details> {
                 name: widget.name,
                 specialization: widget.specialization,
                 city: widget.city,
-                experience: widget.expriance,
+                experience: widget.experience,
                 pno: widget.pno,
                 id: widget.id),
             // Expanded(
