@@ -10,7 +10,7 @@ import 'Login/signUp.dart';
 void main() {
   //The backend to our project is built using dotnet and can be found here https://github.com/HabeshaCare/BackendServer
   runApp(
-    //Uncomment the following pages to view what the pages look like separately.
+    //Uncomment the following pages to view what the pages look like separately. And comment out the MaterialApp(home: SignUp()), part
     
     // Login(),
     // DashBoard(),
@@ -19,7 +19,8 @@ void main() {
     // Main(),
     // SignUp()
 
-    //Make sure the dotnet server is running on localhost:5072 before running the app using this code.
+    //Make sure the dotnet server is running on localhost:5072 before running the app using this code. Or comment this part and follow the above UIs.
+    
     MaterialApp(home: SignUp()),
     // DashBoard()
   );
