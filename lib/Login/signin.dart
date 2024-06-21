@@ -61,10 +61,10 @@ class SignIn extends StatelessWidget {
                           String pass = passwordController.text;
 
                           try {
-                            // const String authenticationEndpoint =
-                            //     'http://localhost:5072/api/auth/login';
-                                 const String authenticationEndpoint =
-                                'https://03f5-196-188-160-63.ngrok-free.app/api/auth/login';
+                            const String authenticationEndpoint =
+                                'http://localhost:5072/api/auth/login';
+                                //  const String authenticationEndpoint =
+                                // 'https://03f5-196-188-160-63.ngrok-free.app/api/auth/login';
 
                             final Map<String, String> body = {
                               'email': email,

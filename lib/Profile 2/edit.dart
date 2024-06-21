@@ -47,8 +47,8 @@ class _EditState extends State<Edit> {
     String pnoValue = surnameController.text;
     String cityValue = cityController.text;
     String emailValue = emailController.text;
-    String updateProfileUrl = "https://03f5-196-188-160-63.ngrok-free.app/api/user/$userId";
-    //  String updateProfileUrl = "http://localhost:5072/api/user/$userId";
+    // String updateProfileUrl = "https://03f5-196-188-160-63.ngrok-free.app/api/user/$userId";
+     String updateProfileUrl = "http://localhost:5072/api/patient/$userId/profile";
 
     Map<String, dynamic> updatedProfile = {
       "city": cityValue,

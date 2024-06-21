@@ -57,8 +57,8 @@ class ChatState extends State<Chat> {
     String userId = Session.state["userId"] ?? "None";
     // print("User id : $userId");
     try {
-      // String messagesEndpoint = 'http://localhost:5072/api/user/$userId/chat';
-      String messagesEndpoint = 'https://03f5-196-188-160-63.ngrok-free.app/api/user/$userId/chat';
+      String messagesEndpoint = 'http://localhost:5072/api/ai/conversation/$userId/chat';
+      // String messagesEndpoint = 'https://03f5-196-188-160-63.ngrok-free.app/api/user/$userId/chat';
 
       final response = await Session.get(messagesEndpoint);
       Map<String, dynamic> decodedResponse = jsonDecode(response.body);
@@ -87,8 +87,8 @@ class ChatState extends State<Chat> {
   Future<void> askAI(String message) async {
     try {
       String userId = Session.state["userId"] ?? "None";
-      String chattingEndpoint = 'https://03f5-196-188-160-63.ngrok-free.app/api/user/$userId/chat';
-      //  String chattingEndpoint = 'http://localhost:5072/api/user/$userId/chat';
+      // String chattingEndpoint = 'https://03f5-196-188-160-63.ngrok-free.app/api/user/$userId/chat';
+       String chattingEndpoint = 'http://localhost:5072/api/ai/conversation/$userId/chat';
       print("Asking llm with message: $message");
       final response = await Session.post(chattingEndpoint, message);
 

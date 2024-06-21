@@ -70,9 +70,12 @@ class _DetailsState extends State<Details> {
   }
 
   Future<void> _createSchedule(DateTime? selectedDate) async {
+    String userId = Session.state["userId"] ?? "None";
     if (selectedDate != null) {
-      // const String scheduleEndpoint = 'http://localhost:5072/api/user/schedule';
-      const String scheduleEndpoint = 'https://03f5-196-188-160-63.ngrok-free.app/api/user/schedule';
+      String scheduleEndpoint =
+          'http://localhost:5072/api/user/$userId/schedule';
+      // const String scheduleEndpoint =
+      //     'https://03f5-196-188-160-63.ngrok-free.app/api/user/schedule';
       final String temp = selectedDate.toIso8601String();
       print("Stored Schedule: $temp");
       final Map<String, dynamic> requestBody = {

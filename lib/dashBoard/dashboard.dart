@@ -51,8 +51,8 @@ class DashboardState extends State<DashBoard> {
   }
 
   Future<void> fetchDoctors({String queryParameter = ""}) async {
-    // String baseUrl = "http://localhost:5072/api/doctor";
-    String baseUrl = "https://03f5-196-188-160-63.ngrok-free.app/api/doctor";
+    String baseUrl = "http://localhost:5072/api/doctor";
+    // String baseUrl = "https://03f5-196-188-160-63.ngrok-free.app/api/doctor";
     try {
       String doctorsEndpoint = queryParameter != ""
           ? "$baseUrl?specialization=$queryParameter"
